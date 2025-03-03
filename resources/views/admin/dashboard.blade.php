@@ -1,4 +1,5 @@
 <x-app-layout>
+    <h2 class="mt-6 mb-6 text-xl font-bold text-center">Admin dashboard</h2>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Dashboard') }}
