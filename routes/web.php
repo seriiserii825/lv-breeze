@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['middleware' => ['auth', 'verified', 'check_role:student'], 'prefix' => 'user', 'as' => 'user.'], function () {
+Route::group(['middleware' => ['auth', 'verified', 'check_role:student'], 'prefix' => 'student', 'as' => 'student.'], function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 });
 
