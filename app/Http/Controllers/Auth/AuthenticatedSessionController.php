@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         if ($user_role) {
             return redirect()->intended(route($user_role . '.dashboard', absolute: false));
         }
-        return abort(403);
+        return abort(404);
     }
 
     /**
