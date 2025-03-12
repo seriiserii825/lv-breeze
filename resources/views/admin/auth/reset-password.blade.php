@@ -1,5 +1,5 @@
 {{-- <x-guest-layout> --}}
-{{--     <form method="POST" action="{{ route('admin.password.store') }}"> --}}
+{{--     <form method="POST" action="{{ route('password.store') }}"> --}}
 {{--         @csrf --}}
 {{--  --}}
 {{--         <!-- Password Reset Token --> --}}
@@ -8,14 +8,14 @@
 {{--         <!-- Email Address --> --}}
 {{--         <div> --}}
 {{--             <x-input-label for="email" :value="__('Email')" /> --}}
-{{--             <x-text-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" /> --}}
+{{--             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" /> --}}
 {{--             <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
 {{--         </div> --}}
 {{--  --}}
 {{--         <!-- Password --> --}}
 {{--         <div class="mt-4"> --}}
 {{--             <x-input-label for="password" :value="__('Password')" /> --}}
-{{--             <x-text-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="new-password" /> --}}
+{{--             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" /> --}}
 {{--             <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
 {{--         </div> --}}
 {{--  --}}
@@ -23,7 +23,7 @@
 {{--         <div class="mt-4"> --}}
 {{--             <x-input-label for="password_confirmation" :value="__('Confirm Password')" /> --}}
 {{--  --}}
-{{--             <x-text-input id="password_confirmation" class="block w-full mt-1" --}}
+{{--             <x-text-input id="password_confirmation" class="block mt-1 w-full" --}}
 {{--                                 type="password" --}}
 {{--                                 name="password_confirmation" required autocomplete="new-password" /> --}}
 {{--  --}}
@@ -45,7 +45,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Reset password</title>
+    <title>Sign in - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
     <!-- CSS files -->
     <link href="{{ asset('admin/assets/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet" />
     <link href="{{ asset('admin/assets/dist/css/tabler-flags.min.css?1692870487') }}" rel="stylesheet" />
@@ -70,7 +70,7 @@
         <div class="container py-4 container-tight">
             <div class="card card-md">
                 <div class="card-body">
-                    <h2 class="mb-4 text-center h2">Login to your account</h2>
+                    <h2 class="mb-4 text-center h2">Reset password</h2>
                     <form action="{{ route('admin.password.store') }}" method="POST" autocomplete="off" novalidate>
                         @csrf
 
@@ -78,23 +78,19 @@
                         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                         <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" :value="old('email', $request->email)" required
-                                placeholder="your@email.com" autocomplete="off">
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-2">
-                            <x-password-component name="password" label="Password" placeholder="Your password" :required="true"/>
+                            <x-email-component name="email" label="Email" placeholder="Your email" required="true"
+                                error_name="email" />
                         </div>
                         <div class="mb-2">
-                            <label class="form-check">
-                                <input type="checkbox" class="form-check-input" />
-                                <span class="form-check-label">Remember me on this device</span>
-                            </label>
+                            <x-password-component name="password" label="Password" placeholder="Your password"
+                                required="true" />
+                        </div>
+                        <div class="mb-2">
+                            <x-password-component name="password_confirmation" label="Confirm password" placeholder="Confirm password"
+                                required="true" />
                         </div>
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                            <button type="submit" class="btn btn-primary w-100">Reset Password</button>
                         </div>
                     </form>
                 </div>
@@ -108,52 +104,3 @@
 </body>
 </html>
 
-{{-- <x-guest-layout> --}}
-{{--     <!-- Session Status --> --}}
-{{--     <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
-{{--  --}}
-{{--     <form method="POST" action="{{ route('admin.login.store') }}"> --}}
-{{--         @csrf --}}
-{{--  --}}
-{{--         <!-- Email Address --> --}}
-{{--         <div> --}}
-{{--             <h3 class="font-bold text-blue-500">Admin</h3> --}}
-{{--             <x-input-label for="email" :value="__('Email')" /> --}}
-{{--             <x-text-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required --}}
-{{--                 autofocus autocomplete="username" /> --}}
-{{--             <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
-{{--         </div> --}}
-{{--  --}}
-{{--         <!-- Password --> --}}
-{{--         <div class="mt-4"> --}}
-{{--             <x-input-label for="password" :value="__('Password')" /> --}}
-{{--  --}}
-{{--             <x-text-input id="password" class="block w-full mt-1" type="password" name="password" required --}}
-{{--                 autocomplete="current-password" /> --}}
-{{--  --}}
-{{--             <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
-{{--         </div> --}}
-{{--  --}}
-{{--         <!-- Remember Me --> --}}
-{{--         <div class="block mt-4"> --}}
-{{--             <label for="remember_me" class="inline-flex items-center"> --}}
-{{--                 <input id="remember_me" type="checkbox" --}}
-{{--                     class="text-indigo-600 border-gray-300 rounded shadow-sm focus:ring-indigo-500" name="remember"> --}}
-{{--                 <span class="text-sm text-gray-600 ms-2">{{ __('Remember me') }}</span> --}}
-{{--             </label> --}}
-{{--         </div> --}}
-{{--  --}}
-{{--         <div class="flex items-center justify-end mt-4"> --}}
-{{--             @if (Route::has('password.request')) --}}
-{{--                 <a class="text-sm text-gray-600 underline hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" --}}
-{{--                     href="{{ route('admin.password.request') }}"> --}}
-{{--                     {{ __('Forgot your password?') }} --}}
-{{--                 </a> --}}
-{{--             @endif --}}
-{{--  --}}
-{{--             <x-primary-button class="ms-3"> --}}
-{{--                 {{ __('Log in') }} --}}
-{{--             </x-primary-button> --}}
-{{--         </div> --}}
-{{--     </form> --}}
-{{-- </x-guest-layout> --}}
