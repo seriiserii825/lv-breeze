@@ -33,10 +33,8 @@
                     <form action="{{ route('admin.login.store') }}" method="POST" autocomplete="off" novalidate>
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" :value="old('email')" required
-                                placeholder="your@email.com" autocomplete="off">
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <x-email-component name="email" label="Email" placeholder="Your email" required="true"
+                                error_name="email" />
                         </div>
                         <div class="mb-2">
                             <x-password-component name="password" label="Password" placeholder="Your password" required="true"
