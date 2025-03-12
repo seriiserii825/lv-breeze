@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class UserDashboardController extends Controller
 {
     public function index()
     {
