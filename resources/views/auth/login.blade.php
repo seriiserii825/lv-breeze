@@ -50,8 +50,6 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <h2>Log in<span>!</span></h2>
-                                <p class="new_user">New User ? <a href="{{ route('register') }}">Create an Account</a>
-                                </p>
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
