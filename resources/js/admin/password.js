@@ -1,5 +1,4 @@
 const btns = document.querySelectorAll(".js-toggle-password");
-console.log("btns", btns);
 btns.forEach(function (toggle) {
     toggle.addEventListener("click", function (e) {
         e.preventDefault();

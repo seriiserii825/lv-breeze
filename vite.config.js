@@ -9,7 +9,12 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/admin/password.js",
             ],
-            refresh: true,
+            refresh: [
+                "resources/views/**/*.blade.php",
+                "app/**/*.php",
+                "routes/**/*.php",
+                "resources/css/**/*.css",
+            ],
         }),
     ],
 });
