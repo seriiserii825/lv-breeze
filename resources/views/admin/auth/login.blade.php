@@ -22,6 +22,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+    @vite('resources/js/admin/password.js')
 </head>
 <body class=" d-flex flex-column">
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
