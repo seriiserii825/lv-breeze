@@ -55,7 +55,7 @@
                             {{--         </a> --}}
                             {{--     </li> --}}
                             {{-- </ul> --}}
-                            <p class="create_account">Don't have an account? <a href="sign_up.html">Create free
+                            <p class="create_account">Don't have an account? <a href="{{ route('register') }}">Create free
                                     account</a></p>
                         </div>
                     </div>
