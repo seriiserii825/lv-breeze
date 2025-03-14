@@ -18,7 +18,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['instructor', 'student'])->default('student');
+            $table->enum('approve_status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->string('image')->default('/default/user-profile.jpg');
+            $table->string('document')->nullable();
             $table->string('headline')->nullable();
             $table->text('bio')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
