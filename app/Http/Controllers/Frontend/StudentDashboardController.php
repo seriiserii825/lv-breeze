@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 
-class UserDashboardController extends Controller
+class StudentDashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        return view('student.dashboard');
     }
 }
