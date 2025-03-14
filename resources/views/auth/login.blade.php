@@ -30,9 +30,7 @@
                                                 placeholder="Password" :required="true" />
                                         </div>
                                     </div>
-                                    <a href="{{ route('password.request') }}" class="text-xs text-blue-500">Forgot
-                                        password</a>
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-12 mb-3">
                                         <div class="wsus__login_form_input">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
@@ -43,6 +41,10 @@
                                             </div>
                                             <button type="submit" class="common_btn">Sign In</button>
                                         </div>
+                                    </div>
+                                    <div class="d-flex justify-end">
+                                        <a href="{{ route('password.request') }}" class="text-xs text-blue-500">Forgot
+                                            password</a>
                                     </div>
                                 </div>
                             </form>
@@ -55,7 +57,8 @@
                             {{--         </a> --}}
                             {{--     </li> --}}
                             {{-- </ul> --}}
-                            <p class="create_account">Don't have an account? <a href="{{ route('register') }}">Create free
+                            <p class="create_account">Don't have an account? <a href="{{ route('register') }}">Create
+                                    free
                                     account</a></p>
                         </div>
                     </div>
