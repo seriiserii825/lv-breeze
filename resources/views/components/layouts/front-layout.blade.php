@@ -27,16 +27,16 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 </head>
 <body class="home_3">
+    @include('includes.front-header')
     <!--============ PRELOADER START ===========-->
     <div id="preloader">
         <div class="preloader_icon">
             <img src="images/preloader.png" alt="Preloader" class="img-fluid">
         </div>
     </div>
-    <!--============ PRELOADER START ===========-->
-    @include('includes.front-header')
-    @yield('content')
-    @include('includes.footer')
+
+    {{ $slot }}
+
     <!--================================
         SCROLL BUTTON START
     =================================-->
@@ -45,6 +45,8 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+    @include('includes.footer')
     <!--================================
         SCROLL BUTTON END
     =================================-->

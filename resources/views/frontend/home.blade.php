@@ -1,5 +1,4 @@
-@extends('layouts.front-layout')
-@section('content')
+<x-layouts.front-layout>
     @include('includes.banner')
     {{-- @include('includes.categories') --}}
     {{-- @include('includes.about') --}}
@@ -11,4 +10,4 @@
     {{-- @include('includes.quality-courses') --}}
     {{-- @include('includes.testimonials') --}}
     {{-- @include('includes.blog') --}}
-@endsection
+</x-layouts.front-layout>
