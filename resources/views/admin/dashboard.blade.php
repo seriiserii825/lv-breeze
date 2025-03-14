@@ -1,5 +1,4 @@
-@extends('admin.layouts.master')
-@section('content')
+<x-layouts.admin-layout>
     <div class="row row-deck row-cards">
         <div class="col-sm-6 col-lg-3">
             <div class="card">
@@ -151,4 +150,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layouts.admin-layout>
