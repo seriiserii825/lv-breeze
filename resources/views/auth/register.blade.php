@@ -28,6 +28,10 @@
                             aria-labelledby="pills-home-tab" tabindex="0">
                             <x-form.student-register-form />
                         </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab" tabindex="0">
+                            <x-form.instructor-register-form />
+                        </div>
                     </div>
                 </div>
             </div>

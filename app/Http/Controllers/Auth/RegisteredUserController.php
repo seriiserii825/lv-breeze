@@ -31,16 +31,26 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'student'
-        ]);
+        if ($request->type === 'student') {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => 'student',
+                'approve_status' => 'approved',
+            ]);
+        } elseif ($request->type === 'instructor') {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => 'student',
+                'approve_status' => 'pending',
+            ]);
+        }
 
         event(new Registered($user));
 
@@ -48,7 +58,7 @@ class RegisteredUserController extends Controller
 
         if (Auth::user()->role === 'student') {
             return redirect(route('student.dashboard', absolute: false));
-        }else if(Auth::user()->role === 'instructor'){
+        } else if (Auth::user()->role === 'instructor') {
             return redirect(route('instructor.dashboard', absolute: false));
         }
         return abort(404);
