@@ -11,6 +11,7 @@
             </div>
             <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-9 m-auto wow fadeInRight">
                 <div class="wsus__sign_form_area">
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab" tabindex="0">
