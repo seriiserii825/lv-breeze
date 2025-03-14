@@ -21,19 +21,8 @@
 </head>
 <body>
     <script src="{{ asset('admin/assets/dist/js/demo-theme.min.js?1692870487') }}"></script>
-    <div class="page">
-        @include('admin.includes.sidebar')
-        @include('admin.includes.header')
-        <div class="page-wrapper">
-            <!-- Page body -->
-            <div class="page-body">
-                <div class="container-xl">
-                    @yield('content')
-                </div>
-            </div>
-            @include('admin.includes.footer')
-        </div>
-    </div>
+
+{{ $slot }}
     <!-- Tabler Core -->
     <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
     <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
