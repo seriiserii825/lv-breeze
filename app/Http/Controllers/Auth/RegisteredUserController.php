@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\FileUpload;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\RedirectResponse;
@@ -15,6 +16,7 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    use FileUpload;
     /**
      * Display the registration view.
      */
@@ -45,12 +47,14 @@ class RegisteredUserController extends Controller
             ]);
         } elseif ($request->type === 'instructor') {
             $request->validate(['document' => ['required', 'file', 'mimes:pdf,docx,rtf', 'max:10240']]);
+            $file_path = $this->uploadFile($request->file('document'));
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => 'student',
                 'approve_status' => 'pending',
+                'document' => $file_path,
             ]);
         } else {
             return abort(404);
