@@ -1,54 +1,45 @@
-<!--===========================
-HEADER START
-============================-->
 <header class="header_3">
 <div class="row">
-    <div class="col-xxl-4 col-lg-7 col-md-8 d-none d-md-block">
-        <ul class="wsus__header_left d-flex flex-wrap">
-            <li><a href="#"><i class="fab fa-facebook-f"></i> 240k Followers</a></li>
-            <li><a href="callto:+8806545643"><i class="fas fa-phone-alt"></i> +880 654 - 5643</a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i> 58k Followers</a></li>
-        </ul>
-    </div>
-    <div class="col-xxl-5 col-lg-7 d-none d-xxl-block">
-        <div class="wsus__header_center">
-            <p> <span>Limited-Time Special</span> Use Code to Get 30% Off Your First Buying EduCore. <a
-                    href="#">Find out more!</a></p>
-        </div>
-    </div>
-    <div class="col-xxl-3 col-lg-5 col-md-4">
-        <ul class="wsus__header_right d-flex flex-wrap">
-            <li>
-                <select class="select_js">
-                    <option value="">English </option>
-                    <option value="">Japanese</option>
-                    <option value="">Korean</option>
-                    <option value="">Chinese</option>
-                    <option value="">Urdu</option>
-                </select>
-            </li>
-            <li>
-                <select class="select_js">
-                    <option value="">$USD</option>
-                    <option value="">₹INR</option>
-                    <option value="">¥CNY</option>
-                    <option value="">€EUR</option>
-                    <option value="">฿THB</option>
-                </select>
-            </li>
-        </ul>
-    </div>
+<div class="col-xxl-4 col-lg-7 col-md-8 d-none d-md-block">
+<ul class="wsus__header_left d-flex flex-wrap">
+    <li><a href="#"><i class="fab fa-facebook-f"></i> 240k Followers</a></li>
+    <li><a href="callto:+8806545643"><i class="fas fa-phone-alt"></i> +880 654 - 5643</a></li>
+    <li><a href="#"><i class="fab fa-instagram"></i> 58k Followers</a></li>
+</ul>
+</div>
+<div class="col-xxl-5 col-lg-7 d-none d-xxl-block">
+<div class="wsus__header_center">
+    <p> <span>Limited-Time Special</span> Use Code to Get 30% Off Your First Buying EduCore. <a
+            href="#">Find out more!</a></p>
+</div>
+</div>
+<div class="col-xxl-3 col-lg-5 col-md-4">
+<ul class="wsus__header_right d-flex flex-wrap">
+    <li>
+        <select class="select_js">
+            <option value="">English </option>
+            <option value="">Japanese</option>
+            <option value="">Korean</option>
+            <option value="">Chinese</option>
+            <option value="">Urdu</option>
+        </select>
+    </li>
+    <li>
+        <select class="select_js">
+            <option value="">$USD</option>
+            <option value="">₹INR</option>
+            <option value="">¥CNY</option>
+            <option value="">€EUR</option>
+            <option value="">฿THB</option>
+        </select>
+    </li>
+</ul>
+</div>
 </div>
 </header>
-<!--===========================
-HEADER END
-============================-->
-<!--===========================
-MAIN MENU 3 START
-============================-->
 <nav class="navbar navbar-expand-lg main_menu main_menu_3">
 <a class="navbar-brand" href="index_3.html">
-    <img src="images/logo.png" alt="EduCore" class="img-fluid">
+<img src="{{ asset('frontend').'/images/logo.png' }}" alt="EduCore" class="img-fluid">
 </a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,14 +48,14 @@ MAIN MENU 3 START
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="menu_category">
         <div class="icon">
-            <img src="images/grid_icon.png" alt="Category" class="img-fluid">
+            <img src="{{ asset('frontend').'/images/grid_icon.png' }}" alt="Category" class="img-fluid">
         </div>
         Category
         <ul>
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_1.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_1.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Development
                 </a>
@@ -78,7 +69,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_2.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_2.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Business
                 </a>
@@ -92,7 +83,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_3.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_3.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Marketing
                 </a>
@@ -106,7 +97,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_4.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_4.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Lifestyle
                 </a>
@@ -120,7 +111,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_5.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_5.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Health & Fitness
                 </a>
@@ -134,7 +125,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_6.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_6.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Design
                 </a>
@@ -148,7 +139,7 @@ MAIN MENU 3 START
             <li>
                 <a href="#">
                     <span>
-                        <img src="images/menu_category_icon_7.png" alt="Category" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/menu_category_icon_7.png' }}" alt="Category" class="img-fluid">
                     </span>
                     Academics
                 </a>
@@ -213,13 +204,13 @@ MAIN MENU 3 START
     </ul>
     <div class="right_menu">
         <div class="menu_search_btn">
-            <img src="images/search_icon.png" alt="Search" class="img-fluid">
+            <img src="{{ asset('frontend').'/images/search_icon.png' }}" alt="Search" class="img-fluid">
         </div>
         <ul>
             <li>
                 <a class="menu_signin" href="#">
                     <span>
-                        <img src="images/cart_icon_black.png" alt="user" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/cart_icon_black.png' }}" alt="user" class="img-fluid">
                     </span>
                     <b>06</b>
                 </a>
@@ -227,9 +218,9 @@ MAIN MENU 3 START
             <li>
                 <a class="admin" href="#">
                     <span>
-                        <img src="images/user_icon_black.png" alt="user" class="img-fluid">
+                        <img src="{{ asset('frontend').'/images/user_icon_black.png' }}" alt="user" class="img-fluid">
                     </span>
-                    admin
+                    Admin
                 </a>
             </li>
             <li>
@@ -255,7 +246,7 @@ STICKY MENU START
 <div class="mobile_menu_area">
 <div class="mobile_menu_area_top">
     <a class="mobile_menu_logo" href="index.html">
-        <img src="images/logo.png" alt="EduCore">
+        <img src="{{ asset('frontend').'/images/logo.png' }}" alt="EduCore">
     </a>
     <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -357,7 +348,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_1.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_1.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Development
@@ -372,7 +363,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_2.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_2.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Business
@@ -387,7 +378,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_3.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_3.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Marketing
@@ -402,7 +393,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_4.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_4.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Lifestyle
@@ -417,7 +408,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_5.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_5.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Health & Fitness
@@ -432,7 +423,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_6.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_6.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Design
@@ -447,7 +438,7 @@ STICKY MENU START
                         <li class="mobile_dropdown">
                             <a href="#">
                                 <span>
-                                    <img src="images/menu_category_icon_7.png" alt="Category"
+                                    <img src="{{ asset('frontend').'/images/menu_category_icon_7.png' }}" alt="Category"
                                         class="img-fluid">
                                 </span>
                                 Academics
