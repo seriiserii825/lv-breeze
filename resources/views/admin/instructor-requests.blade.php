@@ -20,7 +20,9 @@
                             <tr>
                                 <td>{{ $instructor->name }}</td>
                                 <td class="text-secondary">{{ $instructor->email }}</td>
-                                <td class="text-secondary"><span class="badge bg-yellow text-yellow-fg ms-2">{{ $instructor->approve_status }}</span></td>
+                                <td class="text-secondary"><span
+                                        class="badge bg-yellow text-yellow-fg ms-2">{{ $instructor->approve_status }}</span>
+                                </td>
                                 <td>
                                     <a href="{{ $instructor->document }}" target="_blank">View Document</a>
                                 </td>
@@ -29,7 +31,8 @@
                                         'pending' => 'Pending',
                                         'approved' => 'Approved',
                                         'rejected' => 'Rejected',
-                                    ]" />
+                                    ]"
+                                        value="{{ $instructor->approve_status }}" />
                                 </td>
                             </tr>
                         @empty
