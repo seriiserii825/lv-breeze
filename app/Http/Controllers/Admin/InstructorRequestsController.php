@@ -14,7 +14,7 @@ class InstructorRequestsController extends Controller
      */
     public function index(): View
     {
-        $instructors = User::where('approve_status', 'pending')->orderBy('created_at', 'desc')->get();
+        $instructors = User::where('approve_status', 'pending')->orWhere('approve_status', 'rejected')->orderBy('created_at', 'desc')->get();
         return view('admin.instructor-requests', compact('instructors'));
     }
 
@@ -53,9 +53,21 @@ class InstructorRequestsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $instructor_request)
     {
-        //
+        $validated = $request->validate([
+            'approve_status' => 'required|in:approved,rejected,pending',
+        ]);
+        if ($instructor_request->approve_status === 'approved') {
+            $instructor_request->role = 'instructor';
+            $instructor_request->approve_status = 'approved';
+            $instructor_request->update($validated);
+            return redirect()->back()->with('success', 'Instructor request status updated successfully.');
+        }else{
+            $instructor_request->role = 'student';
+            $instructor_request->update($validated);
+            return redirect()->back()->with('error', 'Instructor request status already updated.');
+        }
     }
 
     /**
