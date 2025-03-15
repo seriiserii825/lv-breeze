@@ -216,7 +216,7 @@
                 </a>
             </li>
             <li>
-                <a class="admin" href="#">
+                <a class="admin" href="{{ route('admin.login') }}">
                     <span>
                         <img src="{{ asset('frontend').'/images/user_icon_black.png' }}" alt="user" class="img-fluid">
                     </span>
