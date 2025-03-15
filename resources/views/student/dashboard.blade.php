@@ -158,6 +158,7 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-md-8">
+                    <x-utils.alert type="info" message="{{ 'Hello ' . auth()->user()->name . ' your instructor email is currently pending. We will will send an email when you will be approved after'  }}" />
                     <div class="row">
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
