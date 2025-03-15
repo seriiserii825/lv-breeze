@@ -1,11 +1,11 @@
-@props(['name', 'label' => '', 'placeholder' => '', 'required' => false])
+@props(['name', 'label' => '', 'placeholder' => '', 'required' => false, 'value' => null])
 <div>
     @if ($label)
         <label class="form-label">{{ $label }}</label>
     @endif
     <div class="input-group input-group-flat">
         <input type="password" name="{{ $name }}" {{ $required ? 'required' : null }} class="form-control"
-            placeholder="{{ $placeholder }}" autocomplete="off">
+            placeholder="{{ $placeholder }}">
         <span class="input-group-text">
             <a href="#" class="link-secondary js-toggle-password" title="Show password"
                 data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->

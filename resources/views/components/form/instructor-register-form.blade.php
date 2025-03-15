@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('register', ['type' => 'instructor']) }}">
+<form method="POST" action="{{ route('register', ['type' => 'instructor']) }}" enctype="multipart/form-data">
     @csrf
     <h2>Sign Up<span>!</span></h2>
     <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>

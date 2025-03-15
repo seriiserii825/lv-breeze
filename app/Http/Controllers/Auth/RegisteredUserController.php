@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,7 @@ class RegisteredUserController extends Controller
                 'approve_status' => 'approved',
             ]);
         } elseif ($request->type === 'instructor') {
+            $request->validate(['document' => ['required', 'file', 'mimes:pdf,docx,rtf', 'max:10240']]);
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -50,6 +52,8 @@ class RegisteredUserController extends Controller
                 'role' => 'student',
                 'approve_status' => 'pending',
             ]);
+        } else {
+            return abort(404);
         }
 
         event(new Registered($user));
