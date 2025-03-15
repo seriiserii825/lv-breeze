@@ -14,7 +14,7 @@ class InstructorRequestsController extends Controller
      */
     public function index(): View
     {
-        $instructors = User::where('approve_status', 'pending')->get();
+        $instructors = User::where('approve_status', 'pending')->orderBy('created_at', 'desc')->get();
         return view('admin.instructor-requests', compact('instructors'));
     }
 
