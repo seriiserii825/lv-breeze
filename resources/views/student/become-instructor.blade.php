@@ -1,3 +1,3 @@
 <x-layouts.front-layout>
-    <h2>Become instructor</h2>
+    <x-utils.breadcrumb title="Become Instructor" />
 </x-layouts.front-layout>
