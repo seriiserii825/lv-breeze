@@ -38,6 +38,7 @@
                                     </a>
                                 </td>
                                 <td>
+                                    <span>id: {{ $instructor->id }}</span>
                                     <form class="js-instructor-update-form"
                                         action="{{ route('admin.instructor-requests.update', $instructor->id) }}"
                                         method="post" accept-charset="utf-8">
@@ -69,6 +70,7 @@
     select_all.forEach(select => {
         const form = select.closest('form');
         select.addEventListener('change', function() {
+            // console.log(select.value, 'select value');
             form.submit();
         });
     });

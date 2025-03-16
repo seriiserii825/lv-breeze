@@ -60,19 +60,19 @@ class InstructorRequestsController extends Controller
         $validated = $request->validate([
             'approve_status' => 'required|in:approved,rejected,pending',
         ]);
-        if ($instructor_request->approve_status === 'approved') {
+        if ($request->approve_status === 'approved') {
             $instructor_request->role = 'instructor';
             $instructor_request->approve_status = 'approved';
             $instructor_request->update($validated);
 
-            if(config('mail_queue.is_queue')) {
+            if (config('mail_queue.is_queue')) {
                 Mail::to($instructor_request->email)->queue(new InstructorRequestApprovedEmail());
-            }else{
+            } else {
                 Mail::to($instructor_request->email)->send(new InstructorRequestApprovedEmail());
             }
 
             return redirect()->back()->with('success', 'Instructor request status updated successfully.');
-        }else{
+        } else {
             $instructor_request->role = 'student';
             $instructor_request->update($validated);
             return redirect()->back()->with('error', 'Instructor request status already updated.');
