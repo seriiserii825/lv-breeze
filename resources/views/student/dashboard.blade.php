@@ -158,7 +158,13 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-md-8">
-                    <x-utils.alert type="info" message="{{ 'Hello ' . auth()->user()->name . ' your instructor email is currently pending. We will will send an email when you will be approved after'  }}" />
+                    @if (auth()->user()->approve_status == 'pending')
+                        <x-utils.alert type="info"
+                            message="{{ 'Hello ' . auth()->user()->name . ' your instructor email is currently pending. We will will send an email when you will be approved after' }}" />
+                    @endif
+                    <div class="flex justify-end">
+                        <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become instructor</a>
+                    </div>
                     <div class="row">
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="wsus__dash_earning">
@@ -358,10 +364,10 @@
         </div>
     </section>
 </x-layouts.front-layout>
-   <script>
-       const btn = document.querySelector(".btn-signout");
-       btn.addEventListener("click", (e) => {
-           e.preventDefault();
-           document.getElementById("js-form-logout").submit();
-       });
-   </script>
+<script>
+    const btn = document.querySelector(".btn-signout");
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("js-form-logout").submit();
+    });
+</script>
