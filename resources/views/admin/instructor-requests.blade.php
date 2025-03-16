@@ -21,16 +21,21 @@
                                 <td>{{ $instructor->name }}</td>
                                 <td class="text-secondary">{{ $instructor->email }}</td>
                                 <td class="text-secondary">
-                                    @if($instructor->approve_status === 'pending')
-                                        <span class="badge bg-yellow text-yellow-fg ms-2">{{ $instructor->approve_status }}</span>
+                                    @if ($instructor->approve_status === 'pending')
+                                        <span
+                                            class="badge bg-yellow text-yellow-fg ms-2">{{ $instructor->approve_status }}</span>
                                     @elseif($instructor->approve_status === 'rejected')
-                                        <span class="badge bg-red text-red-fg ms-2">{{ $instructor->approve_status }}</span>
+                                        <span
+                                            class="badge bg-red text-red-fg ms-2">{{ $instructor->approve_status }}</span>
                                     @else
-                                        <span class="badge bg-green text-green-fg ms-2">{{ $instructor->approve_status }}</span>
+                                        <span
+                                            class="badge bg-green text-green-fg ms-2">{{ $instructor->approve_status }}</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ $instructor->document }}" target="_blank">View Document</a>
+                                    <a href="{{ $instructor->document }}" target="_blank">
+                                        <x-icons.i-download fill="#777" />
+                                    </a>
                                 </td>
                                 <td>
                                     <form class="js-instructor-update-form"
