@@ -10,7 +10,9 @@
                     <div class="card">
                         <div class="card-header"> Become Instructor </div>
                         <div class="card-body">
-                            <form action="#" method="post">
+                            <form action="{{ route('student.become-instructor.udpate', auth()->user()->id) }}"
+                                method="post" enctype="multipart/form-data">
+                                @csrf
                                 <x-form.input-file name="document" label="Document" required />
                                 <button type="submit" class="btn btn-primary mt-4">Submit</button>
                             </form>

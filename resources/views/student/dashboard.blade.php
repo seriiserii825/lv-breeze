@@ -10,10 +10,12 @@
                     @if (auth()->user()->approve_status == 'pending')
                         <x-utils.alert type="info"
                             message="{{ 'Hello ' . auth()->user()->name . ' your instructor email is currently pending. We will will send an email when you will be approved after' }}" />
+                    @else
+                        <div class="flex justify-end">
+                            <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become
+                                instructor</a>
+                        </div>
                     @endif
-                    <div class="flex justify-end">
-                        <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become instructor</a>
-                    </div>
                 </div>
             </div>
         </div>
