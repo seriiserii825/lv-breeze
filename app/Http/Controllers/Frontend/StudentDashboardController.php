@@ -17,11 +17,7 @@ class StudentDashboardController extends Controller
     }
     public function becomeIntructor()
     {
-        if (
-            auth()->user()->approve_status === 'pending'
-            || auth()->user()->approve_status === 'approved'
-            || auth()->user()->role === 'instructor'
-        ) {
+        if (auth()->user()->approve_status === 'pending') {
             return redirect()->route('student.dashboard');
         }
         return view('student.become-instructor');

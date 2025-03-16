@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => 'student',
-                'approve_status' => 'approved',
+                'approve_status' => 'initial',
             ]);
         } elseif ($request->type === 'instructor') {
             $request->validate(['document' => ['required', 'file', 'mimes:pdf,docx,rtf', 'max:10240']]);

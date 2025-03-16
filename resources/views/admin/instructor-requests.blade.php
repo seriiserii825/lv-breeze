@@ -45,6 +45,7 @@
                                         @csrf
                                         @method('PUT')
                                         <x-form.select name="approve_status" :options="[
+                                            'initial' => 'Initial',
                                             'pending' => 'Pending',
                                             'approved' => 'Approved',
                                             'rejected' => 'Rejected',

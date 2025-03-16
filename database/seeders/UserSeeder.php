@@ -18,14 +18,14 @@ class UserSeeder extends Seeder
                 'email' => 'seriiburduja@gmail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'student',
-                'approve_status' => 'pending',
+                'approve_status' => 'initial',
             ],
             [
                 'name' => 'Instructor',
                 'email' => 'instructor@mail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'instructor',
-                'approve_status' => 'pending',
+                'approve_status' => 'initial',
             ]
         ];
 
