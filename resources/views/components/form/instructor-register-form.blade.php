@@ -15,8 +15,7 @@
         </div>
         <div class="col-xl-12">
             <div class="wsus__login_form_input">
-                <label>Document Education/Certificate(pdf,docx,rtf) (max 10mb)</label>
-                <input type="file" name="document" required />
+                <x-form.input-file name="document" label="Document Education/Certificate(pdf,docx,rtf) (max 10mb)" required />
             </div>
             <x-input-error :messages="$errors->get('document')" class="mt-2" />
         </div>
