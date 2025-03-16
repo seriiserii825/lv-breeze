@@ -291,9 +291,8 @@
                         <tr>
                             <td class="wrapper">
                                 <p>Hi there</p>
-                                <p>Your Instructor Request has been approved, now you can publish course in our site.</p>
-                                <p>Please visit you dashboard from <a href="{{ route('instructor.dashboard') }}" target="_blank">there</a></p>
-                                <p>Good luck! Hope it works.</p>
+                                <p>Your Instructor Request has been rejected, try again to send info.</p>
+                                <p>Good luck!.</p>
                             </td>
                         </tr>
                     </table>
