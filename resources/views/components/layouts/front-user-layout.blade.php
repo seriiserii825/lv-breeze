@@ -26,17 +26,39 @@
     <link rel=" stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body class="home_3">
     @include('includes.front-header')
     <!--============ PRELOADER START ===========-->
     <div id="preloader">
         <div class="preloader_icon">
-            <img src="images/preloader.png" alt="Preloader" class="img-fluid">
+            <img src="{{ asset('frontend').'/images/preloader.png' }}" alt="Preloader" class="img-fluid">
         </div>
     </div>
-
+    <x-utils.breadcrumb title="{{ $title }}" />
+    <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-4 wow fadeInLeft">
+                    <x-utils.student-sidebar />
+                </div>
+                <div class="col-xl-9 col-md-8">
+                    <div class="mb-4">
+                        @if (auth()->user()->approve_status == 'pending')
+                            <x-utils.alert type="info"
+                                message="{{ 'Hello ' . auth()->user()->name . ' your instructor email is currently pending. We will will send an email when you will be approved after' }}" />
+                        @else
+                            <div class="flex justify-end">
+                                <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become instructor</a>
+                            </div>
+                        @endif
+                    </div>
+                    {{ $slot }}
+                </div>
+            </div>
+        </div>
+    </section>
     <!--================================
         SCROLL BUTTON START
     =================================-->
@@ -45,9 +67,6 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
-
-    {{ $slot }}
-
     @include('includes.footer')
     <!--================================
         SCROLL BUTTON END
