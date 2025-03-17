@@ -11,11 +11,13 @@
         </div>
         <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
             <div class="img">
-                <img src="{{ asset('frontend').'/images/dashboard_profile_img.png' }}" alt="profile" class="img-fluid w-100">
+                @if (auth()->user()->image)
+                    <img src="{{ auth()->user()->image }}" alt="profile" class="img-fluid w-100">
+                @endif
                 <label for="profile_photo">
-                    <img src="{{ asset('frontend').'/images/dash_camera.png' }}" alt="camera" class="img-fluid w-100">
+                    <img src="{{ asset('frontend') . '/images/dash_camera.png' }}" alt="camera" class="img-fluid w-100">
                 </label>
-                <input type="file" id="profile_photo" hidden="">
+                <input type="file" name="image" id="profile_photo" hidden="">
             </div>
             <div class="text">
                 <h6>Your avatar</h6>
@@ -26,14 +28,12 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="wsus__dashboard_profile_update_info">
-                        <label>First name</label>
-                        <input type="text" placeholder="Enter your first name">
+                        <x-form.input label="Name" placeholder="Enter your name" name="name" required="{{ true }}" value="{{ auth()->user()->name }}" />
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="wsus__dashboard_profile_update_info">
-                        <label>Last name</label>
-                        <input type="text" placeholder="Enter your last name">
+                        <x-email-component label="Email" placeholder="Enter your email" name="email" required="{{ true }}" value="{{ auth()->user()->email }}" />
                     </div>
                 </div>
                 <div class="col-xl-6">
