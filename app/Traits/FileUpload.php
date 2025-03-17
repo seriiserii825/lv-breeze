@@ -18,5 +18,12 @@ trait FileUpload
         $file->move(public_path($directory), $full_file_name);
         return '/' . $directory . '/' . $full_file_name;
     }
+
+    public function deleteFile(string $file_path): void
+    {
+        if (file_exists(public_path($file_path))) {
+            unlink(public_path($file_path));
+        }
+    }
 }
 
