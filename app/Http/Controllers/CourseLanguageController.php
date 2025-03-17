@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class CourseLanguageController extends Controller
 {
@@ -30,6 +33,11 @@ class CourseLanguageController extends Controller
         $validate = $request->validate([
             'name' => 'required|string|max:255|unique:course_languages,name',
         ]);
+        $validate['slug'] = Str::slug($validate['name']);
+
+        CourseLanguage::create($validate);
+
+        return redirect()->route('admin.course-languages.index')->with('success', 'Course language created successfully');
     }
 
     /**

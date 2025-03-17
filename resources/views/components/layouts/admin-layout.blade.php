@@ -31,6 +31,13 @@
         <div class="page-wrapper">
             <div class="page-body">
                 <div class="container-xl">
+                    @if (session('success'))
+                        <x-utils.alert type="success" message="{{ session('success') }}" />
+                    @endif
+                    @if (session('error'))
+                        <x-utils.alert type="error" message="{{ session('error') }}" />
+                    @endif
+
                     {{ $slot }}
                 </div>
             </div>
