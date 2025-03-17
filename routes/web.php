@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:student'], 'prefi
     Route::post('/become-instructor/{user}', [StudentDashboardController::class, 'becomeIntructorUpdate'])->name('become-instructor.udpate');
     Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/updated-password/{user}', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
 });
 
 /**

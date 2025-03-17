@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -29,5 +31,15 @@ class ProfileController extends Controller
         ]);
         $user->update($validated);
         return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+    public function updatePassword(Request $request, User $user) {
+        $validated = $request->validateWithBag('updatePassword', [
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
+        ]);
+        $user->update([
+            'password' => bcrypt($validated['password'])
+        ]);
+        return redirect()->back()->with('success', 'Password updated successfully');
     }
 }

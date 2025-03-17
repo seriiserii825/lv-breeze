@@ -43,7 +43,7 @@
                 <div class="col-xl-6">
                     <div class="wsus__dashboard_profile_update_info">
                         <x-form.input label="Headline" placeholder="Enter your headline" name="headline"
-                             value="{{ auth()->user()->headline }}" />
+                            value="{{ auth()->user()->headline }}" />
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -55,7 +55,7 @@
                 <div class="col-xl-12">
                     <div class="wsus__dashboard_profile_update_info">
                         <x-form.textarea label="About Me" placeholder="Enter your about me" name="bio"
-                             value="{{ auth()->user()->bio }}" />
+                            value="{{ auth()->user()->bio }}" />
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -91,6 +91,49 @@
                 <div class="col-xl-12">
                     <div class="wsus__dashboard_profile_update_btn">
                         <button type="submit" class="common_btn">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="wsus__dashboard_contant">
+        <div class="flex-wrap wsus__dashboard_contant_top d-flex justify-content-between">
+            <div class="wsus__dashboard_heading">
+                <h5>Update Email/Password</h5>
+            </div>
+        </div>
+        <form action="{{ route('student.profile.update-password', auth()->user()->id) }}" method="post"
+            accept-charset="utf-8">
+            @csrf
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-email-component label="Email" placeholder="Enter your email" name="email"
+                            required="{{ true }}" value="{{ auth()->user()->email }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-password-component label="Current Password" placeholder="Enter your current password"
+                            name="current_password" required="{{ true }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-password-component label="Password" placeholder="Enter your password" name="password"
+                            required="{{ true }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-password-component name="password_confirmation" label="Confirm Password"
+                            placeholder="Password" required />
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="wsus__dashboard_profile_update_btn">
+                        <button type="submit" class="common_btn">Update Password</button>
                     </div>
                 </div>
             </div>
