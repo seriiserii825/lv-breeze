@@ -44,6 +44,13 @@
                         required="{{ true }}" value="{{ auth()->user()->headline }}" />
                 </div>
             </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.select label="Gender" name="gender" required="{{ true }}"
+                        :options="['male' => 'Male', 'female' => 'Female']"
+                        value="{{ auth()->user()->gender ? auth()->user()->gender : 'male' }}" />
+                </div>
+            </div>
             <div class="col-xl-12">
                 <div class="wsus__dashboard_profile_update_info">
                     <x-form.textarea label="About Me" placeholder="Enter your about me" name="bio"
