@@ -1,7 +1,7 @@
 <header class="header_3">
     <div class="row">
         <div class="col-xxl-4 col-lg-7 col-md-8 d-none d-md-block">
-            <ul class="wsus__header_left d-flex flex-wrap">
+            <ul class="flex-wrap wsus__header_left d-flex">
                 <li><a href="#"><i class="fab fa-facebook-f"></i> 240k Followers</a></li>
                 <li><a href="callto:+8806545643"><i class="fas fa-phone-alt"></i> +880 654 - 5643</a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i> 58k Followers</a></li>
@@ -10,11 +10,11 @@
         <div class="col-xxl-5 col-lg-7 d-none d-xxl-block">
             <div class="wsus__header_center">
                 <p><span>Limited-Time Special</span> Use Code to Get 30% Off Your First Buying EduCore. <a
-                            href="#">Find out more!</a></p>
+                        href="#">Find out more!</a></p>
             </div>
         </div>
         <div class="col-xxl-3 col-lg-5 col-md-4">
-            <ul class="wsus__header_right d-flex flex-wrap">
+            <ul class="flex-wrap wsus__header_right d-flex">
                 <li>
                     <select class="select_js">
                         <option value="">English</option>
@@ -38,43 +38,25 @@
     </div>
 </header>
 <nav class="navbar navbar-expand-lg main_menu main_menu_3">
-    <a
-            class="navbar-brand"
-            href="{{ route('home') }}">
-        <img
-                src="{{ asset('frontend') . '/images/logo.png' }}"
-                alt="EduCore"
-                class="img-fluid">
+    <a class="navbar-brand" href="{{ route('home') }}">
+        <img src="{{ asset('frontend') . '/images/logo.png' }}" alt="EduCore" class="img-fluid">
     </a>
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div
-            class="collapse navbar-collapse"
-            id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="menu_category">
             <div class="icon">
-                <img
-                        src="{{ asset('frontend') . '/images/grid_icon.png' }}"
-                        alt="Category"
-                        class="img-fluid">
+                <img src="{{ asset('frontend') . '/images/grid_icon.png' }}" alt="Category" class="img-fluid">
             </div>
             Category
             <ul>
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_1.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_1.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Development
                     </a>
@@ -88,10 +70,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_2.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_2.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Business
                     </a>
@@ -105,10 +85,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_3.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_3.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Marketing
                     </a>
@@ -122,10 +100,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_4.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_4.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Lifestyle
                     </a>
@@ -139,10 +115,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_5.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_5.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Health & Fitness
                     </a>
@@ -156,10 +130,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_6.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_6.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Design
                     </a>
@@ -173,10 +145,8 @@
                 <li>
                     <a href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/menu_category_icon_7.png' }}"
-                                    alt="Category"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/menu_category_icon_7.png' }}" alt="Category"
+                                class="img-fluid">
                         </span>
                         Academics
                     </a>
@@ -189,21 +159,15 @@
                 </li>
             </ul>
         </div>
-        <ul class="navbar-nav m-auto">
+        <ul class="m-auto navbar-nav">
             <li class="nav-item">
-                <a
-                        class="nav-link active"
-                        href="index.html">Home</a>
+                <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a
-                        class="nav-link"
-                        href="about.html">About Us</a>
+                <a class="nav-link" href="about.html">About Us</a>
             </li>
             <li class="nav-item">
-                <a
-                        class="nav-link"
-                        href="#">Courses <i class="far fa-angle-down"></i></a>
+                <a class="nav-link" href="#">Courses <i class="far fa-angle-down"></i></a>
                 <ul class="droap_menu">
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="courses_details.html">Course details</a></li>
@@ -211,9 +175,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a
-                        class="nav-link"
-                        href="#">pages <i class="far fa-angle-down"></i></a>
+                <a class="nav-link" href="#">pages <i class="far fa-angle-down"></i></a>
                 <ul class="droap_menu">
                     <li><a href="category.html">Categories</a></li>
                     <li><a href="cart_view.html">cart view</a></li>
@@ -236,9 +198,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a
-                        class="nav-link"
-                        href="#">blog <i class="far fa-angle-down"></i></a>
+                <a class="nav-link" href="#">blog <i class="far fa-angle-down"></i></a>
                 <ul class="droap_menu">
                     <li><a href="blogs.html">blog grid view</a></li>
                     <li><a href="blog_list.html">blog list view</a></li>
@@ -246,76 +206,56 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a
-                        class="nav-link"
-                        href="contact.html">contact us</a>
+                <a class="nav-link" href="contact.html">contact us</a>
             </li>
         </ul>
         <div class="right_menu">
             <div class="menu_search_btn">
-                <img
-                        src="{{ asset('frontend') . '/images/search_icon.png' }}"
-                        alt="Search"
-                        class="img-fluid">
+                <img src="{{ asset('frontend') . '/images/search_icon.png' }}" alt="Search" class="img-fluid">
             </div>
             <ul>
                 <li>
-                    <a
-                            class="menu_signin"
-                            href="#">
+                    <a class="menu_signin" href="#">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/cart_icon_black.png' }}"
-                                    alt="user"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/cart_icon_black.png' }}" alt="user"
+                                class="img-fluid">
                         </span>
                         <b>06</b>
                     </a>
                 </li>
-                @if(Auth::check() && Auth::user()->role == 'student')
-                <li>
-                    <a
-                            class="menu_signin"
-                            href="{{ route('student.dashboard') }}">
+                @if (Auth::check())
+                    @php
+                        $dashboard_route = Auth::user()->role.'.dashboard';
+                    @endphp
+                    <li>
+                        <a class="menu_signin" href="{{ route($dashboard_route) }}">
                             <span>
-                                <img
-                                        src="{{ asset('frontend') . '/images/user_icon_black.png' }}"
-                                        alt="user"
-                                        class="img-fluid">
+                                <img src="{{ asset('frontend') . '/images/user_icon_black.png' }}" alt="user"
+                                    class="img-fluid">
                             </span>
-                        Dashboard
-                    </a>
-                </li>
+                            Dashboard
+                        </a>
+                    </li>
                 @endif
                 <li>
-                    <a
-                            class="admin"
-                            href="{{ route('admin.login') }}">
+                    <a class="admin" href="{{ route('admin.login') }}">
                         <span>
-                            <img
-                                    src="{{ asset('frontend') . '/images/user_icon_black.png' }}"
-                                    alt="user"
-                                    class="img-fluid">
+                            <img src="{{ asset('frontend') . '/images/user_icon_black.png' }}" alt="user"
+                                class="img-fluid">
                         </span>
                         Admin
                     </a>
                 </li>
                 @if (!Auth::check())
-                <li>
-                    <a
-                            class="common_btn"
-                            href="{{ route('login') }}">Sign In</a>
-                </li>
+                    <li>
+                        <a class="common_btn" href="{{ route('login') }}">Sign In</a>
+                    </li>
                 @else
-                <form
-                        action="{{ route('logout') }}"
-                        method="post">
-                    @csrf
-                    <button
-                            class="common_btn"
-                            type="submit">Logout
-                    </button>
-                </form>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="common_btn" type="submit">Logout
+                        </button>
+                    </form>
                 @endif
             </ul>
         </div>
@@ -323,12 +263,8 @@
 </nav>
 <div class="wsus__menu_3_search_area">
     <form action="#">
-        <input
-                type="text"
-                placeholder="Search School, Online.....">
-        <button
-                class="common_btn"
-                type="submit">Search
+        <input type="text" placeholder="Search School, Online.....">
+        <button class="common_btn" type="submit">Search
         </button>
         <span class="close_search"><i class="far fa-times"></i></span>
     </form>
@@ -341,88 +277,48 @@ STICKY MENU START
 ==============================-->
 <div class="mobile_menu_area">
     <div class="mobile_menu_area_top">
-        <a
-                class="mobile_menu_logo"
-                href="index.html">
-            <img
-                    src="{{ asset('frontend') . '/images/logo.png' }}"
-                    alt="EduCore">
+        <a class="mobile_menu_logo" href="index.html"> <img src="{{ asset('frontend') . '/images/logo.png' }}"
+                alt="EduCore">
         </a>
-        <div
-                class="mobile_menu_icon d-block d-lg-none"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasWithBothOptions"
-                aria-controls="offcanvasWithBothOptions">
+        <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <span class="mobile_menu_icon"><i class="far fa-stream menu_icon_bar"></i></span>
         </div>
     </div>
-    <div
-            class="offcanvas offcanvas-start"
-            data-bs-scroll="true"
-            tabindex="-1"
-            id="offcanvasWithBothOptions">
-        <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"><i
-                    class="fal fa-times"></i></button>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                class="fal fa-times"></i></button>
         <div class="offcanvas-body">
-            <ul class="mobile_menu_header d-flex flex-wrap">
+            <ul class="flex-wrap mobile_menu_header d-flex">
                 <li><a href="cart_view.html"><i class="far fa-shopping-basket"></i> <span>2</span></a>
                 </li>
                 <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
             </ul>
             <form class="mobile_menu_search">
-                <input
-                        type="text"
-                        placeholder="Search">
+                <input type="text" placeholder="Search">
                 <button type="submit"><i class="far fa-search"></i></button>
             </form>
             <div class="mobile_menu_item_area">
                 <nav>
-                    <div
-                            class="nav nav-tabs"
-                            id="nav-tab"
-                            role="tablist">
-                        <button
-                                class="nav-link active"
-                                id="nav-home-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#nav-home"
-                                type="button"
-                                role="tab"
-                                aria-controls="nav-home"
-                                aria-selected="true">menu
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">menu
                         </button>
-                        <button
-                                class="nav-link"
-                                id="nav-profile-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#nav-profile"
-                                type="button"
-                                role="tab"
-                                aria-controls="nav-profile"
-                                aria-selected="false">Categories
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Categories
                         </button>
                     </div>
                 </nav>
-                <div
-                        class="tab-content"
-                        id="nav-tabContent">
-                    <div
-                            class="tab-pane fade show active"
-                            id="nav-home"
-                            role="tabpanel"
-                            aria-labelledby="nav-home-tab"
-                            tabindex="0">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                        aria-labelledby="nav-home-tab" tabindex="0">
                         <ul class="main_mobile_menu">
                             <li class="mobile_dropdown">
                                 <a href="#">home</a>
                                 <ul class="inner_menu">
-                                    <li><a
-                                                class="active"
-                                                href="index.html">Home style 01</a></li>
+                                    <li><a class="active" href="index.html">Home style 01</a></li>
                                     <li><a href="index_2.html">Home style 02</a></li>
                                     <li><a href="index_3.html">Home style 03</a></li>
                                     <li><a href="index_4.html">Home style 04</a></li>
@@ -480,20 +376,14 @@ STICKY MENU START
                             </li>
                         </ul>
                     </div>
-                    <div
-                            class="tab-pane fade"
-                            id="nav-profile"
-                            role="tabpanel"
-                            aria-labelledby="nav-profile-tab"
-                            tabindex="0">
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                        tabindex="0">
                         <ul class="main_mobile_menu">
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_1.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_1.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Development
                                 </a>
@@ -507,10 +397,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_2.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_2.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Business
                                 </a>
@@ -524,10 +412,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_3.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_3.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Marketing
                                 </a>
@@ -541,10 +427,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_4.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_4.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Lifestyle
                                 </a>
@@ -558,10 +442,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_5.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_5.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Health & Fitness
                                 </a>
@@ -575,10 +457,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_6.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_6.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Design
                                 </a>
@@ -592,10 +472,8 @@ STICKY MENU START
                             <li class="mobile_dropdown">
                                 <a href="#">
                                     <span>
-                                        <img
-                                                src="{{ asset('frontend') . '/images/menu_category_icon_7.png' }}"
-                                                alt="Category"
-                                                class="img-fluid">
+                                        <img src="{{ asset('frontend') . '/images/menu_category_icon_7.png' }}"
+                                            alt="Category" class="img-fluid">
                                     </span>
                                     Academics
                                 </a>
