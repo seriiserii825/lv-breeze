@@ -26,16 +26,11 @@
     <link rel=" stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/js/app.js'])
 </head>
 <body class="home_3">
     @include('includes.front-header')
-    <!--============ PRELOADER START ===========-->
-    <div id="preloader">
-        <div class="preloader_icon">
-            <img src="{{ asset('frontend').'/images/preloader.png' }}" alt="Preloader" class="img-fluid">
-        </div>
-    </div>
+    <x-utils.preloader />
     <x-utils.breadcrumb title="{{ $title }}" />
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
