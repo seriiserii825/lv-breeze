@@ -41,6 +41,9 @@
             @if (session('error'))
                 <x-utils.alert type="error" message="{{ session('error') }}" />
             @endif
+            @if ($errors->updatePassword->any())
+                <x-utils.alert type="error" message="{{ $errors->updatePassword->first() }}" />
+            @endif
             <div class="row">
                 <div class="col-xl-3 col-md-4 wow fadeInLeft">
                     <x-utils.user-sidebar />
