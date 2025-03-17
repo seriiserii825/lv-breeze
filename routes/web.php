@@ -29,6 +29,9 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:student'], 'prefi
  */
 Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'prefix' => 'instructor', 'as' => 'instructor.'], function () {
     Route::get('/dashboard', [InstructorDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/profile/{user}', [ProfileController::class, 'indexInstructor'])->name('profile.index');
+    Route::post('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/updated-password/{user}', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
 });
 
 // auth and admin

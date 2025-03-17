@@ -21,7 +21,9 @@
             <x-navigation.sidebar-link route="{{ route('student.profile.index', auth()->user()->id) }}"
                 icon="dash_icon_8.png" title="Profile" active="{{ request()->is('student/profile/' . auth()->user()->id) }}" />
         @else
-            <x-navigation.sidebar-link route="instructor.dashboard" icon="dash_icon_1.png" title="Dashboard" />
+            <x-navigation.sidebar-link route="{{ route('instructor.dashboard') }}" icon="dash_icon_1.png" title="Dashboard" active="{{ request()->is('instructor/dashboard') }}"/>
+            <x-navigation.sidebar-link route="{{ route('instructor.profile.index', auth()->user()->id) }}"
+                icon="dash_icon_8.png" title="Profile" active="{{ request()->is('instructor/profile/' . auth()->user()->id) }}" />
         @endif
         {{-- <li> --}}
         {{--     <a href="dashboard_profile.html"> --}}

@@ -17,6 +17,10 @@ class ProfileController extends Controller
     {
         return view('student.profile');
     }
+    public function indexInstructor(): View
+    {
+        return view('instructor.profile');
+    }
     public function update(Request $request, User $user): RedirectResponse
     {
         $validated = $request->validate([
