@@ -13831,8 +13831,6 @@ footer {
 .wsus__dashboard_contant {
     margin-top: 30px;
     background: var(--colorWhite);
-    box-shadow: 0px 3px 3px 0px rgba(23, 23, 24, 0.10);
-    border-radius: 10px;
     overflow: hidden;
 }
 

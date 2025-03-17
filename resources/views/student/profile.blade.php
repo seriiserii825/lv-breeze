@@ -25,73 +25,75 @@
                 <p>PNG or JPG no bigger than 400px wide and tall.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input label="Name" placeholder="Enter your name" name="name"
-                        required="{{ true }}" value="{{ auth()->user()->name }}" />
+        <form action="{{ route('student.profile.update', auth()->user()->id) }}" method="post" accept-charset="utf-8">
+            @csrf
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input label="Name" placeholder="Enter your name" name="name"
+                            required="{{ true }}" value="{{ auth()->user()->name }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-email-component label="Email" placeholder="Enter your email" name="email"
+                            required="{{ true }}" value="{{ auth()->user()->email }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input label="Headline" placeholder="Enter your headline" name="headline"
+                             value="{{ auth()->user()->headline }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.select label="Gender" name="gender" :options="['male' => 'Male', 'female' => 'Female']"
+                            value="{{ auth()->user()->gender ? auth()->user()->gender : 'male' }}" />
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.textarea label="About Me" placeholder="Enter your about me" name="bio"
+                             value="{{ auth()->user()->bio }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input name="facebook" label="Facebook" placeholder="Enter your facebook link"
+                            value="{{ auth()->user()->facebook }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input name="twitter" label="Twitter" placeholder="Enter your twitter link"
+                            value="{{ auth()->user()->twitter }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input name="linkedin" label="Linkedin" placeholder="Enter your linkedin link"
+                            value="{{ auth()->user()->linkedin }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input name="website" label="Website" placeholder="Enter your website link"
+                            value="{{ auth()->user()->website }}" />
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="wsus__dashboard_profile_update_info">
+                        <x-form.input name="github" label="Github" placeholder="Enter your github link"
+                            value="{{ auth()->user()->github }}" />
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div class="wsus__dashboard_profile_update_btn">
+                        <button type="submit" class="common_btn">Update Profile</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-email-component label="Email" placeholder="Enter your email" name="email"
-                        required="{{ true }}" value="{{ auth()->user()->email }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input label="Headline" placeholder="Enter your headline" name="headline"
-                        required="{{ true }}" value="{{ auth()->user()->headline }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.select label="Gender" name="gender" required="{{ true }}"
-                        :options="['male' => 'Male', 'female' => 'Female']"
-                        value="{{ auth()->user()->gender ? auth()->user()->gender : 'male' }}" />
-                </div>
-            </div>
-            <div class="col-xl-12">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.textarea label="About Me" placeholder="Enter your about me" name="bio"
-                        required="{{ true }}" value="{{ auth()->user()->bio }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input name="facebook" label="Facebook" placeholder="Enter your facebook link"
-                        value="{{ auth()->user()->facebook }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input name="twitter" label="Twitter" placeholder="Enter your twitter link"
-                        value="{{ auth()->user()->twitter }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input name="linkedin" label="Linkedin" placeholder="Enter your linkedin link"
-                        value="{{ auth()->user()->linkedin }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input name="website" label="Website" placeholder="Enter your website link"
-                        value="{{ auth()->user()->website }}" />
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wsus__dashboard_profile_update_info">
-                    <x-form.input name="github" label="Github" placeholder="Enter your github link"
-                        value="{{ auth()->user()->github }}" />
-                </div>
-            </div>
-            <div class="col-xl-12">
-                <div class="wsus__dashboard_profile_update_btn">
-                    <button type="submit" class="common_btn">Update Profile</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </x-layouts.front-user-layout>
