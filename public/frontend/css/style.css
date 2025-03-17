@@ -15656,3 +15656,10 @@ footer {
     -ms-border-radius: 0px !important;
     -o-border-radius: 0px !important;
 }
+
+.password-input .input-group-flat  {
+    align-items: center;
+}
+.password-input .input-group-flat .input-group-text  {
+    margin-top: 5px;
+}
