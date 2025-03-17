@@ -1,6 +1,6 @@
 <x-layouts.front-user-layout title="Student Profile">
     <div class="wsus__dashboard_contant">
-        <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
+        <div class="flex-wrap wsus__dashboard_contant_top d-flex justify-content-between">
             <div class="wsus__dashboard_heading">
                 <h5>Update Your Information</h5>
                 <p>Manage your courses and its update like live, draft and insight.</p>
@@ -15,7 +15,8 @@
                     <img src="{{ auth()->user()->image }}" alt="profile" class="img-fluid w-100">
                 @endif
                 <label for="profile_photo">
-                    <img src="{{ asset('frontend') . '/images/dash_camera.png' }}" alt="camera" class="img-fluid w-100">
+                    <img src="{{ asset('frontend') . '/images/dash_camera.png' }}" alt="camera"
+                        class="img-fluid w-100">
                 </label>
                 <input type="file" name="image" id="profile_photo" hidden="">
             </div>
@@ -24,78 +25,66 @@
                 <p>PNG or JPG no bigger than 400px wide and tall.</p>
             </div>
         </div>
-        <form action="#" class="wsus__dashboard_profile_update">
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <x-form.input label="Name" placeholder="Enter your name" name="name" required="{{ true }}" value="{{ auth()->user()->name }}" />
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <x-email-component label="Email" placeholder="Enter your email" name="email" required="{{ true }}" value="{{ auth()->user()->email }}" />
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Phone</label>
-                        <input type="text" placeholder="Enter your number">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Email</label>
-                        <input type="email" placeholder="Enter your mail">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Birthday</label>
-                        <input type="text" placeholder="Enter birthday date">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Zip Code</label>
-                        <input type="text" placeholder="Enter zip code ">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>City</label>
-                        <input type="text" placeholder="Enter your city">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Country</label>
-                        <input type="text" placeholder="Enter your country">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Present Address</label>
-                        <input type="text" placeholder="Enter your address">
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>Permanent Address</label>
-                        <input type="text" placeholder="Enter your address">
-                    </div>
-                </div>
-                <div class="col-xl-12">
-                    <div class="wsus__dashboard_profile_update_info">
-                        <label>About Me</label>
-                        <textarea rows="7" placeholder="Your text here"></textarea>
-                    </div>
-                </div>
-                <div class="col-xl-12">
-                    <div class="wsus__dashboard_profile_update_btn">
-                        <button type="submit" class="common_btn">Update Profile</button>
-                    </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input label="Name" placeholder="Enter your name" name="name"
+                        required="{{ true }}" value="{{ auth()->user()->name }}" />
                 </div>
             </div>
-        </form>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-email-component label="Email" placeholder="Enter your email" name="email"
+                        required="{{ true }}" value="{{ auth()->user()->email }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input label="Headline" placeholder="Enter your headline" name="headline"
+                        required="{{ true }}" value="{{ auth()->user()->headline }}" />
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.textarea label="About Me" placeholder="Enter your about me" name="bio"
+                        required="{{ true }}" value="{{ auth()->user()->bio }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input name="facebook" label="Facebook" placeholder="Enter your facebook link"
+                        value="{{ auth()->user()->facebook }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input name="twitter" label="Twitter" placeholder="Enter your twitter link"
+                        value="{{ auth()->user()->twitter }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input name="linkedin" label="Linkedin" placeholder="Enter your linkedin link"
+                        value="{{ auth()->user()->linkedin }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input name="website" label="Website" placeholder="Enter your website link"
+                        value="{{ auth()->user()->website }}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wsus__dashboard_profile_update_info">
+                    <x-form.input name="github" label="Github" placeholder="Enter your github link"
+                        value="{{ auth()->user()->github }}" />
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="wsus__dashboard_profile_update_btn">
+                    <button type="submit" class="common_btn">Update Profile</button>
+                </div>
+            </div>
+        </div>
     </div>
 </x-layouts.front-user-layout>
