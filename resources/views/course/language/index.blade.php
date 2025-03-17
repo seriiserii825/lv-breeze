@@ -10,16 +10,20 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Document</th>
-                            <th>Action</th>
+                            <th>Slug</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td colspan="5">No instructors found</td>
-                        </tr>
+                        @forelse ($languages as $language)
+                            <tr>
+                                <td>{{ $language->name }}</td>
+                                <td>{{ $language->slug }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">No instructors found</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
