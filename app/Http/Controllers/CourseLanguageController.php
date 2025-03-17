@@ -19,7 +19,7 @@ class CourseLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('course.language.create');
     }
 
     /**
@@ -27,7 +27,9 @@ class CourseLanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|max:255|unique:course_languages,name',
+        ]);
     }
 
     /**
