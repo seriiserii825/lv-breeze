@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class CourseLevelController extends Controller
 {
@@ -37,6 +38,7 @@ class CourseLevelController extends Controller
 
         CourseLevel::create($validate);
 
+        notify()->success('Level was created successfully', 'Create Level');
         return redirect()->route('admin.course-levels.index')->with('success', 'Course level ' . $validate['name'] . ' successfully');
     }
 
@@ -69,6 +71,7 @@ class CourseLevelController extends Controller
 
         CourseLevel::where('id', $id)->update($validate);
 
+        notify()->success('Level was updated successfully', 'Update Level');
         return redirect()->route('admin.course-levels.index')->with('success', 'Course level ' . $validate['name'] . ' edit successfully');
     }
 
@@ -81,12 +84,14 @@ class CourseLevelController extends Controller
         try {
             // throw ValidationException::withMessages(['id' => 'Course level not found']);
             $level->delete();
+            notify()->success('Level was deleted successfully', 'Delete Level');
             return response()->json([
                 'status' => 'success',
                 'message' => 'Course level delete successfully'
             ], 200);
         } catch (\Exception $e) {
             // logger('Course level destroy: >> '.$e);
+            notify()->error('Error on delete level', 'Delete Level');
             return response()->json([
                 'status' => 'error',
                 'message' => 'Course level delete failed'

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Dashboard</title>
+
+    @notifyCss
+
     <!-- CSS files -->
     <link href="{{ asset('admin/assets/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet" />
     <link href="{{ asset('admin/assets/dist/css/demo.min.css?1692870487') }}" rel="stylesheet" />
@@ -20,6 +23,11 @@
 
         body {
             font-feature-settings: "cv03", "cv04", "cv11";
+        }
+
+        .notify {
+            /* align-items: flex-end; */
+            z-index: 9999;
         }
     </style>
     @vite(['resources/js/app.js', 'resources/js/admin/modal.js'])
@@ -46,6 +54,8 @@
         </div>
     </div>
     <x-modal.modal />
+    <x-notify::notify />
+    @notifyJs
     <!-- Tabler Core -->
     <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
     <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
