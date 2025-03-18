@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\ValidationException;
 
 class CourseLanguageController extends Controller
 {
@@ -79,11 +79,19 @@ class CourseLanguageController extends Controller
     public function destroy(string $id)
     {
         $language = CourseLanguage::find($id);
-        // return response()->json($language);
-        $language->delete();
-
-        return response()->json($language);
-
-        // return redirect()->route('admin.course-languages.index')->with('success', 'Course language delete successfully');
+        try {
+            // throw ValidationException::withMessages(['id' => 'Course language not found']);
+            $language->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Course language delete successfully'
+            ], 200);
+        } catch (\Exception $e) {
+            // logger('Course language destroy: >> '.$e);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Course language delete failed'
+            ], 500);
+        }
     }
 }
