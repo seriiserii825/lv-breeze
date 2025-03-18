@@ -16,9 +16,7 @@
                     </div>
                     <div class="mb-3 col-md-4">
                         <x-form.input name="icon" label="Icon" />
-                        <div>
-                            <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>
-                        </div>
+                        <x-utils.link-to-fontawesome />
                     </div>
                     <div class="mb-3 col-md-4">
                         <x-form.select name="parent_id" label="Parent category" :options="$categories" />
