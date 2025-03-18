@@ -14,7 +14,7 @@ class CourseLevelController extends Controller
      */
     public function index()
     {
-        $levels = CourseLevel::orderBy('name')->get();
+        $levels = CourseLevel::orderBy('name')->paginate(15);
         return view('admin.course-levels.index', compact('levels'));
     }
 

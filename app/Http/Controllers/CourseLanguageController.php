@@ -82,12 +82,14 @@ class CourseLanguageController extends Controller
         try {
             // throw ValidationException::withMessages(['id' => 'Course language not found']);
             $language->delete();
+            notify()->success('Course language delete successfully');
             return response()->json([
                 'status' => 'success',
                 'message' => 'Course language delete successfully'
             ], 200);
         } catch (\Exception $e) {
             // logger('Course language destroy: >> '.$e);
+            notify()->error('Course language delete failed');
             return response()->json([
                 'status' => 'error',
                 'message' => 'Course language delete failed'

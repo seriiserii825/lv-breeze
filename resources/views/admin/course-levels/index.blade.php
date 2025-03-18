@@ -35,6 +35,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="mt-5">
+                {{ $levels->links() }}
+            </div>
         </div>
     </div>
 </x-layouts.admin-layout>

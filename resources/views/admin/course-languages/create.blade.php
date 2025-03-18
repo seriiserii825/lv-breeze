@@ -2,6 +2,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <span>New language</span>
+            <a href="{{ route('admin.course-languages.index') }}" class="btn btn-primary">Back</a>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.course-languages.store') }}" method="post">
