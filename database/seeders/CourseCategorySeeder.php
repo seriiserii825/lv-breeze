@@ -19,6 +19,12 @@ class CourseCategorySeeder extends Seeder
                 'slug' => 'development',
                 'show_at_tranding' => 1,
                 'status' => 1,
+            ],
+            [
+                'name' => 'Business',
+                'slug' => 'business',
+                'show_at_tranding' => 0,
+                'status' => 0,
             ]
         ];
 

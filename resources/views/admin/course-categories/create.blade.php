@@ -5,7 +5,7 @@
             <a href="{{ route('admin.course-categories.index') }}" class="btn btn-primary">Back</a>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.course-categories.store') }}" method="post">
+            <form action="{{ route('admin.course-categories.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="mb-3 col-md-4">
@@ -15,7 +15,7 @@
                         <x-form.input-file name="image" label="Image" />
                     </div>
                     <div class="mb-3 col-md-4">
-                        <x-form.input-file name="icon" label="Icon" />
+                        <x-form.input name="icon" label="Icon" />
                     </div>
                     <div class="mb-3 col-md-4">
                         <x-form.select name="parent_id" label="Parent category" :options="$categories" />

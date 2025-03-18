@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseCategory;
+use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class CourseCategoryController extends Controller
 {
+
+    use FileUpload;
     /**
      * Display a listing of the resource.
      */
@@ -35,8 +38,19 @@ class CourseCategoryController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255|unique:course_categories,name',
+            'image' => ['required', 'image', 'mimes:jpg,png', 'max:2048'],
+            'icon' => ['required', 'string', 'max:255'],
+            'parent_id' => 'nullable|exists:course_categories,id',
+            'show_at_tranding' => 'nullable|boolean',
+            'status' => 'nullable|boolean',
         ]);
         $validate['slug'] = Str::slug($validate['name']);
+
+        if ($request->hasFile('image')) {
+            $validate['image'] = $this->uploadFile($request->file('image'));
+        }
+        $validate['show_at_tranding'] = $request->has('show_at_tranding');
+        $validate['status'] = $request->has('status');
 
         CourseCategory::create($validate);
         return redirect()->route('admin.course-categories.index')->with('success', 'Course category ' . $validate['name'] . ' successfully');
