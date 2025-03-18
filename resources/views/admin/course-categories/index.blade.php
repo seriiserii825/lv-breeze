@@ -1,8 +1,8 @@
 <x-layouts.admin-layout>
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <span>Levels</span>
-            <a href="{{ route('admin.course-levels.create') }}" class="btn btn-primary">New Level</a>
+            <span>Categories</span>
+            <a href="{{ route('admin.course-categories.create') }}" class="btn btn-primary">New Category</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,28 +15,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($levels as $level)
+                        @forelse ($categories as $category)
                             <tr>
-                                <td>{{ $level->name }}</td>
-                                <td>{{ $level->slug }}</td>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
                                 <td>
                                     <div class="d-flex gap-4 align-items-center">
-                                        <a href="{{ route('admin.course-levels.edit', $level) }}"
+                                        <a href="{{ route('admin.course-categories.edit', $category) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="{{ route('admin.course-levels.destroy', $level->id) }}" class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{ route('admin.course-categories.destroy', $category->id) }}" class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5">No levels found</td>
+                                <td colspan="5">No categories found</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
             <div class="mt-5">
-                {{ $levels->links() }}
+                {{ $categories->links() }}
             </div>
         </div>
     </div>

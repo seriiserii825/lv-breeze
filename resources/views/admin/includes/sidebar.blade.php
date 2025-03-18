@@ -14,6 +14,10 @@
                     icon="fa-solid fa-user-nurse" />
                 <x-navigation.admin-sidebar-link :dropdown="[
                     [
+                        'route' => 'admin.course-categories.index',
+                        'title' => 'Categories',
+                    ],
+                    [
                         'route' => 'admin.course-languages.index',
                         'title' => 'Languages',
                     ],
