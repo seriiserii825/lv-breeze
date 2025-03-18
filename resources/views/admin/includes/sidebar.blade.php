@@ -24,7 +24,7 @@
                     [
                         'route' => 'admin.course-levels.index',
                         'title' => 'Levels',
-                    ],
+                    ]
                 ]" title="Courses"
                     icon="fa-solid fa-person-chalkboard" />
             </ul>
@@ -34,12 +34,14 @@
 <script charset="utf-8">
     const dropdowns = document.querySelectorAll('.nav-item.dropdown');
     const current_url = window.location.href;
+    console.log("current_url", current_url);
     dropdowns.forEach((dropdown) => {
         const dropdown_link = dropdown.querySelector('.nav-link');
         const dropdown_links = dropdown.querySelectorAll('.dropdown-item');
         const dropdown_menu = dropdown.querySelector('.dropdown-menu');
         dropdown_links.forEach((link) => {
-            if (link.href === current_url) {
+        console.log("link.href", link.href);
+            if (link.href === current_url || current_url.includes(link.href)) {
                 dropdown_link.setAttribute('aria-expanded', 'true');
                 dropdown_link.classList.add('dropdown-toggle');
                 dropdown_menu.classList.add('show');

@@ -15,6 +15,11 @@
                             if (url()->current() === route($item['route'])) {
                                 $active = 'text-secondary';
                             }
+                            // if route($item['route']) its a part of the current url
+                            if (strpos(url()->current(), route($item['route'])) !== false) {
+                                $active = 'text-secondary';
+                            }
+
                         @endphp
                         <a class="dropdown-item {{ $active }}" href="{{ route($item['route']) }}">
                             {{ $item['title'] }}
