@@ -82,7 +82,7 @@ class CourseCategoryController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255|unique:course_categories,name,' . $course_category->id,
-            'image' => ['required', 'image', 'mimes:jpg,png', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,png', 'max:2048'],
             'icon' => ['required', 'string', 'max:255'],
             'parent_id' => 'nullable|exists:course_categories,id',
             'show_at_tranding' => 'nullable|boolean',
