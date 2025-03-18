@@ -23,13 +23,13 @@
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-languages.edit', $language) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="#" class="text-danger"><i class="fa-solid fa-trash-can js-show-modal"></i></a>
+                                        <a href="{{ route('admin.course-languages.destroy', $language->id) }}" class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5">No instructors found</td>
+                                <td colspan="5">No languages found</td>
                             </tr>
                         @endforelse
                     </tbody>

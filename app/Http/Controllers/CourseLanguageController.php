@@ -78,6 +78,12 @@ class CourseLanguageController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $language = CourseLanguage::find($id);
+        // return response()->json($language);
+        $language->delete();
+
+        return response()->json($language);
+
+        // return redirect()->route('admin.course-languages.index')->with('success', 'Course language delete successfully');
     }
 }
