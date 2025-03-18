@@ -9,16 +9,36 @@
                 <table class="table table-vcenter card-table">
                     <thead>
                         <tr>
+                            <th>Icon</th>
                             <th>Name</th>
                             <th>Slug</th>
+                            <th>Show at tranding</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($categories as $category)
                             <tr>
+                                <td>
+                                    <span class="{{ $category->icon }}"></span>
+                                </td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
+                                <td>
+                                    @if ($category->show_at_tranding)
+                                        <span class="text-white badge rounded-pill bg-success">Active</span>
+                                    @else
+                                        <span class="text-white badge rounded-pill bg-danger">Inactive</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($category->status)
+                                        <span class="text-white badge rounded-pill bg-success">Active</span>
+                                    @else
+                                        <span class="text-white badge rounded-pill bg-danger">Inactive</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-categories.edit', $category) }}"
