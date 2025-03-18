@@ -38,7 +38,7 @@ class CourseLanguageController extends Controller
 
         CourseLanguage::create($validate);
 
-        return redirect()->route('admin.course-languages.index')->with('success', 'Course language created successfully');
+        return redirect()->route('admin.course-languages.index')->with('success', 'Course language ' . $validate['name'] . ' successfully');
     }
 
     /**
@@ -52,9 +52,9 @@ class CourseLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(CourseLanguage $course_language)
     {
-        //
+        return view('course.language.edit', compact('course_language'));
     }
 
     /**
@@ -62,7 +62,15 @@ class CourseLanguageController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $validate = $request->validate([
+            'name' => 'required|string|max:255|unique:course_languages,name,' . $id,
+        ]);
+        $validate['slug'] = Str::slug($validate['name']);
+
+        CourseLanguage::where('id', $id)->update($validate);
+
+        return redirect()->route('admin.course-languages.index')->with('success', 'Course language ' . $validate['name'] . ' edit successfully');
     }
 
     /**
