@@ -29,6 +29,9 @@
             align-items: flex-end;
             z-index: 9999;
         }
+        .form-check {
+            cursor: pointer;
+        }
     </style>
     @vite(['resources/js/app.js', 'resources/js/admin/modal.js'])
 </head>

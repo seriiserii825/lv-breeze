@@ -17,6 +17,9 @@
                     <div class="mb-3 col-md-4">
                         <x-form.input-file name="icon" label="Icon" />
                     </div>
+                    <div class="mb-3 col-md-4">
+                        <x-form.select name="parent_id" label="Parent category" :options="$categories" />
+                    </div>
                     <div class="mb-3 col-md-2">
                         <x-form.switcher name="show_at_tranding" label="Show at tranding" />
                     </div>

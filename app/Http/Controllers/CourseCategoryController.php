@@ -23,7 +23,9 @@ class CourseCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.course-categories.create');
+        $categories_init = CourseCategory::whereNull('parent_id')->orderBy('name')->get();
+        $categories = $categories_init->pluck('name', 'id');
+        return view('admin.course-categories.create', compact('categories'));
     }
 
     /**

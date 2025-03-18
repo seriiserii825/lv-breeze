@@ -1,4 +1,4 @@
-@props(['name', 'value', 'label' => '', 'id' => '', 'options' => []])
+@props(['name', 'value' => '', 'label' => '', 'id' => '', 'options' => []])
 @if ($label)
     <label class="form-label">{{ $label }}</label>
 @endif
