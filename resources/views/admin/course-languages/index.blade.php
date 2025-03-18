@@ -23,12 +23,7 @@
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-languages.edit', $language) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="#" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                        <form action="{{ route('admin.course-languages.destroy', $language) }}"
-                                            method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
+                                        <a href="#" class="text-danger"><i class="fa-solid fa-trash-can js-show-modal"></i></a>
                                     </div>
                                 </td>
                             </tr>

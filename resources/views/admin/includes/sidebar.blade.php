@@ -32,7 +32,6 @@
         const dropdown_menu = dropdown.querySelector('.dropdown-menu');
         dropdown_links.forEach((link) => {
             if (link.href === current_url) {
-                console.log('true');
                 dropdown_link.setAttribute('aria-expanded', 'true');
                 dropdown_link.classList.add('dropdown-toggle');
                 dropdown_menu.classList.add('show');

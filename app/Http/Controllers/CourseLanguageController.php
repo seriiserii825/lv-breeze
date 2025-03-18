@@ -15,7 +15,7 @@ class CourseLanguageController extends Controller
     public function index()
     {
         $languages = CourseLanguage::orderBy('name')->get();
-        return view('course.language.index', compact('languages'));
+        return view('admin.course-languages.index', compact('languages'));
     }
 
     /**
@@ -23,7 +23,7 @@ class CourseLanguageController extends Controller
      */
     public function create()
     {
-        return view('course.language.create');
+        return view('admin.course-languages.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class CourseLanguageController extends Controller
      */
     public function edit(CourseLanguage $course_language)
     {
-        return view('course.language.edit', compact('course_language'));
+        return view('admin.course-languages.edit', compact('course_language'));
     }
 
     /**

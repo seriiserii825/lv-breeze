@@ -21,7 +21,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js', 'resources/js/admin/modal.js'])
 </head>
 <body>
     <script src="{{ asset('admin/assets/dist/js/demo-theme.min.js?1692870487') }}"></script>
@@ -44,6 +44,7 @@
             @include('admin.includes.footer')
         </div>
     </div>
+    <x-modal.modal />
     <!-- Tabler Core -->
     <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
     <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
