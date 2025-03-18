@@ -17,6 +17,10 @@
                         'route' => 'admin.course-languages.index',
                         'title' => 'Languages',
                     ],
+                    [
+                        'route' => 'admin.course-levels.index',
+                        'title' => 'Levels',
+                    ],
                 ]" title="Courses"
                     icon="fa-solid fa-person-chalkboard" />
             </ul>
