@@ -26,7 +26,7 @@
         }
 
         .notify {
-            /* align-items: flex-end; */
+            align-items: flex-end;
             z-index: 9999;
         }
     </style>

@@ -37,8 +37,6 @@ class CourseLevelController extends Controller
         $validate['slug'] = Str::slug($validate['name']);
 
         CourseLevel::create($validate);
-
-        notify()->success('Level was created successfully', 'Create Level');
         return redirect()->route('admin.course-levels.index')->with('success', 'Course level ' . $validate['name'] . ' successfully');
     }
 
@@ -71,7 +69,6 @@ class CourseLevelController extends Controller
 
         CourseLevel::where('id', $id)->update($validate);
 
-        notify()->success('Level was updated successfully', 'Update Level');
         return redirect()->route('admin.course-levels.index')->with('success', 'Course level ' . $validate['name'] . ' edit successfully');
     }
 
