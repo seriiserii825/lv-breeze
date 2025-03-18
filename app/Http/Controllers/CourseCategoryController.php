@@ -69,23 +69,36 @@ class CourseCategoryController extends Controller
      */
     public function edit(CourseCategory $course_category)
     {
-        return view('admin.course-categories.edit', compact('course_category'));
+        $categories_init = CourseCategory::whereNull('parent_id')->orderBy('name')->get();
+        $categories = $categories_init->pluck('name', 'id');
+
+        return view('admin.course-categories.edit', compact('categories', 'course_category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, CourseCategory $course_category)
     {
-
         $validate = $request->validate([
-            'name' => 'required|string|max:255|unique:course_categories,name,' . $id,
+            'name' => 'required|string|max:255|unique:course_categories,name,' . $course_category->id,
+            'image' => ['required', 'image', 'mimes:jpg,png', 'max:2048'],
+            'icon' => ['required', 'string', 'max:255'],
+            'parent_id' => 'nullable|exists:course_categories,id',
+            'show_at_tranding' => 'nullable|boolean',
+            'status' => 'nullable|boolean',
         ]);
         $validate['slug'] = Str::slug($validate['name']);
 
-        CourseCategory::where('id', $id)->update($validate);
+        if ($request->hasFile('image')) {
+            $validate['image'] = $this->uploadFile($request->file('image'));
+        }
 
-        return redirect()->route('admin.course-categories.index')->with('success', 'Course category ' . $validate['name'] . ' edit successfully');
+        $validate['show_at_tranding'] = $request->has('show_at_tranding');
+        $validate['status'] = $request->has('status');
+
+        $course_category->update($validate);
+        return redirect()->route('admin.course-categories.index')->with('success', 'Course category ' . $validate['name'] . 'updated successfully');
     }
 
     /**

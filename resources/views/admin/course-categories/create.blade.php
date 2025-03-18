@@ -9,10 +9,10 @@
                 @csrf
                 <div class="row">
                     <div class="mb-3 col-md-4">
-                        <x-form.input name="name" label="Name" />
+                        <x-form.input-file name="image" label="Image" />
                     </div>
                     <div class="mb-3 col-md-4">
-                        <x-form.input-file name="image" label="Image" />
+                        <x-form.input name="name" label="Name" />
                     </div>
                     <div class="mb-3 col-md-4">
                         <x-form.input name="icon" label="Icon" />

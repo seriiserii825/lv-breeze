@@ -10,6 +10,7 @@
                     <thead>
                         <tr>
                             <th>Icon</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Show at tranding</th>
@@ -22,6 +23,14 @@
                             <tr>
                                 <td>
                                     <span class="{{ $category->icon }}"></span>
+                                </td>
+                                <td>
+                                    @if($category->image)
+                                    <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-thumbnail"
+                                        style="max-width: 100px;">
+                                    @else
+                                        <span class="text-danger">No image</span>
+                                    @endif
                                 </td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->slug }}</td>
@@ -43,7 +52,8 @@
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-categories.edit', $category) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="{{ route('admin.course-categories.destroy', $category->id) }}" class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
+                                            class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>
