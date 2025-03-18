@@ -7,10 +7,24 @@
         <div class="card-body">
             <form action="{{ route('admin.course-categories.store') }}" method="post">
                 @csrf
-                <div class="mb-3">
-                    <x-form.input name="name" label="Name" />
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <x-form.input name="name" label="Name" />
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <x-form.input-file name="image" label="Image" />
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <x-form.input-file name="icon" label="Icon" />
+                    </div>
+                    <div class="mb-3 col-md-2">
+                        <x-form.switcher name="show_at_tranding" label="Show at tranding" />
+                    </div>
+                    <div class="mb-3 col-md-2">
+                        <x-form.switcher name="status" label="Status" :value="1" />
+                    </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="mt-4 btn btn-primary" type="submit">Submit</button>
             </form>
         </div>
     </div>
