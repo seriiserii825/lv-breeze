@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\InstructorRequestsController;
-use App\Http\Controllers\CourseCategoryController;
+use App\Http\Controllers\Admin\CourseCategoryController;
 use App\Http\Controllers\CourseLanguageController;
 use App\Http\Controllers\CourseLevelController;
 use Illuminate\Support\Facades\Route;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
 use App\Traits\FileUpload;
 use Illuminate\Http\Request;
