@@ -25,7 +25,7 @@ class StudentDashboardController extends Controller
     public function becomeIntructorUpdate(Request $request, User $user)
     {
         $request->validate(['document' => ['required', 'file', 'mimes:pdf,docx,rtf', 'max:10240']]);
-        $file_path = $this->uploadFile($request->file('document'));
+        $file_path = $this->uploadFile($request->file('document'), 'uploads', $user->document);
         $user->update([
             'approve_status' => 'pending',
             'document' => $file_path,

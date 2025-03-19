@@ -37,11 +37,7 @@ class ProfileController extends Controller
             'github' => ['nullable', 'string', 'max:255']
         ]);
         if ($request->hasFile('image')) {
-            $image_path = $user->image;
-            if ($image_path) {
-                $this->deleteFile($image_path);
-            }
-            $validated['image'] = $this->uploadFile($request->file('image'));
+            $validated['image'] = $this->uploadFile($request->file('image'), 'uploads', $user->image);
         }
         $user->update($validated);
         return redirect()->back()->with('success', 'Profile updated successfully');
