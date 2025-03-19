@@ -38,7 +38,7 @@ class CourseCategoryController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255|unique:course_categories,name',
-            'image' => ['required', 'image', 'mimes:jpg,png', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
             'icon' => ['required', 'string', 'max:255'],
             'parent_id' => 'nullable|exists:course_categories,id',
             'show_at_tranding' => 'nullable|boolean',
@@ -82,7 +82,7 @@ class CourseCategoryController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255|unique:course_categories,name,' . $course_category->id,
-            'image' => ['nullable', 'image', 'mimes:jpg,png', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
             'icon' => ['required', 'string', 'max:255'],
             'parent_id' => 'nullable|exists:course_categories,id',
             'show_at_tranding' => 'nullable|boolean',
@@ -91,7 +91,7 @@ class CourseCategoryController extends Controller
         $validate['slug'] = Str::slug($validate['name']);
 
         if ($request->hasFile('image')) {
-            $validate['image'] = $this->uploadFile($request->file('image'));
+            $validate['image'] = $this->uploadFile($request->file('image'), 'uploads', $course_category->image);
         }
 
         $validate['show_at_tranding'] = $request->has('show_at_tranding');
