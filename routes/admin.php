@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\InstructorRequestsController;
 use App\Http\Controllers\Admin\CourseCategoryController;
 use App\Http\Controllers\Admin\CourseLanguageController;
 use App\Http\Controllers\Admin\CourseLevelController;
+use App\Http\Controllers\Admin\CourseSubCategoryRessource;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["middleware" => "guest:admin", "prefix" => "admin", "as" => "admin."], function () {
@@ -64,4 +65,5 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::resource('course-languages', CourseLanguageController::class);
     Route::resource('course-levels', CourseLevelController::class);
     Route::resource('course-categories', CourseCategoryController::class);
+    Route::get('{parent_id}/course-subcategories', [CourseSubCategoryRessource::class, 'index'])->name('course-subcategories.index');
 });

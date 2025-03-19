@@ -50,6 +50,8 @@
                                 </td>
                                 <td>
                                     <div class="d-flex gap-4 align-items-center">
+                                        <a href="{{ route('admin.course-subcategories.index', $category) }}"
+                                            class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="{{ route('admin.course-categories.edit', $category) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="{{ route('admin.course-categories.destroy', $category->id) }}"

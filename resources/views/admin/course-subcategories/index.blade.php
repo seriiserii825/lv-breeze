@@ -19,49 +19,49 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($categories as $category)
-                            <tr>
-                                <td>
-                                    <span class="{{ $category->icon }}"></span>
-                                </td>
-                                <td>
-                                    @if($category->image)
-                                    <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-thumbnail"
-                                        style="max-width: 100px;">
-                                    @else
-                                        <span class="text-danger">No image</span>
-                                    @endif
-                                </td>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->slug }}</td>
-                                <td>
-                                    @if ($category->show_at_tranding)
-                                        <span class="text-white badge rounded-pill bg-success">Active</span>
-                                    @else
-                                        <span class="text-white badge rounded-pill bg-danger">Inactive</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($category->status)
-                                        <span class="text-white badge rounded-pill bg-success">Active</span>
-                                    @else
-                                        <span class="text-white badge rounded-pill bg-danger">Inactive</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-4 align-items-center">
-                                        <a href="{{ route('admin.course-categories.edit', $category) }}"
-                                            class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
-                                            class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5">No categories found</td>
-                            </tr>
-                        @endforelse
+                        {{-- @forelse ($categories as $category) --}}
+                        {{--     <tr> --}}
+                        {{--         <td> --}}
+                        {{--             <span class="{{ $category->icon }}"></span> --}}
+                        {{--         </td> --}}
+                        {{--         <td> --}}
+                        {{--             @if($category->image) --}}
+                        {{--             <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-thumbnail" --}}
+                        {{--                 style="max-width: 100px;"> --}}
+                        {{--             @else --}}
+                        {{--                 <span class="text-danger">No image</span> --}}
+                        {{--             @endif --}}
+                        {{--         </td> --}}
+                        {{--         <td>{{ $category->name }}</td> --}}
+                        {{--         <td>{{ $category->slug }}</td> --}}
+                        {{--         <td> --}}
+                        {{--             @if ($category->show_at_tranding) --}}
+                        {{--                 <span class="text-white badge rounded-pill bg-success">Active</span> --}}
+                        {{--             @else --}}
+                        {{--                 <span class="text-white badge rounded-pill bg-danger">Inactive</span> --}}
+                        {{--             @endif --}}
+                        {{--         </td> --}}
+                        {{--         <td> --}}
+                        {{--             @if ($category->status) --}}
+                        {{--                 <span class="text-white badge rounded-pill bg-success">Active</span> --}}
+                        {{--             @else --}}
+                        {{--                 <span class="text-white badge rounded-pill bg-danger">Inactive</span> --}}
+                        {{--             @endif --}}
+                        {{--         </td> --}}
+                        {{--         <td> --}}
+                        {{--             <div class="d-flex gap-4 align-items-center"> --}}
+                        {{--                 <a href="{{ route('admin.course-categories.edit', $category) }}" --}}
+                        {{--                     class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a> --}}
+                        {{--                 <a href="{{ route('admin.course-categories.destroy', $category->id) }}" --}}
+                        {{--                     class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a> --}}
+                        {{--             </div> --}}
+                        {{--         </td> --}}
+                        {{--     </tr> --}}
+                        {{-- @empty --}}
+                        {{--     <tr> --}}
+                        {{--         <td colspan="5">No categories found</td> --}}
+                        {{--     </tr> --}}
+                        {{-- @endforelse --}}
                     </tbody>
                 </table>
             </div>
