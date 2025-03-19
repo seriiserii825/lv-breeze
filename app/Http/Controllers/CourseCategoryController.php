@@ -110,6 +110,7 @@ class CourseCategoryController extends Controller
         try {
             // throw ValidationException::withMessages(['id' => 'Course category not found']);
             $category->delete();
+            $this->deleteFile($category->image);
             notify()->success('Level was deleted successfully', 'Delete Level');
             return response()->json([
                 'status' => 'success',
