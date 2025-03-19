@@ -25,9 +25,9 @@
                                     <span class="{{ $category->icon }}"></span>
                                 </td>
                                 <td>
-                                    @if($category->image)
-                                    <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-thumbnail"
-                                        style="max-width: 100px;">
+                                    @if ($category->image)
+                                        <img src="{{ $category->image }}" alt="{{ $category->name }}"
+                                            class="img-thumbnail" style="max-width: 100px;">
                                     @else
                                         <span class="text-danger">No image</span>
                                     @endif
@@ -51,7 +51,8 @@
                                 <td>
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-subcategories.index', $category) }}"
-                                            class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            title="Subcategories" class="text-primary"><i
+                                                class="fa-solid fa-list-ul"></i></a>
                                         <a href="{{ route('admin.course-categories.edit', $category) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="{{ route('admin.course-categories.destroy', $category->id) }}"

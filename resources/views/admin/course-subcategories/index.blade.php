@@ -1,7 +1,7 @@
 <x-layouts.admin-layout>
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <span>Categories</span>
+            <span>Subcategories of ({{ $category->name }})</span>
             <a href="{{ route('admin.course-categories.create') }}" class="btn btn-primary">New Category</a>
         </div>
         <div class="card-body">
@@ -65,9 +65,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="mt-5">
-                {{ $categories->links() }}
-            </div>
+            {{-- <div class="mt-5"> --}}
+            {{--     {{ $categories->links() }} --}}
+            {{-- </div> --}}
         </div>
     </div>
 </x-layouts.admin-layout>

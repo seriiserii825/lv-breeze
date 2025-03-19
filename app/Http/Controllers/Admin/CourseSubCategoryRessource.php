@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseCategory;
 use Illuminate\Http\Request;
 
 class CourseSubCategoryRessource extends Controller
@@ -10,9 +11,10 @@ class CourseSubCategoryRessource extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(int $parent_id)
     {
-        return view('admin.course-subcategories.index');
+        $category = CourseCategory::findOrFail($parent_id);
+        return view('admin.course-subcategories.index', compact('category'));
     }
 
     /**
