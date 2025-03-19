@@ -65,5 +65,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::resource('course-languages', CourseLanguageController::class);
     Route::resource('course-levels', CourseLevelController::class);
     Route::resource('course-categories', CourseCategoryController::class);
-    Route::get('{parent_id}/course-subcategories', [CourseSubCategoryRessource::class, 'index'])->name('course-subcategories.index');
+    Route::get('{course_category}/course-subcategories', [CourseSubCategoryRessource::class, 'index'])->name('course-subcategories.index');
+    Route::get('{course_category}/course-subcategories/create', [CourseSubCategoryRessource::class, 'create'])->name('course-subcategories.create');
+    Route::post('{course_category}/course-subcategories', [CourseSubCategoryRessource::class, 'store'])->name('course-subcategories.store');
 });

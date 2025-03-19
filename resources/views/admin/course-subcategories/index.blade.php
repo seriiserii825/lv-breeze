@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <span>Subcategories of ({{ $category->name }})</span>
-            <a href="{{ route('admin.course-categories.create') }}" class="btn btn-primary">New Category</a>
+            <a href="{{ route('admin.course-subcategories.create', $category->id) }}" class="btn btn-primary">New Subcategory</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
