@@ -11,8 +11,8 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\InstructorRequestsController;
 use App\Http\Controllers\Admin\CourseCategoryController;
-use App\Http\Controllers\CourseLanguageController;
-use App\Http\Controllers\CourseLevelController;
+use App\Http\Controllers\Admin\CourseLanguageController;
+use App\Http\Controllers\Admin\CourseLevelController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["middleware" => "guest:admin", "prefix" => "admin", "as" => "admin."], function () {
