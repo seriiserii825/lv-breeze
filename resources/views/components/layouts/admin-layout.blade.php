@@ -42,7 +42,7 @@
         @include('admin.includes.header')
         <div class="page-wrapper">
             <div class="page-body">
-                <div class="container-xl">
+                <div class="container-fluid">
                     @if (session('success'))
                         <x-utils.alert type="success" message="{{ session('success') }}" />
                     @endif

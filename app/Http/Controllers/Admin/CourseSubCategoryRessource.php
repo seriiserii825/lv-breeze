@@ -97,8 +97,26 @@ class CourseSubCategoryRessource extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CourseCategory $course_category, CourseCategory $subcategory)
     {
-        //
+
+        $category_name = $subcategory->name;
+        try {
+            // throw ValidationException::withMessages(['id' => 'Course category not found']);
+            $subcategory->delete();
+            $this->deleteFile($subcategory->image);
+            notify()->success('Level '.$category_name.' was deleted successfully', 'Delete Level');
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Course category delete successfully'
+            ], 200);
+        } catch (\Exception $e) {
+            // logger('Course category destroy: >> '.$e);
+            notify()->error('Error on delete category', 'Delete Level');
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Course category delete failed'
+            ], 500);
+        }
     }
 }
