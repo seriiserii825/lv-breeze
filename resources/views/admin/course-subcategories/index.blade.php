@@ -1,9 +1,10 @@
 <x-layouts.admin-layout>
     <div class="card">
         <div class="card-header d-flex gap-2">
-            <span class="me-auto">Subcategories of ({{ $category->name }})</span>
+            <span class="me-auto">Subcategories of ({{ $course_category->name }})</span>
             <a href="{{ route('admin.course-categories.index') }}" class="btn btn-success">Back</a>
-            <a href="{{ route('admin.course-subcategories.create', $category->id) }}" class="btn btn-primary">New Subcategory</a>
+            <a href="{{ route('admin.course-subcategories.create', $course_category->id) }}" class="btn btn-primary">New
+                Subcategory</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -26,9 +27,9 @@
                                     <span class="{{ $category->icon }}"></span>
                                 </td>
                                 <td>
-                                    @if($category->image)
-                                    <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-thumbnail"
-                                        style="max-width: 100px;">
+                                    @if ($category->image)
+                                        <img src="{{ $category->image }}" alt="{{ $category->name }}"
+                                            class="img-thumbnail" style="max-width: 100px;">
                                     @else
                                         <span class="text-danger">No image</span>
                                     @endif
@@ -51,9 +52,15 @@
                                 </td>
                                 <td>
                                     <div class="d-flex gap-4 align-items-center">
-                                        <a href="{{ route('admin.course-categories.edit', $category) }}"
+                                        <a href="{{ route('admin.course-subcategories.edit', [
+                                            'course_category' => $course_category->id,
+                                            'subcategory' => $category->id,
+                                        ]) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
+                                        <a href="{{ route('admin.course-subcategories.destroy', [
+                                            'course_category' => $course_category->id,
+                                            'subcategory' => $category->id,
+                                        ]) }}"
                                             class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>

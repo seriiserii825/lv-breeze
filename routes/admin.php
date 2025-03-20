@@ -68,4 +68,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::get('{course_category}/course-subcategories', [CourseSubCategoryRessource::class, 'index'])->name('course-subcategories.index');
     Route::get('{course_category}/course-subcategories/create', [CourseSubCategoryRessource::class, 'create'])->name('course-subcategories.create');
     Route::post('{course_category}/course-subcategories', [CourseSubCategoryRessource::class, 'store'])->name('course-subcategories.store');
+    Route::get('{course_category}/course-subcategories/{subcategory}', [CourseSubCategoryRessource::class, 'edit'])->name('course-subcategories.edit');
+    Route::put('{course_category}/course-subcategories/{subcategory}', [CourseSubCategoryRessource::class, 'update'])->name('course-subcategories.update');
+    Route::delete('{course_category}/course-subcategories/{subcategory}', [CourseSubCategoryRessource::class, 'destroy'])->name('course-subcategories.destroy');
 });
