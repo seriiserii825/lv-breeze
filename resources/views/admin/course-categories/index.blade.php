@@ -32,7 +32,10 @@
                                         <span class="text-danger">No image</span>
                                     @endif
                                 </td>
-                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->name }}@if ($category->subcategories_count)
+                                        ({{ $category->subcategories_count }})
+                                    @endif
+                                </td>
                                 <td>{{ $category->slug }}</td>
                                 <td>
                                     @if ($category->show_at_tranding)
@@ -60,17 +63,17 @@
                                     </div>
                                 </td>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5">No categories found</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-5">
-                {{ $categories->links() }}
+                            @empty
+                                <tr>
+                                    <td colspan="5">No categories found</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-5">
+                    {{ $categories->links() }}
+                </div>
             </div>
         </div>
-    </div>
-</x-layouts.admin-layout>
+    </x-layouts.admin-layout>

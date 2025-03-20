@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Admin\CourseCategoryResource;
 use App\Models\CourseCategory;
 use App\Traits\FileUpload;
 use Illuminate\Http\Request;
@@ -18,7 +19,11 @@ class CourseCategoryController extends Controller
      */
     public function index()
     {
-        $categories = CourseCategory::orderBy('name')->paginate(15);
+        // $categories = CourseCategory::orderBy('name')->paginate(15);
+        // $categories = CourseCategoryResource::collection(CourseCategory::with('subcategoriesCount')->orderBy('name')->paginate());
+        $categories = CourseCategoryResource::collection(
+            CourseCategory::withCount('subcategories')->orderBy('name')->paginate(15)
+        );
         return view('admin.course-categories.index', compact('categories'));
     }
 

@@ -15,4 +15,16 @@ class CourseCategory extends Model
         'show_at_tranding',
         'status',
     ];
+
+    // Define relationship
+    public function subcategories()
+    {
+        return $this->hasMany(CourseCategory::class, 'parent_id');
+    }
+
+    // Define accessor for counting subcategories
+    public function getSubcategoriesCountAttribute()
+    {
+        return $this->subcategories()->count();
+    }
 }
