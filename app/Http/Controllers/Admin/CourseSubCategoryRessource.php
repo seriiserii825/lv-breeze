@@ -17,7 +17,8 @@ class CourseSubCategoryRessource extends Controller
     public function index(CourseCategory $course_category)
     {
         $category = $course_category;
-        return view('admin.course-subcategories.index', compact('category'));
+        $subcategories = CourseCategory::where('parent_id', $course_category->id)->get();
+        return view('admin.course-subcategories.index', compact('category', 'subcategories'));
     }
 
     /**
