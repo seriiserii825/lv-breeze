@@ -24,6 +24,7 @@
             <x-navigation.sidebar-link route="{{ route('instructor.dashboard') }}" icon="dash_icon_1.png" title="Dashboard" active="{{ request()->is('instructor/dashboard') }}"/>
             <x-navigation.sidebar-link route="{{ route('instructor.profile.index', auth()->user()->id) }}"
                 icon="dash_icon_8.png" title="Profile" active="{{ request()->is('instructor/profile/' . auth()->user()->id) }}" />
+            <x-navigation.sidebar-link route="{{ route('instructor.courses.index') }}" icon="dash_icon_8.png" title="Courses" active="{{ request()->is('instructor/courses') }}" />
         @endif
         {{-- <li> --}}
         {{--     <a href="dashboard_profile.html"> --}}

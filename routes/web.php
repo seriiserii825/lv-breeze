@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\InstructorDashboardController;
 use App\Http\Controllers\Frontend\ProfileController;
@@ -32,6 +33,10 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     Route::get('/profile/{user}', [ProfileController::class, 'indexInstructor'])->name('profile.index');
     Route::post('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile/updated-password/{user}', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
+
+    // course
+
+    Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 });
 
 // auth and admin
