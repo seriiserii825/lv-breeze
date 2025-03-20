@@ -1,4 +1,4 @@
-<x-layouts.front-user-layout title="Student Profile">
+<x-layouts.front-user-layout title="Student Create Course">
     <div class="wsus__dashboard_contant">
         <div class="wsus__dashboard_contant_top">
             <div class="relative wsus__dashboard_heading">

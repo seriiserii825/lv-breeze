@@ -1,4 +1,4 @@
-<x-layouts.front-user-layout title="Student Profile">
+<x-layouts.front-user-layout title="Instructor Courses">
     <div class="wsus__dashboard_contant">
         <div class="wsus__dashboard_contant_top">
             <div class="relative wsus__dashboard_heading">
@@ -48,7 +48,7 @@
                                 <tr>
                                     <td class="image">
                                         <div class="image_category">
-                                            <img src="images/courses_3_img_1.jpg" alt="img"
+                                            <img src="{{ 'frontend/images/courses_3_img_1.jpg' }}" alt="img"
                                                 class="img-fluid w-100">
                                         </div>
                                     </td>
