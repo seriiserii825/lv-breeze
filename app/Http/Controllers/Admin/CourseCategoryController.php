@@ -113,6 +113,14 @@ class CourseCategoryController extends Controller
     public function destroy(string $id)
     {
         $category = CourseCategory::find($id);
+        $has_subcategories = $category->where('parent_id', $id)->exists();
+        if ($has_subcategories) {
+            notify()->error('Category has subcategories, remove them and try again', 'Delete Level');
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Course category has subcategories'
+            ], 422);
+        }
         try {
             // throw ValidationException::withMessages(['id' => 'Course category not found']);
             $category->delete();
@@ -125,10 +133,11 @@ class CourseCategoryController extends Controller
         } catch (\Exception $e) {
             // logger('Course category destroy: >> '.$e);
             notify()->error('Error on delete category', 'Delete Level');
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Course category delete failed'
-            ], 500);
+            throw ValidationException::withMessages(['error' => $e->getMessage()]);
+            // return response()->json([
+            //     'status' => 'error',
+            //     'message' => 'Course category delete failed'
+            // ], 500);
         }
     }
 }

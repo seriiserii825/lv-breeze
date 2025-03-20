@@ -6,6 +6,7 @@ const apply_modal_btn = document.querySelector("#js-modal-apply");
 
 const csrf_token = document.querySelector('meta[name="csrf-token"]').content;
 let url = "";
+var notyf = new Notyf();
 
 show_modal_btn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -38,7 +39,7 @@ apply_modal_btn.addEventListener("click", (e) => {
             window.location.reload();
         })
         .catch((error) => {
-            console.error("Error:", error);
+            notyf.error(`error: ${error}`);
         });
 
     // closeModal();
