@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_basic_info_imput">
-                            <x-form.input label="Discount Price" name="discount" placeholder="Discount Price" />
+                            <x-form.input label="Discount Price" name="discount" type="number" placeholder="Discount Price" />
                         </div>
                     </div>
                     <div class="col-xl-12">

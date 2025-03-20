@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -35,6 +36,7 @@ class CourseController extends Controller
         if ($request->hasFile('thumbnail')) {
             $validated['thumbnail'] = $this->uploadFile($request->thumbnail);
         }
+        $validated['slug'] = Str::slug($validated['title']);
 
         $validated['instructor_id'] = Auth::id();
 
