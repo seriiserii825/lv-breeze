@@ -9,6 +9,7 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/admin/password.js",
                 "resources/js/admin/modal.js",
+                "resources/js/course/create-course.js",
             ],
             refresh: [
                 "resources/views/**/*.blade.php",

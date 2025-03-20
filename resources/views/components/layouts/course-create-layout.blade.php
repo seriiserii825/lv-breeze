@@ -14,4 +14,7 @@
             </div>
         </div>
     </div>
+    @push('create_course_js')
+        @vite('resources/js/course/create-course.js')
+    @endpush
 </x-layouts.front-user-layout>

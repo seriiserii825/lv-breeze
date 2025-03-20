@@ -14,6 +14,10 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('instructor.courses.create');
+        $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
+        return view('instructor.courses.create', compact('enum_values'));
+    }
+    public function store(Request $request) {
+        dd($request->all());
     }
 }

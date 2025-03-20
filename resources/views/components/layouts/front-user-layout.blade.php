@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
     @vite(['resources/js/app.js', 'resources/js/admin/password.js'])
+    @stack('create_course_js')
 
 </head>
 <body class="home_3">
