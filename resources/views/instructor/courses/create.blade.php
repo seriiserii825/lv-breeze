@@ -1,7 +1,7 @@
 <x-layouts.course-create-layout>
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
-            <form action="{{ route('instructor.courses.store') }}" method="post" id="js-create-course-step-1">
+            <form action="{{ route('instructor.courses.store') }}" method="post" id="js-create-course-step-1" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-xl-12">
