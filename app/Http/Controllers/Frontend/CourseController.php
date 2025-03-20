@@ -18,6 +18,6 @@ class CourseController extends Controller
         return view('instructor.courses.create', compact('enum_values'));
     }
     public function store(Request $request) {
-        dd($request->all());
+        return response()->json($request->all());
     }
 }
