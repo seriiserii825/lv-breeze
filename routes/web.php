@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     // course
 
     Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
 });
 
 // auth and admin
