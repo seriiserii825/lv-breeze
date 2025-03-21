@@ -27,11 +27,13 @@ if (form) {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data, "data");
-                if (data.errors) {
-                    notyf.error(data.message);
-                }else{
+                if (data.status === "success") {
                     notyf.success(data.message);
-                    window.location.href = data.route;
+                    setTimeout(() => {
+                        window.location.href = data.route;
+                    }, 2000);
+                } else {
+                    notyf.error(data.message);
                 }
             })
             .catch((error) => {

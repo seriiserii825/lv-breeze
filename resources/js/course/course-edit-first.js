@@ -1,15 +1,25 @@
+const csrf_meta = document.querySelector('meta[name="csrf-token"]');
+const csrf_token = csrf_meta.getAttribute("content");
 const base_url = window.location.origin;
-const form_2 = document.querySelector("#js-course-update-2");
-const step_2_url = base_url + "/instructor/courses/update";
-console.log("step_2_url", step_2_url);
+const form = document.querySelector("#js-course-edit-first");
+const url = base_url + "/instructor/courses/update/first";
+console.log("url", url);
 
-if (form_2) {
-    form_2.addEventListener("submit", (e) => {
+var notyf = new Notyf({
+    duration: 6000,
+    position: {
+        x: "right",
+        y: "top",
+    },
+});
+
+if (form) {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const formData = new FormData(form_2);
+        const formData = new FormData(form);
 
-        fetch(step_2_url, {
+        fetch(url, {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": csrf_token, // CSRF token for Laravel
@@ -19,8 +29,14 @@ if (form_2) {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data, "data");
-                // window.location.href = data.route;
+                if (data.status === "success") {
+                    notyf.success(data.message);
+                    setTimeout(() => {
+                        window.location.href = data.route;
+                    }, 2000);
+                } else {
+                    notyf.error(data.message);
+                }
             })
             .catch((error) => {
                 console.log(error, "error");

@@ -48,6 +48,7 @@ class CourseController extends Controller
         $course->save();
 
         return response()->json([
+            'status' => 'success',
             'message' => 'Course created successfully',
             'route' => route('instructor.courses.edit.1', ['course_id' => $course->id]),
         ], 200);
@@ -73,6 +74,7 @@ class CourseController extends Controller
         $course->fill($validated);
         $course->save();
         return response()->json([
+            'status' => 'success',
             'message' => 'Course updated successfully',
             'route' => route('instructor.courses.edit.2', ['course_id' => $course->id]),
         ]);
