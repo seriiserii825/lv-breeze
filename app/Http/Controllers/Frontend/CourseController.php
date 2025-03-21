@@ -25,6 +25,7 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
+        $course = new Course();
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'seo_description' => 'required|string',
@@ -33,17 +34,13 @@ class CourseController extends Controller
             'discount' => 'required|numeric',
             'thumbnail' => 'required|image',
         ]);
-        if ($request->hasFile('thumbnail')) {
-            $validated['thumbnail'] = $this->uploadFile($request->thumbnail);
-        }
-        $validated['slug'] = Str::slug($validated['title']);
-
-        $validated['instructor_id'] = Auth::id();
-
-        // dd($validated);
-
-        $course = new Course();
         $course->fill($validated);
+        if ($request->hasFile('thumbnail')) {
+            $course->thumbnail = $this->uploadFile($request->thumbnail);
+        }
+        $course->instructor_id = Auth::id();
+        $course->slug = Str::slug($validated['title']);
+
         $course->save();
 
         return response()->json(['message' => 'Course created successfully']);

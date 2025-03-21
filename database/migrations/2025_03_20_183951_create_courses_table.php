@@ -33,8 +33,8 @@ return new class extends Migration
             $table->text('message_for_review')->nullable();
             $table->enum('is_approved', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('status', ['draft', 'active', 'inactive'])->default('draft');
-            $table->foreignId('course_level_id')->constrained('course_levels');
-            $table->foreignId('course_language_id')->constrained('course_languages');
+            $table->foreignId('course_level_id')->nullable();
+            $table->foreignId('course_language_id')->nullable();
             $table->timestamps();
         });
     }
