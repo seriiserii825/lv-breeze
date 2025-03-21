@@ -4,12 +4,16 @@ const csrf_token = csrf_meta.getAttribute("content");
 const base_url = window.location.origin;
 const step_1_url = base_url + "/instructor/courses";
 
-var notyf = new Notyf();
-
+var notyf = new Notyf({
+    duration: 6000,
+    position: {
+        x: "right",
+        y: "top",
+    },
+});
 if (form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const formData = new FormData(form);
 
         fetch(step_1_url, {
@@ -23,9 +27,16 @@ if (form) {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data, "data");
-                window.location.href = data.route;
+                if (data.errors) {
+                    notyf.error(data.message);
+                }else{
+                    notyf.success(data.message);
+                    window.location.href = data.route;
+                }
             })
             .catch((error) => {
+                notyf.success("Course created successfully!");
+                notyf.error(error.message);
                 console.log(error, "error");
             });
     });

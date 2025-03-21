@@ -39,8 +39,9 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
     Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
-    Route::get('/courses/{course_id}/edit/{step}', [CourseController::class, 'edit'])->name('courses.edit');
-    Route::post('/courses/update/', [CourseController::class, 'update'])->name('courses.update');
+    Route::get('/courses/{course_id}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');
+    Route::post('/courses/update/1', [CourseController::class, 'updateFirst'])->name('courses.update.1');
+    Route::get('/courses/{course_id}/edit/2', [CourseController::class, 'editSecond'])->name('courses.edit.2');
 });
 
 // auth and admin

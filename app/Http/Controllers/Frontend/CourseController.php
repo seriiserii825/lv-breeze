@@ -49,17 +49,17 @@ class CourseController extends Controller
 
         return response()->json([
             'message' => 'Course created successfully',
-            'route' => route('instructor.courses.edit', ['course_id' => $course->id, 'step' => 2]),
-        ]);
+            'route' => route('instructor.courses.edit.1', ['course_id' => $course->id]),
+        ], 200);
     }
-    public function edit(Course $course, int $step)
+    public function editFirst(Course $course, int $step)
     {
         $categories = CourseCategory::where('status', 1)->get();
         $levels = CourseLevel::all();
         $languages = CourseLanguage::all();
-        return view('instructor.courses.edit', compact('course', 'step', 'categories', 'levels', 'languages'));
+        return view('instructor.courses.edit_first', compact('course', 'step', 'categories', 'levels', 'languages'));
     }
-    public function update(Request $request)
+    public function updateFirst(Request $request)
     {
         $validated = $request->validate([
             'course_id' => 'required|numeric',
@@ -68,15 +68,13 @@ class CourseController extends Controller
             'category_id' => 'required|numeric',
             'course_level_id' => 'required|numeric',
             'course_language_id' => 'required|numeric',
-            // 'discount' => 'required|numeric',
-            // 'status' => 'required|numeric',
         ]);
         $course = Course::find($validated['course_id']);
         $course->fill($validated);
         $course->save();
         return response()->json([
             'message' => 'Course updated successfully',
-            'route' => route('instructor.courses.edit', ['course_id' => $course->id, 'step' => 3]),
+            'route' => route('instructor.courses.edit.2', ['course_id' => $course->id]),
         ]);
     }
 }

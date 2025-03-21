@@ -1,6 +1,6 @@
 <x-layouts.course-create-layout>
     <div class="add_course_more_info">
-        <form action="{{ route('instructor.courses.update') }}" id="js-course-update-2">
+        <form action="{{ route('instructor.courses.update.1') }}" id="js-course-update-2">
             @csrf
             <input type="hidden" value="{{ request()->course_id }}" name="course_id" id="id"/>
             <div class="row">
