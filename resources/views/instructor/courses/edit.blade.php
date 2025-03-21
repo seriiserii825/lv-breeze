@@ -1,16 +1,18 @@
 <x-layouts.course-create-layout>
     <div class="add_course_more_info">
-        <form action="#">
+        <form action="{{ route('instructor.courses.update') }}" id="js-course-update-2">
+            @csrf
+            <input type="hidden" value="{{ request()->course_id }}" name="course_id" id="id"/>
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <x-form.input label="Capacity" name="capacity" placeholder="Capacity" />
+                        <x-form.input label="Capacity" name="capacity" type="number" placeholder="Capacity" />
                         <p>leave blank for unlimited</p>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <x-form.input label="Course Duration (Minutes)" name="duration" placeholder="300" />
+                        <x-form.input label="Course Duration (Minutes)" name="duration" type="number" placeholder="300" />
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -38,7 +40,7 @@
                 <div class="col-12">
                     <div class="add_course_more_info_input">
                         <label for="#">Category *</label>
-                        <select class="select_2">
+                        <select class="select_2" name="category_id">
                             <option value=""> Please Select </option>
                             @foreach ($categories as $category)
                                 @if ($category->subcategories->isNotEmpty())
@@ -57,7 +59,7 @@
                         <h3>Level</h3>
                         @foreach ($levels as $level)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="course_level_id"
+                                <input class="form-check-input" type="radio" value="{{ $level->id }}" name="course_level_id"
                                     id="js-level-{{ $level->id }}" checked>
                                 <label class="form-check-label" for="js-level-{{ $level->id }}">
                                     {{ $level->name }}
@@ -71,7 +73,7 @@
                         <h3>Language</h3>
                         @foreach ($languages as $language)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="course_language_id"
+                                <input class="form-check-input" type="radio" value="{{ $language->id }}" name="course_language_id"
                                     id="js-language-{{ $language->id }}">
                                 <label class="form-check-label" for="js-language-{{ $language->id }}">
                                     {{ $language->name }}

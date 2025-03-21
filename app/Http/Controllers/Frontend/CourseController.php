@@ -59,4 +59,24 @@ class CourseController extends Controller
         $languages = CourseLanguage::all();
         return view('instructor.courses.edit', compact('course', 'step', 'categories', 'levels', 'languages'));
     }
+    public function update(Request $request)
+    {
+        $validated = $request->validate([
+            'course_id' => 'required|numeric',
+            'capacity' => 'required|numeric',
+            'duration' => 'required|numeric',
+            'category_id' => 'required|numeric',
+            'course_level_id' => 'required|numeric',
+            'course_language_id' => 'required|numeric',
+            // 'discount' => 'required|numeric',
+            // 'status' => 'required|numeric',
+        ]);
+        $course = Course::find($validated['course_id']);
+        $course->fill($validated);
+        $course->save();
+        return response()->json([
+            'message' => 'Course updated successfully',
+            'route' => route('instructor.courses.edit', ['course_id' => $course->id, 'step' => 3]),
+        ]);
+    }
 }
