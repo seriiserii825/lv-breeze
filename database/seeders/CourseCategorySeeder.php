@@ -25,7 +25,21 @@ class CourseCategorySeeder extends Seeder
                 'slug' => 'business',
                 'show_at_tranding' => 0,
                 'status' => 0,
-            ]
+            ],
+            [
+                'name' => 'Vue.js',
+                'slug' => 'vue-js',
+                'show_at_tranding' => 0,
+                'status' => 1,
+                'parent_id' => 1,
+            ],
+            [
+                'name' => 'Javascript',
+                'slug' => 'javascript',
+                'show_at_tranding' => 0,
+                'status' => 1,
+                'parent_id' => 1,
+            ],
         ];
 
         foreach ($categories as $category) {

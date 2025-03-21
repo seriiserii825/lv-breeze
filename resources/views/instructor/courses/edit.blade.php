@@ -4,15 +4,13 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <label for="#">Capacity</label>
-                        <input type="text" placeholder="Capacity">
+                        <x-form.input label="Capacity" name="capacity" placeholder="Capacity" />
                         <p>leave blank for unlimited</p>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <label for="#">Course Duration (Minutes)*</label>
-                        <input type="text" placeholder="300">
+                        <x-form.input label="Course Duration (Minutes)" name="duration" placeholder="300" />
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -42,11 +40,15 @@
                         <label for="#">Category *</label>
                         <select class="select_2">
                             <option value=""> Please Select </option>
-                            <option value="">Red</option>
-                            <option value="">Black</option>
-                            <option value="">Orange</option>
-                            <option value="">Rose Gold</option>
-                            <option value="">Pink</option>
+                            @foreach ($categories as $category)
+                                @if ($category->subcategories->isNotEmpty())
+                                    <optgroup label="{{ $category->name }}">
+                                        @foreach ($category->subcategories as $subcategory)
+                                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                 </div>

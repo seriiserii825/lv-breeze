@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseCategory;
+use App\Models\CourseLanguage;
+use App\Models\CourseLevel;
 use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,12 +35,13 @@ class CourseController extends Controller
             'demo_video_storage' => 'required|string',
             'price' => 'required|numeric',
             'discount' => 'required|numeric',
-            'thumbnail' => 'required|image',
+            // 'thumbnail' => 'required|image',
         ]);
         $course->fill($validated);
-        if ($request->hasFile('thumbnail')) {
-            $course->thumbnail = $this->uploadFile($request->thumbnail);
-        }
+        // if ($request->hasFile('thumbnail')) {
+        //     $course->thumbnail = $this->uploadFile($request->thumbnail);
+        // }
+        $course->thumbnail = 'https://via.placeholder.com/150';
         $course->instructor_id = Auth::id();
         $course->slug = Str::slug($validated['title']);
 
@@ -50,6 +54,9 @@ class CourseController extends Controller
     }
     public function edit(Course $course, int $step)
     {
-        return view('instructor.courses.edit', compact('course', 'step'));
+        $categories = CourseCategory::where('status', 1)->get();
+        $levels = CourseLevel::all();
+        $languages = CourseLanguage::all();
+        return view('instructor.courses.edit', compact('course', 'step', 'categories', 'levels', 'languages'));
     }
 }
