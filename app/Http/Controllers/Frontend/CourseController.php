@@ -17,7 +17,7 @@ class CourseController extends Controller
     use FileUpload;
     public function index()
     {
-        $courses = Course::where('instructor_id', Auth::id())->get();
+        $courses = Course::where('instructor_id', Auth::id())->orderBy('updated_at', 'desc')->get();
         return view('instructor.courses.index', compact('courses'));
     }
 
@@ -56,7 +56,10 @@ class CourseController extends Controller
         $levels = CourseLevel::all();
         $languages = CourseLanguage::all();
         $course_id = $course->id;
-        return view('instructor.courses.edit_first', compact('course_id', 'categories', 'levels', 'languages'));
+        $current_category_id = $course->category_id;
+        $current_level_id = $course->course_level_id;
+        $current_language_id = $course->course_language_id;
+        return view('instructor.courses.edit_first', compact('course', 'current_category_id',  'current_level_id', 'current_language_id',  'course_id', 'categories', 'levels', 'languages'));
     }
     public function updateFirst(Request $request)
     {

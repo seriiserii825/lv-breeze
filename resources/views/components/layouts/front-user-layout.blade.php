@@ -28,7 +28,7 @@
     <link rel=" stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    @stack('create_course_js')
+    @vite('resources/js/app.js')
 
 </head>
 <body class="home_3">

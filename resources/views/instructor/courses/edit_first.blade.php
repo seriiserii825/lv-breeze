@@ -1,31 +1,33 @@
 <x-layouts.course-create-layout>
     <div class="add_course_more_info">
-        <form action="{{ route('instructor.courses.update.1', ['course' => request()->course->id]) }}" method="POST" id="js-course-edit-first">
+        <form action="{{ route('instructor.courses.update.1', ['course' => request()->course->id]) }}" method="POST"
+            id="js-course-edit-first">
             @csrf
             <input type="hidden" value="{{ request()->course->id }}" name="course_id" id="id" />
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <x-form.input label="Capacity" name="capacity" type="number" placeholder="Capacity" />
+                        <x-form.input label="Capacity" name="capacity" type="number" :value="$course->capacity"
+                            placeholder="Capacity" />
                         <p>leave blank for unlimited</p>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <x-form.input label="Course Duration (Minutes)" name="duration" type="number"
+                        <x-form.input label="Course Duration (Minutes)" name="duration" :value="$course->duration" type="number"
                             placeholder="300" />
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check">
-                            <input name="qna" class="form-check-input" type="checkbox" value="1"
-                                id="flexCheckDefault">
+                            <input name="qna" value="1" class="form-check-input" type="checkbox"
+                                id="flexCheckDefault" {{ old('qna', $course->qna) ? 'checked' : '' }}>
                             <label class="form-check-label" for="flexCheckDefault">Q&A</label>
                         </div>
                         <div class="form-check">
-                            <input name="qna" class="form-check-input" type="checkbox" value="1"
-                                id="flexCheckDefault2">
+                            <input name="certificate" value="1" class="form-check-input" type="checkbox"
+                                id="flexCheckDefault2" {{ old('certificate', $course->certificate) ? 'checked' : '' }}>
                             <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                         </div>
                     </div>
@@ -39,7 +41,9 @@
                                 @if ($category->subcategories->isNotEmpty())
                                     <optgroup label="{{ $category->name }}">
                                         @foreach ($category->subcategories as $subcategory)
-                                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                            <option
+                                                {{ old('category_id', $current_category_id ?? '') == $subcategory->id ? 'selected' : '' }}
+                                                value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                                         @endforeach
                                     </optgroup>
                                 @endif
@@ -54,7 +58,9 @@
                         @foreach ($levels as $level)
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" value="{{ $level->id }}"
-                                    name="course_level_id" id="js-level-{{ $level->id }}" checked>
+                                    name="course_level_id" id="js-level-{{ $level->id }}"
+                                    {{ old('course_level_id', $current_level_id ?? '') == $level->id ? 'checked' : '' }}>
+
                                 <label class="form-check-label" for="js-level-{{ $level->id }}">
                                     {{ $level->name }}
                                 </label>
@@ -68,8 +74,8 @@
                         <h3>Language</h3>
                         @foreach ($languages as $language)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="{{ $language->id }}"
-                                    name="course_language_id" id="js-language-{{ $language->id }}">
+                                <input name="course_language_id" class="form-check-input" type="radio" value="{{ $language->id }}"
+                                    {{ old('course_language_id', $current_language_id ?? '') == $language->id ? 'checked' : '' }}>
                                 <label class="form-check-label" for="js-language-{{ $language->id }}">
                                     {{ $language->name }}
                                 </label>
