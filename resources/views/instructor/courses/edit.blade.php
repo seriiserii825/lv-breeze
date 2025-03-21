@@ -57,7 +57,7 @@
                         <h3>Level</h3>
                         @foreach ($levels as $level)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="level"
+                                <input class="form-check-input" type="radio" name="course_level_id"
                                     id="js-level-{{ $level->id }}" checked>
                                 <label class="form-check-label" for="js-level-{{ $level->id }}">
                                     {{ $level->name }}
@@ -69,35 +69,15 @@
                 <div class="col-xl-4">
                     <div class="add_course_more_info_radio_box">
                         <h3>Language</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault11" checked>
-                            <label class="form-check-label" for="flexRadioDefault11">
-                                English
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault12">
-                            <label class="form-check-label" for="flexRadioDefault12">
-                                Hindi
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault13">
-                            <label class="form-check-label" for="flexRadioDefault13">
-                                Arabic
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                id="flexRadioDefault14">
-                            <label class="form-check-label" for="flexRadioDefault14">
-                                Francais
-                            </label>
-                        </div>
-
+                        @foreach ($languages as $language)
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="course_language_id"
+                                    id="js-language-{{ $language->id }}">
+                                <label class="form-check-label" for="js-language-{{ $language->id }}">
+                                    {{ $language->name }}
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-12">
