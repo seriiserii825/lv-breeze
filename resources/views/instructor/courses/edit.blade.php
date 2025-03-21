@@ -55,34 +55,15 @@
                 <div class="col-xl-4">
                     <div class="add_course_more_info_radio_box">
                         <h3>Level</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Beginner
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Intermediate
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Expert
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="flexRadioDefault4">
-                            <label class="form-check-label" for="flexRadioDefault4">
-                                Expert
-                            </label>
-                        </div>
+                        @foreach ($levels as $level)
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="level"
+                                    id="js-level-{{ $level->id }}" checked>
+                                <label class="form-check-label" for="js-level-{{ $level->id }}">
+                                    {{ $level->name }}
+                                </label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-4">

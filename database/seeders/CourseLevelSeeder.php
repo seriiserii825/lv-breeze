@@ -16,7 +16,11 @@ class CourseLevelSeeder extends Seeder
             [
                 'name' => 'Beginner',
                 'slug' => 'beginner',
-            ]
+            ],
+            [
+                'name' => 'Intermediate',
+                'slug' => 'intermediate',
+            ],
         ];
 
         foreach ($levels as $level) {
