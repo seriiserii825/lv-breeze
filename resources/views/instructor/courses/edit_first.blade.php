@@ -1,8 +1,8 @@
 <x-layouts.course-create-layout>
     <div class="add_course_more_info">
-        <form action="{{ route('instructor.courses.update.1') }}" id="js-course-edit-first">
+        <form action="{{ route('instructor.courses.update.1', ['course' => request()->course->id]) }}" method="POST" id="js-course-edit-first">
             @csrf
-            <input type="hidden" value="{{ request()->course_id }}" name="course_id" id="id"/>
+            <input type="hidden" value="{{ request()->course->id }}" name="course_id" id="id" />
             <div class="row">
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
@@ -12,17 +12,20 @@
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_input">
-                        <x-form.input label="Course Duration (Minutes)" name="duration" type="number" placeholder="300" />
+                        <x-form.input label="Course Duration (Minutes)" name="duration" type="number"
+                            placeholder="300" />
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check">
-                            <input name="qna" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
+                            <input name="qna" class="form-check-input" type="checkbox" value="1"
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">Q&A</label>
                         </div>
                         <div class="form-check">
-                            <input name="qna" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault2">
+                            <input name="qna" class="form-check-input" type="checkbox" value="1"
+                                id="flexCheckDefault2">
                             <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                         </div>
                     </div>
@@ -42,6 +45,7 @@
                                 @endif
                             @endforeach
                         </select>
+                        <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
                     </div>
                 </div>
                 <div class="col-xl-4">
@@ -49,13 +53,14 @@
                         <h3>Level</h3>
                         @foreach ($levels as $level)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="{{ $level->id }}" name="course_level_id"
-                                    id="js-level-{{ $level->id }}" checked>
+                                <input class="form-check-input" type="radio" value="{{ $level->id }}"
+                                    name="course_level_id" id="js-level-{{ $level->id }}" checked>
                                 <label class="form-check-label" for="js-level-{{ $level->id }}">
                                     {{ $level->name }}
                                 </label>
                             </div>
                         @endforeach
+                        <x-input-error :messages="$errors->get('course_level_id')" class="mt-2" />
                     </div>
                 </div>
                 <div class="col-xl-4">
@@ -63,13 +68,14 @@
                         <h3>Language</h3>
                         @foreach ($languages as $language)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="{{ $language->id }}" name="course_language_id"
-                                    id="js-language-{{ $language->id }}">
+                                <input class="form-check-input" type="radio" value="{{ $language->id }}"
+                                    name="course_language_id" id="js-language-{{ $language->id }}">
                                 <label class="form-check-label" for="js-language-{{ $language->id }}">
                                     {{ $language->name }}
                                 </label>
                             </div>
                         @endforeach
+                        <x-input-error :messages="$errors->get('course_language_id')" class="mt-2" />
                     </div>
                 </div>
                 <div class="col-xl-12">

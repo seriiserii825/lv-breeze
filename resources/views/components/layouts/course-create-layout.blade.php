@@ -14,7 +14,4 @@
             </div>
         </div>
     </div>
-    @push('create_course_js')
-        @vite(['resources/js/course/course-create.js', 'resources/js/course/course-edit-first.js'])
-    @endpush
 </x-layouts.front-user-layout>

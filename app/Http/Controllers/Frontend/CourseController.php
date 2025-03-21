@@ -48,18 +48,15 @@ class CourseController extends Controller
 
         $course->save();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Course created successfully',
-            'route' => route('instructor.courses.edit.1', ['course_id' => $course->id]),
-        ], 200);
+        return redirect()->route('instructor.courses.edit.1', ['course' => $course->id])->with('success', 'Course created successfully');
     }
-    public function editFirst(Course $course, int $step)
+    public function editFirst(Course $course)
     {
         $categories = CourseCategory::where('status', 1)->get();
         $levels = CourseLevel::all();
         $languages = CourseLanguage::all();
-        return view('instructor.courses.edit_first', compact('course', 'step', 'categories', 'levels', 'languages'));
+        $course_id = $course->id;
+        return view('instructor.courses.edit_first', compact('course_id', 'categories', 'levels', 'languages'));
     }
     public function updateFirst(Request $request)
     {
@@ -78,14 +75,11 @@ class CourseController extends Controller
         $course->qna = $request->qna ? 1 : 0;
         $course->certificate = $request->certificate ? 1 : 0;
         $course->save();
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Course updated successfully',
-            'route' => route('instructor.courses.edit.2', ['course_id' => $course->id]),
-        ]);
+        return redirect()->route('instructor.courses.edit.2', ['course' => $course->id])->with('success', 'Course updated successfully');
     }
     public function editSecond(Course $course)
     {
-        return view('instructor.courses.edit_second', compact('course'));
+        $course_id = $course->id;
+        return view('instructor.courses.edit_second', compact('course_id'));
     }
 }

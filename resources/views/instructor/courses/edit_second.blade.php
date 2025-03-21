@@ -1,5 +1,6 @@
 <x-layouts.course-create-layout>
     <div class="add_course_content">
+        <input type="hidden" value="{{ request()->course_id }}" name="course_id" id="id" />
         <div class="flex-wrap add_course_content_btn_area d-flex justify-content-between">
             <a class="common_btn" href="#">Add New Chapter</a>
             <a class="common_btn" href="#">Short Chapter</a>
@@ -76,9 +77,9 @@
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
                                         <span>Accordion Item #1</span>
                                     </button>
                                     <div class="add_course_content_action_btn">
