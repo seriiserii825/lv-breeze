@@ -17,7 +17,8 @@ class CourseController extends Controller
     use FileUpload;
     public function index()
     {
-        return view('instructor.courses.index');
+        $courses = Course::where('instructor_id', Auth::id())->get();
+        return view('instructor.courses.index', compact('courses'));
     }
 
     public function create()
