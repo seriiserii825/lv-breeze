@@ -70,9 +70,13 @@ class CourseController extends Controller
             'category_id' => 'required|numeric',
             'course_level_id' => 'required|numeric',
             'course_language_id' => 'required|numeric',
+            'qna' => 'nullable|boolean',
+            'certificate' => 'nullable|boolean',
         ]);
         $course = Course::find($validated['course_id']);
         $course->fill($validated);
+        $course->qna = $request->qna ? 1 : 0;
+        $course->certificate = $request->certificate ? 1 : 0;
         $course->save();
         return response()->json([
             'status' => 'success',

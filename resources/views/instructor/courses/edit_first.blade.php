@@ -18,22 +18,12 @@
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input name="qna" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">Q&A</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                            <label class="form-check-label" for="flexCheckDefault2">Completion
-                                Certificate</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                            <label class="form-check-label" for="flexCheckDefault3">Patner
-                                instructor</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                            <label class="form-check-label" for="flexCheckDefault4">Others</label>
+                            <input name="qna" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault2">
+                            <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                         </div>
                     </div>
                 </div>
