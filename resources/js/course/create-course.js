@@ -20,9 +20,7 @@ form.addEventListener("submit", (e) => {
         .then((response) => response.json())
         .then((data) => {
             console.log(data, "data");
-            if (data.success) {
-                console.log(data, "data");
-            }
+            window.location.href = data.route;
         })
         .catch((error) => {
             console.log(error, "error");

@@ -43,6 +43,13 @@ class CourseController extends Controller
 
         $course->save();
 
-        return response()->json(['message' => 'Course created successfully']);
+        return response()->json([
+            'message' => 'Course created successfully',
+            'route' => route('instructor.courses.edit', ['course_id' => $course->id, 'step' => 2]),
+        ]);
+    }
+    public function edit(Course $course, int $step)
+    {
+        return view('instructor.courses.edit', compact('course', 'step'));
     }
 }
