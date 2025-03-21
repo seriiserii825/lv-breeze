@@ -79,4 +79,8 @@ class CourseController extends Controller
             'route' => route('instructor.courses.edit.2', ['course_id' => $course->id]),
         ]);
     }
+    public function editSecond(Course $course)
+    {
+        return view('instructor.courses.edit_second', compact('course'));
+    }
 }
