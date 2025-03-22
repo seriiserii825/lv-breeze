@@ -31,13 +31,12 @@ class CourseController extends Controller
             'demo_video_storage' => 'required|string',
             'price' => 'required|numeric',
             'discount' => 'required|numeric',
-            // 'thumbnail' => 'required|image',
+            'thumbnail' => 'required|image',
         ]);
         $course->fill($validated);
-        // if ($request->hasFile('thumbnail')) {
-        //     $course->thumbnail = $this->uploadFile($request->thumbnail);
-        // }
-        $course->thumbnail = 'https://via.placeholder.com/150';
+        if ($request->hasFile('thumbnail')) {
+            $course->thumbnail = $this->uploadFile($request->thumbnail);
+        }
         $course->instructor_id = Auth::id();
         $course->slug = Str::slug($validated['title']);
         $course->save();

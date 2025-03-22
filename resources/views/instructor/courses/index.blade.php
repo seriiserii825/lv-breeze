@@ -51,8 +51,10 @@
                                     <tr>
                                         <td class="image">
                                             <div class="image_category">
-                                                <img src="images/courses_3_img_3.jpg" alt="img"
-                                                    class="img-fluid w-100">
+                                                @if ($course->thumbnail)
+                                                    <img src="{{ $course->thumbnail }}" alt="img"
+                                                        class="img-fluid w-100">
+                                                @endif
                                             </div>
                                         </td>
                                         <td class="details">
@@ -64,7 +66,8 @@
                                                 <i class="far fa-star" aria-hidden="true"></i>
                                                 <span>(5.0)</span>
                                             </p>
-                                            <a class="title" href="{{ $course->slug }}">{{ $course->title }}({{ $course->id }})</a>
+                                            <a class="title"
+                                                href="{{ $course->slug }}">{{ $course->title }}({{ $course->id }})</a>
                                         </td>
                                         <td class="sale">
                                             <p>34</p>
@@ -73,7 +76,8 @@
                                             <p class="delete">Deleted</p>
                                         </td>
                                         <td class="action">
-                                            <a class="edit" href="{{ route('instructor.courses.edit', ['course' => $course->id, 'step' => 1]) }}"><i
+                                            <a class="edit"
+                                                href="{{ route('instructor.courses.edit', ['course' => $course->id, 'step' => 1]) }}"><i
                                                     class="far fa-edit"></i></a>
                                             <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
                                         </td>

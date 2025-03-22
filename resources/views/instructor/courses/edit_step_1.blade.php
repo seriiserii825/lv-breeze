@@ -12,7 +12,7 @@
                         placeholder="Seo description" />
                 </div>
                 <div class="col-xl-12 add_course_basic_info_imput">
-                    <x-form.input-file label="Thumbnail" name="thumbnail" />
+                    <x-form.input-file label="Thumbnail" name="thumbnail" :value="$course->thumbnail" />
                 </div>
                 <div class="col-xl-6 add_course_basic_info_imput">
                     <x-form.select label="Demo Video Storage" name="demo_video_storage" :value="$course->demo_video_storage"
