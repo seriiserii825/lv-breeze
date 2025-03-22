@@ -37,19 +37,7 @@
                     <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
                 </div>
                 <div class="col-xl-4 add_course_more_info_radio_box">
-                    <h3>Level</h3>
-                    @foreach ($levels as $level)
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="{{ $level->id }}"
-                                name="course_level_id" id="js-level-{{ $level->id }}"
-                                {{ old('course_level_id', $current_level_id ?? '') == $level->id ? 'checked' : '' }}>
-
-                            <label class="form-check-label" for="js-level-{{ $level->id }}">
-                                {{ $level->name }}
-                            </label>
-                        </div>
-                    @endforeach
-                    <x-input-error :messages="$errors->get('course_level_id')" class="mt-2" />
+                    <x-form.radio name="course_level_id" :options="$levels" :selected="$course->course_level_id" label="Level" />
                 </div>
                 <div class="col-xl-4 add_course_more_info_radio_box">
                     <h3>Language</h3>
