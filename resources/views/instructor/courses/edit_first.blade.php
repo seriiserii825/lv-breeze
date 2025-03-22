@@ -20,17 +20,8 @@
                 </div>
                 <div class="col-xl-6">
                     <div class="add_course_more_info_checkbox">
-                        <div class="form-check">
-                            <input name="qna" value="1" class="form-check-input" type="checkbox"
-                                id="qna" @checked($course->qna == 1)>
-                            <label class="form-check-label" for="qna">Q&A</label>
-                        </div>
-                        <div class="form-check">
-                            <input name="certificate" value="1" class="form-check-input" type="checkbox"
-                                id="certificate" @checked($course->certificate == 1)>
-                            <label class="form-check-label" for="certificate">Completion
-                                Certificate</label>
-                        </div>
+                        <x-form.checkbox name="qna" label="Q&A" :current="$course->qna" />
+                        <x-form.checkbox name="certificate" label="Completion Certificate" :current="$course->certificate" />
                     </div>
                 </div>
                 <div class="col-12">
