@@ -73,7 +73,7 @@
                                             <p class="delete">Deleted</p>
                                         </td>
                                         <td class="action">
-                                            <a class="edit" href="{{ route('instructor.courses.edit.1', ['course' => $course->id]) }}"><i
+                                            <a class="edit" href="{{ route('instructor.courses.edit', ['course' => $course->id, 'step' => 1]) }}"><i
                                                     class="far fa-edit"></i></a>
                                             <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
                                         </td>

@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     // course create
     Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
+
+    Route::get('/courses/{course}/edit/{step}', [CourseController::class, 'edit'])->name('courses.edit');
+    Route::post('/courses/{course}/update/{step}', [CourseController::class, 'update'])->name('courses.update');
+
     // course edit first
     Route::get('/courses/{course}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');
     Route::post('/courses/update/first', [CourseController::class, 'updateFirst'])->name('courses.update.1');

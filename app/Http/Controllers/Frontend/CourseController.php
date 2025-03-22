@@ -48,34 +48,81 @@ class CourseController extends Controller
 
         $course->save();
 
-        return redirect()->route('instructor.courses.edit.1', ['course' => $course->id])->with('success', 'Course created successfully');
+        return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => 2])->with('success', 'Course created successfully');
     }
-    public function editFirst(Course $course)
+
+    public function edit(Course $course, $step)
     {
-        $categories = CourseCategory::where('status', 1)->get();
-        $levels = CourseLevel::all();
-        $languages = CourseLanguage::all();
-        return view('instructor.courses.edit_first', compact('course', 'categories', 'levels', 'languages'));
+        switch ($step) {
+            case 1:
+                $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
+                return view('instructor.courses.edit_step_1', compact('enum_values', 'course'));
+                break;
+            case 2:
+                $categories = CourseCategory::where('status', 1)->get();
+                $levels = CourseLevel::all();
+                $languages = CourseLanguage::all();
+                return view('instructor.courses.edit_step_2', compact('course', 'categories', 'levels', 'languages'));
+                break;
+
+            case 3:
+                $course_id = $course->id;
+                return view('instructor.courses.edit_step_3', compact('course_id'));
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
-    public function updateFirst(Request $request)
+
+    public function update(Request $request, Course $course, int $step)
     {
-        $validated = $request->validate([
-            'course_id' => 'required|numeric',
-            'capacity' => 'required|numeric',
-            'duration' => 'required|numeric',
-            'category_id' => 'required|numeric',
-            'course_level_id' => 'required|numeric',
-            'course_language_id' => 'required|numeric',
-            'qna' => 'nullable|boolean',
-            'certificate' => 'nullable|boolean',
-        ]);
-        $course = Course::find($validated['course_id']);
-        $course->fill($validated);
-        $course->qna = $request->qna ? 1 : 0;
-        $course->certificate = $request->certificate ? 1 : 0;
-        $course->save();
-        return redirect()->route('instructor.courses.edit.2', ['course' => $course->id])->with('success', 'Course updated successfully');
+        switch ($step) {
+            case 1:
+                $validated = $request->validate([
+                    'title' => 'required|string|max:255',
+                    'seo_description' => 'required|string',
+                    'demo_video_storage' => 'required|string',
+                    'price' => 'required|numeric',
+                    'discount' => 'required|numeric',
+                    'description' => 'required|string',
+                    // 'thumbnail' => 'required|image',
+                ]);
+                $course = Course::find($course->id);
+                $course->fill($validated);
+                // if ($request->hasFile('thumbnail')) {
+                //    $course->thumbnail = $this->uploadFile($request->thumbnail);
+                //    }
+                $course->thumbnail = 'https://via.placeholder.com/150';
+                $course->slug = Str::slug($validated['title']);
+                $course->save();
+                return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])->with('success', 'Course updated successfully');
+                break;
+            case 2:
+                $validated = $request->validate([
+                    'capacity' => 'required|numeric',
+                    'duration' => 'required|numeric',
+                    'category_id' => 'required|numeric',
+                    'course_level_id' => 'required|numeric',
+                    'course_language_id' => 'required|numeric',
+                    'qna' => 'nullable|boolean',
+                    'certificate' => 'nullable|boolean',
+                ]);
+                $course = Course::find($course->id);
+                $course->fill($validated);
+                $course->qna = $request->qna ? 1 : 0;
+                $course->certificate = $request->certificate ? 1 : 0;
+                $course->save();
+                return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])->with('success', 'Course updated successfully');
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
+
     public function editSecond(Course $course)
     {
         $course_id = $course->id;
