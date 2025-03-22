@@ -19,101 +19,20 @@
             <x-navigation.sidebar-link route="{{ route('student.dashboard') }}" icon="dash_icon_8.png" title="Dashboard"
                 active="{{ request()->is('student/dashboard') }}" />
             <x-navigation.sidebar-link route="{{ route('student.profile.index', auth()->user()->id) }}"
-                icon="dash_icon_8.png" title="Profile" active="{{ request()->is('student/profile/' . auth()->user()->id) }}" />
+                icon="dash_icon_8.png" title="Profile"
+                active="{{ request()->is('student/profile/' . auth()->user()->id) }}" />
         @else
-            <x-navigation.sidebar-link route="{{ route('instructor.dashboard') }}" icon="dash_icon_1.png" title="Dashboard" active="{{ request()->is('instructor/dashboard') }}"/>
+            <x-navigation.sidebar-link route="{{ route('instructor.dashboard') }}" icon="dash_icon_1.png"
+                title="Dashboard" active="{{ request()->is('instructor/dashboard') }}" />
             <x-navigation.sidebar-link route="{{ route('instructor.profile.index', auth()->user()->id) }}"
-                icon="dash_icon_8.png" title="Profile" active="{{ request()->is('instructor/profile/' . auth()->user()->id) }}" />
-            <x-navigation.sidebar-link route="{{ route('instructor.courses.index') }}" icon="dash_icon_8.png" title="Courses" active="{{ request()->is('instructor/courses') }}" />
+                icon="dash_icon_8.png" title="Profile"
+                active="{{ request()->is('instructor/profile/' . auth()->user()->id) }}" />
+            @php
+                $active = request()->is('instructor/courses') || request()->is('instructor/courses/*');
+            @endphp
+            <x-navigation.sidebar-link route="{{ route('instructor.courses.index') }}" icon="dash_icon_8.png"
+                title="Courses" active="{{ $active }}" />
         @endif
-        {{-- <li> --}}
-        {{--     <a href="dashboard_profile.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_1.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Profile --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_courses.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_2.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Courses --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_review.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_4.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Reviews --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_order.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_5.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Orders --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_student.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_6.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Students --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_payout.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_7.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Payouts --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_support.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_8.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Support Tickets --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_security.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_10.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Security --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_social_account.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_11.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Social Profile --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_notification.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_12.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Notifications --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
-        {{-- <li> --}}
-        {{--     <a href="dashboard_privacy.html"> --}}
-        {{--         <div class="img"> --}}
-        {{--             <img src="{{ asset('frontend/images/dash_icon_13.png') }}" alt="icon" class="img-fluid w-100"> --}}
-        {{--         </div> --}}
-        {{--         Profile Privacy --}}
-        {{--     </a> --}}
-        {{-- </li> --}}
         <li>
             <a href="#" class="btn-signout">
                 <div class="img">
