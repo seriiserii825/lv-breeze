@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
-
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategory;
@@ -11,7 +9,6 @@ use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-
 class CourseController extends Controller
 {
     use FileUpload;
@@ -20,13 +17,11 @@ class CourseController extends Controller
         $courses = Course::where('instructor_id', Auth::id())->orderBy('updated_at', 'desc')->get();
         return view('instructor.courses.index', compact('courses'));
     }
-
     public function create()
     {
         $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
         return view('instructor.courses.create', compact('enum_values'));
     }
-
     public function store(Request $request)
     {
         $course = new Course();
@@ -45,12 +40,9 @@ class CourseController extends Controller
         $course->thumbnail = 'https://via.placeholder.com/150';
         $course->instructor_id = Auth::id();
         $course->slug = Str::slug($validated['title']);
-
         $course->save();
-
         return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => 2])->with('success', 'Course created successfully');
     }
-
     public function edit(Course $course, $step)
     {
         switch ($step) {
@@ -64,18 +56,19 @@ class CourseController extends Controller
                 $languages = CourseLanguage::all();
                 return view('instructor.courses.edit_step_2', compact('course', 'categories', 'levels', 'languages'));
                 break;
-
             case 3:
                 $course_id = $course->id;
-                return view('instructor.courses.edit_step_3', compact('course_id'));
+                return view('instructor.courses.edit_step_3', compact('course'));
                 break;
-
+            case 4:
+                $course_id = $course->id;
+                return view('instructor.courses.edit_step_4', compact('course'));
+                break;
             default:
                 # code...
                 break;
         }
     }
-
     public function update(Request $request, Course $course, int $step)
     {
         switch ($step) {
@@ -116,16 +109,9 @@ class CourseController extends Controller
                 $course->save();
                 return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])->with('success', 'Course updated successfully');
                 break;
-
             default:
                 # code...
                 break;
         }
-    }
-
-    public function editSecond(Course $course)
-    {
-        $course_id = $course->id;
-        return view('instructor.courses.edit_second', compact('course_id'));
     }
 }

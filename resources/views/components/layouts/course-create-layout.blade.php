@@ -8,7 +8,9 @@
         </div>
 
         <div class="dashboard_add_courses">
-            <x-course.course-create-tabs />
+            @if (request()->course)
+                <x-course.course-create-tabs />
+            @endif
             <div class="tab-content" id="pills-tabContent">
                 {{ $slot }}
             </div>

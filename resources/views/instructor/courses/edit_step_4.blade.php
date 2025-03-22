@@ -1,5 +1,5 @@
 <x-layouts.course-create-layout>
-    <div class="add_course_more_info">
-        <h2>Edit second</h2>
+    <div class="add_course_basic_info">
+        <h3>step 4</h3>
     </div>
 </x-layouts.course-create-layout>
