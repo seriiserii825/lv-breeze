@@ -64,7 +64,7 @@
                                                 <i class="far fa-star" aria-hidden="true"></i>
                                                 <span>(5.0)</span>
                                             </p>
-                                            <a class="title" href="{{ $course->slug }}">{{ $course->title }}</a>
+                                            <a class="title" href="{{ $course->slug }}">{{ $course->title }}({{ $course->id }})</a>
                                         </td>
                                         <td class="sale">
                                             <p>34</p>

@@ -55,11 +55,7 @@ class CourseController extends Controller
         $categories = CourseCategory::where('status', 1)->get();
         $levels = CourseLevel::all();
         $languages = CourseLanguage::all();
-        $course_id = $course->id;
-        $current_category_id = $course->category_id;
-        $current_level_id = $course->course_level_id;
-        $current_language_id = $course->course_language_id;
-        return view('instructor.courses.edit_first', compact('course', 'current_category_id',  'current_level_id', 'current_language_id',  'course_id', 'categories', 'levels', 'languages'));
+        return view('instructor.courses.edit_first', compact('course', 'categories', 'levels', 'languages'));
     }
     public function updateFirst(Request $request)
     {
