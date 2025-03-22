@@ -19,39 +19,13 @@
                     <x-form.checkbox name="certificate" label="Completion Certificate" :current="$course->certificate" />
                 </div>
                 <div class="col-12 add_course_more_info_input">
-                    <label for="#">Category *</label>
-                    <select class="select_2" name="category_id">
-                        <option value=""> Please Select </option>
-                        @foreach ($categories as $category)
-                            @if ($category->subcategories->isNotEmpty())
-                                <optgroup label="{{ $category->name }}">
-                                    @foreach ($category->subcategories as $subcategory)
-                                        <option
-                                            {{ old('category_id', $current_category_id ?? '') == $subcategory->id ? 'selected' : '' }}
-                                            value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
-                                    @endforeach
-                                </optgroup>
-                            @endif
-                        @endforeach
-                    </select>
-                    <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
+                    <x-form.select-group label="Category" name="category_id" :categories="$categories" :current-category-id="$course->category_id" />
                 </div>
                 <div class="col-xl-4 add_course_more_info_radio_box">
                     <x-form.radio name="course_level_id" :options="$levels" :selected="$course->course_level_id" label="Level" />
                 </div>
                 <div class="col-xl-4 add_course_more_info_radio_box">
-                    <h3>Language</h3>
-                    @foreach ($languages as $language)
-                        <div class="form-check">
-                            <input name="course_language_id" class="form-check-input" type="radio"
-                                value="{{ $language->id }}"
-                                {{ old('course_language_id', $current_language_id ?? '') == $language->id ? 'checked' : '' }}>
-                            <label class="form-check-label" for="js-language-{{ $language->id }}">
-                                {{ $language->name }}
-                            </label>
-                        </div>
-                    @endforeach
-                    <x-input-error :messages="$errors->get('course_language_id')" class="mt-2" />
+                    <x-form.radio name="course_language_id" :options="$languages" :selected="$course->course_language_id" label="Language" />
                 </div>
                 <div class="col-xl-12">
                     <button type="submit" class="common_btn">Save</button>
