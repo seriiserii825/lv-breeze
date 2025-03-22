@@ -18,6 +18,14 @@
                         <x-form.select label="Demo Video Storage" name="demo_video_storage" :options="$enum_values" />
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
+                        <div id="js-video-file">
+                            <x-form.input-file label="Upload video file" name="video_file" />
+                        </div>
+                        <div id="js-video-input" class="d-none">
+                            <x-form.input label="Input video source path" name="video_input" />
+                        </div>
+                    </div>
+                    <div class="col-xl-6 add_course_basic_info_imput">
                         <x-form.input label="Price" name="price" placeholder="Price" />
                         <p>Put 0 for free</p>
                     </div>
@@ -34,3 +42,20 @@
         </div>
     </div>
 </x-layouts.course-create-layout>
+<script charset="utf-8">
+    const select = document.querySelector('select[name="demo_video_storage"]');
+    select.addEventListener('change', (e) => {
+        const value = e.target.value;
+        console.log("value", value);
+        const videoFile = document.querySelector('#js-video-file');
+        const videoInput = document.querySelector('#js-video-input');
+        if (value === 'upload') {
+            videoFile.classList.remove('d-none');
+            videoInput.classList.add('d-none');
+        } else {
+            videoFile.classList.add('d-none');
+            videoInput.classList.remove('d-none');
+        }
+    });
+</script>
+

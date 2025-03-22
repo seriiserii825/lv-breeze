@@ -23,7 +23,8 @@ class CourseController extends Controller
     }
     public function create()
     {
-        $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
+        // $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
+        $enum_values = ['upload' => 'Upload', 'youtube' => 'Youtube', 'vimeo' => 'Vimeo', 'external_link' => 'External Link'];
         return view('instructor.courses.create', compact('enum_values'));
     }
     public function store(StoreRequest $request)
