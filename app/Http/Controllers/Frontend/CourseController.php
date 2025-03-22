@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Controllers\Frontend;
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CourseCreate\StoreRequest;
 use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CourseLanguage;
@@ -9,6 +12,7 @@ use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+
 class CourseController extends Controller
 {
     use FileUpload;
@@ -22,23 +26,15 @@ class CourseController extends Controller
         $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
         return view('instructor.courses.create', compact('enum_values'));
     }
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $course = new Course();
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'seo_description' => 'required|string',
-            'demo_video_storage' => 'required|string',
-            'price' => 'required|numeric',
-            'discount' => 'required|numeric',
-            'thumbnail' => 'required|image',
-        ]);
-        $course->fill($validated);
+        $course->fill($request->validated());
         if ($request->hasFile('thumbnail')) {
-            $course->thumbnail = $this->uploadFile($request->thumbnail);
+            $course->thumbnail = $this->uploadFile($request->file('thumbnail'));
         }
         $course->instructor_id = Auth::id();
-        $course->slug = Str::slug($validated['title']);
+        $course->slug = Str::slug($request['title']);
         $course->save();
         return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => 2])->with('success', 'Course created successfully');
     }
@@ -79,18 +75,22 @@ class CourseController extends Controller
                     'price' => 'required|numeric',
                     'discount' => 'required|numeric',
                     'description' => 'required|string',
-                    // 'thumbnail' => 'required|image',
+                    'thumbnail' => 'nullable|image',
                 ]);
-                $course = Course::find($course->id);
+
                 $course->fill($validated);
-                // if ($request->hasFile('thumbnail')) {
-                //    $course->thumbnail = $this->uploadFile($request->thumbnail);
-                //    }
-                $course->thumbnail = 'https://via.placeholder.com/150';
+
+                if ($request->hasFile('thumbnail')) {
+                    $course->thumbnail = $this->uploadFile($request->file('thumbnail'));
+                }
+
                 $course->slug = Str::slug($validated['title']);
                 $course->save();
-                return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])->with('success', 'Course updated successfully');
-                break;
+
+                return redirect()
+                    ->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])
+                    ->with('success', 'Course updated successfully');
+
             case 2:
                 $validated = $request->validate([
                     'capacity' => 'required|numeric',
@@ -101,16 +101,18 @@ class CourseController extends Controller
                     'qna' => 'nullable|boolean',
                     'certificate' => 'nullable|boolean',
                 ]);
-                $course = Course::find($course->id);
+
                 $course->fill($validated);
-                $course->qna = $request->qna ? 1 : 0;
-                $course->certificate = $request->certificate ? 1 : 0;
+                $course->qna = $request->boolean('qna');
+                $course->certificate = $request->boolean('certificate');
                 $course->save();
-                return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])->with('success', 'Course updated successfully');
-                break;
+
+                return redirect()
+                    ->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])
+                    ->with('success', 'Course updated successfully');
+
             default:
-                # code...
-                break;
+                abort(404);
         }
     }
 }
