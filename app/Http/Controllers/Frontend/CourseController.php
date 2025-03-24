@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseCreate\StoreRequest;
 use App\Models\Course;
 use App\Models\CourseCategory;
+use App\Models\CourseChapter;
 use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
 use App\Traits\FileUpload;
@@ -58,8 +59,9 @@ class CourseController extends Controller
                 return view('instructor.courses.edit_step_2', compact('course', 'categories', 'levels', 'languages'));
                 break;
             case 3:
+                $chapters = CourseChapter::where('course_id', $course->id)->orderBy('order', 'asc')->get();
                 $course_id = $course->id;
-                return view('instructor.courses.edit_step_3', compact('course'));
+                return view('instructor.courses.edit_step_3', compact('course', 'chapters'));
                 break;
             case 4:
                 $course_id = $course->id;
