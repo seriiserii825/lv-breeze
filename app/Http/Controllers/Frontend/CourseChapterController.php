@@ -95,8 +95,10 @@ class CourseChapterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CourseChapter $course_chapter)
     {
-        //
+        $course_chapter->delete();
+
+        return back()->with('success', 'Chapter deleted successfully');
     }
 }

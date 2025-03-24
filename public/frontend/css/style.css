@@ -15664,3 +15664,10 @@ footer {
     margin-top: 5px;
 }
 
+.add_course_content .accordion-item button[type="submit"] {
+    padding: 0;
+    background: transparent;
+}
+.add_course_content .accordion-item button[type="submit"]::before {
+    display: none;
+}

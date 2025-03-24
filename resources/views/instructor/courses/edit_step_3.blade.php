@@ -28,7 +28,11 @@
                                 </ul>
                             </div>
                             <a class="edit" href="#"><i class="far fa-edit"></i></a>
-                            <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
+                            <form class="d-inline-flex align-items-center" action="{{ route('instructor.course-chapters.destroy', ['course_id' => $course->id, 'course_chapter' => $chapter]) }}" method="post" accept-charset="utf-8">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="del" href="#"><i class="fas fa-trash-alt"></i></button>
+                            </form>
                         </div>
                     </h2>
                     <div id="js-chapter-{{ $k }}" class="accordion-collapse collapse show"
