@@ -15443,7 +15443,7 @@ footer {
 .add_course_more_info_radio_box {
     border: 1px solid var(--borderColor);
     border-radius: 10px;
-    padding: 25px 25px 15px 25px;
+    padding: 25px;
     margin-bottom: 25px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

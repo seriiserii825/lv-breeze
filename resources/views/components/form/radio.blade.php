@@ -1,6 +1,5 @@
 @props(['name', 'options' => [], 'selected' => null, 'label' => null])
-
-<div class="col-xl-4 add_course_more_info_radio_box">
+<div class="add_course_more_info_radio_box">
     @if ($label)
         <h3>{{ $label }}</h3>
     @endif

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('course_chapters', function (Blueprint $table) {
             $table->id();
-            $table->title();
+            $table->string('title');
             $table->foreignId('instructor_id')->constrained('users');
             $table->foreignId('course_id')->constrained('courses');
             $table->boolean('order')->default(0);

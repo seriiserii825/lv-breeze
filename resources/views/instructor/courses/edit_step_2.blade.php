@@ -20,10 +20,10 @@
                 <div class="col-12 add_course_more_info_input">
                     <x-form.select-group label="Category" name="category_id" :categories="$categories" :current-category-id="$course->category_id" />
                 </div>
-                <div class="col-xl-4 add_course_more_info_radio_box">
+                <div class="col-xl-6">
                     <x-form.radio name="course_level_id" :options="$levels" :selected="$course->course_level_id" label="Level" />
                 </div>
-                <div class="col-xl-4 add_course_more_info_radio_box">
+                <div class="col-xl-6">
                     <x-form.radio name="course_language_id" :options="$languages" :selected="$course->course_language_id" label="Language" />
                 </div>
                 <div class="col-xl-12">

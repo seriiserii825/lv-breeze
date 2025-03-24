@@ -15,8 +15,8 @@
                         <x-form.input-file label="Thumbnail" name="thumbnail" />
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
-                        <x-form.select label="Demo Video Storage" name="demo_video_storage" :value="$course->demo_video_storage"
-                            :options="$enum_values" :old="false" />
+                        <x-form.select label="Demo Video Storage" name="demo_video_storage" :options="$enum_values"
+                            :old="false" />
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
                         <div id="js-video-file">

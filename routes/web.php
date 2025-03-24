@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Frontend\CourseChapterController;
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\InstructorDashboardController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\StudentDashboardController;
+use App\Models\CourseChapter;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -40,9 +42,11 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     // course create
     Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
     Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
-
     Route::get('/courses/{course}/edit/{step}', [CourseController::class, 'edit'])->name('courses.edit');
     Route::post('/courses/{course}/update/{step}', [CourseController::class, 'update'])->name('courses.update');
+
+    // Course Chapters
+    Route::resource('course-chapters', CourseChapterController::class);
 
     // // course edit first
     // Route::get('/courses/{course}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');
