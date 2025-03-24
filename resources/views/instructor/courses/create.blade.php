@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
                         <div id="js-video-file">
-                            <x-form.input-file label="Upload video file" name="video_file" />
+                            <x-form.input-video label="Upload video file" name="video_file" />
                         </div>
                         <div id="js-video-input" class="d-none">
                             <x-form.input label="Input video source path" name="video_input" />
@@ -52,9 +52,11 @@
         if (value === 'upload') {
             videoFile.classList.remove('d-none');
             videoInput.classList.add('d-none');
+            videoInput.querySelector('input').value = '';
         } else {
             videoFile.classList.add('d-none');
             videoInput.classList.remove('d-none');
+            videoFile.querySelector('input').value = '';
         }
     });
 </script>
