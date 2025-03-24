@@ -35,7 +35,7 @@
             cursor: pointer;
         }
     </style>
-    @vite(['resources/js/app.js', 'resources/js/admin/modal.js'])
+    @vite(['resources/js/app.js'])
 </head>
 <body>
     <script src="{{ asset('admin/assets/dist/js/demo-theme.min.js?1692870487') }}"></script>

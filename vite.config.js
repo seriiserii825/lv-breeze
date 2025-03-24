@@ -7,8 +7,7 @@ export default defineConfig({
             input: [
                 "resources/css/app.css",
                 "resources/js/app.js",
-                "resources/js/admin/password.js",
-                "resources/js/admin/modal.js",
+                "resources/js/admin/password.js"
             ],
             refresh: [
                 "resources/views/**/*.blade.php",

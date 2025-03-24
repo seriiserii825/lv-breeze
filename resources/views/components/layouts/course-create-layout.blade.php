@@ -39,3 +39,38 @@
         }
     }
 </script>
+
+<script>
+    const show_modal_btn = document.querySelectorAll(".js-show-frontend-modal");
+    const close_modal_btns = document.querySelectorAll(".js-front-modal-close");
+    console.log("close_modal_btns", close_modal_btns);
+    let modal = null;
+
+    show_modal_btn.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const modal_elem = btn.getAttribute("data-modal");
+            modal = document.querySelector('#' + modal_elem);
+            e.preventDefault();
+            url = btn.getAttribute("href");
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.classList.add("show");
+            }, 100);
+        });
+    });
+
+    close_modal_btns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    });
+
+    function closeModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
+    }
+</script>

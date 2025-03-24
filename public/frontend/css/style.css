@@ -2494,6 +2494,10 @@ header .wsus__header_right li .nice-select .list {
     -ms-border-radius: 10px !important;
     -o-border-radius: 10px !important;
 }
+.accordion-item:hover {
+    position: relative;
+    z-index: 20;
+}
 
 .accordion-item button {
     color: var(--colorBlack);
