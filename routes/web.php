@@ -44,11 +44,11 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     Route::get('/courses/{course}/edit/{step}', [CourseController::class, 'edit'])->name('courses.edit');
     Route::post('/courses/{course}/update/{step}', [CourseController::class, 'update'])->name('courses.update');
 
-    // course edit first
-    Route::get('/courses/{course}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');
-    Route::post('/courses/update/first', [CourseController::class, 'updateFirst'])->name('courses.update.1');
-    //course edit second
-    Route::get('/courses/{course}/edit/2', [CourseController::class, 'editSecond'])->name('courses.edit.2');
+    // // course edit first
+    // Route::get('/courses/{course}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');
+    // Route::post('/courses/update/first', [CourseController::class, 'updateFirst'])->name('courses.update.1');
+    // //course edit second
+    // Route::get('/courses/{course}/edit/2', [CourseController::class, 'editSecond'])->name('courses.edit.2');
 });
 
 // auth and admin
