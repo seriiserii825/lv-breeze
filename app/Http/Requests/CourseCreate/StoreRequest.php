@@ -21,7 +21,7 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $options = [
             'title' => 'required|string|max:255',
             'seo_description' => 'required|string',
             'demo_video_storage' => 'required|string',
@@ -29,5 +29,11 @@ class StoreRequest extends FormRequest
             'discount' => 'required|numeric',
             'thumbnail' => 'required|image',
         ];
+        if ($this->demo_video_storage === 'upload') {
+            $options['video_file'] = 'required|file|mimes:mp4|max:102400';
+        } else {
+            $options['video_input'] = 'required|string';
+        }
+        return $options;
     }
 }

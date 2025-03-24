@@ -4,7 +4,9 @@
 @endif
 <select class="form-select form-control" id="{{ $id }}" name="{{ $name }}">
     @foreach ($options as $option_value => $label)
-        <option value="{{ $option_value }}" @selected($option_value === $value)>
+        <option value="{{ $option_value }}"
+            {{ old($name, $value ?? '') == $option_value ? 'selected' : '' }}
+            >
             {{ $label }}
         </option>
     @endforeach

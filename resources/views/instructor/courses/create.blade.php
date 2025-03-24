@@ -33,7 +33,7 @@
                         <x-form.input label="Discount Price" name="discount" type="number"
                             placeholder="Discount Price" />
                     </div>
-                    <div class="col-xl-12 mb-0 add_course_basic_info_imput">
+                    <div class="mb-0 col-xl-12 add_course_basic_info_imput">
                         <x-form.textarea label="Description" name="description" placeholder="Description" />
                         <button type="submit" class="common_btn mt_20">Save</button>
                     </div>
@@ -44,9 +44,10 @@
 </x-layouts.course-create-layout>
 <script charset="utf-8">
     const select = document.querySelector('select[name="demo_video_storage"]');
-    select.addEventListener('change', (e) => {
-        const value = e.target.value;
-        console.log("value", value);
+    select.addEventListener('change', changeSelect);
+    changeSelect();
+    function changeSelect() {
+        const value = select.value;
         const videoFile = document.querySelector('#js-video-file');
         const videoInput = document.querySelector('#js-video-input');
         if (value === 'upload') {
@@ -58,6 +59,6 @@
             videoInput.classList.remove('d-none');
             videoFile.querySelector('input').value = '';
         }
-    });
+    }
 </script>
 

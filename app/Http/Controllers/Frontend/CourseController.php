@@ -35,7 +35,9 @@ class CourseController extends Controller
             $course->thumbnail = $this->uploadFile($request->file('thumbnail'));
         }
         if ($request->hasFile('video_file')) {
-            $course->preview = $this->uploadFile($request->file('preview'));
+            $course->demo_video_source = $this->uploadFile($request->file('video_file'));
+        }else{
+            $course->demo_video_source = $request['video_input'];
         }
         $course->instructor_id = Auth::id();
         $course->slug = Str::slug($request['title']);
