@@ -36,7 +36,7 @@ class CourseController extends Controller
         }
         if ($request->hasFile('video_file')) {
             $course->demo_video_source = $this->uploadFile($request->file('video_file'));
-        }else{
+        } else {
             $course->demo_video_source = $request['video_input'];
         }
         $course->instructor_id = Auth::id();
@@ -48,7 +48,7 @@ class CourseController extends Controller
     {
         switch ($step) {
             case 1:
-                $enum_values = ['upload', 'youtube', 'vimeo', 'external_link'];
+                $enum_values = ['upload' => 'Upload', 'youtube' => 'Youtube', 'vimeo' => 'Vimeo', 'external_link' => 'External Link'];
                 return view('instructor.courses.edit_step_1', compact('enum_values', 'course'));
                 break;
             case 2:
@@ -74,29 +74,36 @@ class CourseController extends Controller
     {
         switch ($step) {
             case 1:
-                $validated = $request->validate([
+                // dd($request->all());
+                $options = [
                     'title' => 'required|string|max:255',
                     'seo_description' => 'required|string',
                     'demo_video_storage' => 'required|string',
                     'price' => 'required|numeric',
                     'discount' => 'required|numeric',
-                    'description' => 'required|string',
                     'thumbnail' => 'nullable|image',
-                ]);
+                ];
+                if ($request['demo_video_storage'] === 'upload') {
+                    $options['video_file'] = 'required|file|mimes:mp4|max:102400';
+                } else {
+                    $options['video_input'] = 'required|string';
+                }
+                $validated = $request->validate($options);
 
                 $course->fill($validated);
-
                 if ($request->hasFile('thumbnail')) {
                     $course->thumbnail = $this->uploadFile($request->file('thumbnail'));
                 }
-
+                if ($request->hasFile('video_file')) {
+                    $course->demo_video_source = $this->uploadFile($request->file('video_file'));
+                } else {
+                    $course->demo_video_source = $request['video_input'];
+                }
                 $course->slug = Str::slug($validated['title']);
+
                 $course->save();
-
-                return redirect()
-                    ->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])
+                return redirect()->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])
                     ->with('success', 'Course updated successfully');
-
             case 2:
                 $validated = $request->validate([
                     'capacity' => 'required|numeric',
@@ -107,16 +114,13 @@ class CourseController extends Controller
                     'qna' => 'nullable|boolean',
                     'certificate' => 'nullable|boolean',
                 ]);
-
                 $course->fill($validated);
                 $course->qna = $request->boolean('qna');
                 $course->certificate = $request->boolean('certificate');
                 $course->save();
-
                 return redirect()
                     ->route('instructor.courses.edit', ['course' => $course->id, 'step' => $step + 1])
                     ->with('success', 'Course updated successfully');
-
             default:
                 abort(404);
         }

@@ -18,7 +18,7 @@
     </div>
 </x-layouts.front-user-layout>
 <script charset="utf-8">
-    const select = document.querySelector('select[name="demo_video_storage"]') as HTMLSelectElement;
+    const select = document.querySelector('select[name="demo_video_storage"]');
     if (select) {
         select.addEventListener('change', changeSelect);
         changeSelect();

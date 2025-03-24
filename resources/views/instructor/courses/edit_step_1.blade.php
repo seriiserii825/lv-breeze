@@ -20,10 +20,10 @@
                 </div>
                 <div class="col-xl-6 add_course_basic_info_imput">
                     <div id="js-video-file">
-                        <x-form.input-video label="Upload video file" name="video_file" />
+                        <x-form.input-video label="Upload video file" name="video_file" :value="$course->demo_video_source" />
                     </div>
                     <div id="js-video-input" class="d-none">
-                        <x-form.input label="Input video source path" name="video_input" />
+                        <x-form.input label="Input video source path" name="video_input" :value="$course->demo_video_source" />
                     </div>
                 </div>
                 <div class="col-xl-6 add_course_basic_info_imput">

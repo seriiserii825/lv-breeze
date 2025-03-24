@@ -1,15 +1,12 @@
-@props(['name', 'value' => '', 'label' => '', 'id' => '', 'options' => []], 'old' => true)
+@props(['name', 'value' => '', 'label' => '', 'id' => '', 'options' => []])
 @if ($label)
     <label class="form-label">{{ $label }}</label>
 @endif
 <select class="form-select form-control" id="{{ $id }}" name="{{ $name }}">
     @foreach ($options as $option_value => $label)
-        @if ($old)
-            @php
-                $old_value = old($name, $value ?? '');
-            @endphp
-        @endif
-        <option value="{{ $option_value }}" {{ $old == $option_value ? 'selected' : '' }}>
+        <option value="{{ $option_value }}"
+            {{ old($name, $value ?? '') == $option_value ? 'selected' : '' }}
+            @selected($option_value === $value)>
             {{ $label }}
         </option>
     @endforeach
