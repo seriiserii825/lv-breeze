@@ -16,7 +16,15 @@
                 </div>
                 <div class="col-xl-6 add_course_basic_info_imput">
                     <x-form.select label="Demo Video Storage" name="demo_video_storage" :value="$course->demo_video_storage"
-                        :options="$enum_values" />
+                        :options="$enum_values" :old="false" />
+                </div>
+                <div class="col-xl-6 add_course_basic_info_imput">
+                    <div id="js-video-file">
+                        <x-form.input-video label="Upload video file" name="video_file" />
+                    </div>
+                    <div id="js-video-input" class="d-none">
+                        <x-form.input label="Input video source path" name="video_input" />
+                    </div>
                 </div>
                 <div class="col-xl-6 add_course_basic_info_imput">
                     <x-form.input label="Price" name="price" :value="$course->price" placeholder="Price" />
@@ -26,7 +34,7 @@
                     <x-form.input label="Discount Price" name="discount" type="number" :value="$course->discount"
                         placeholder="Discount Price" />
                 </div>
-                <div class="col-xl-12 mb-0 add_course_basic_info_imput">
+                <div class="mb-0 col-xl-12 add_course_basic_info_imput">
                     <x-form.textarea label="Description" name="description" :value="$course->description"
                         placeholder="Description" />
                     <button type="submit" class="common_btn mt_20">Save</button>
