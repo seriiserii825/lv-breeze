@@ -13,7 +13,7 @@
                     <x-form.input label="Course Duration (Minutes)" name="duration" :value="$course->duration" type="number"
                         placeholder="300" />
                 </div>
-                <div class="col-xl-6 add_course_more_info_checkbox">
+                <div class="col-xl-6">
                     <x-form.checkbox name="qna" label="Q&A" :current="$course->qna" />
                     <x-form.checkbox name="certificate" label="Completion Certificate" :current="$course->certificate" />
                 </div>

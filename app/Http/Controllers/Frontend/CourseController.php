@@ -8,10 +8,12 @@ use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CourseChapter;
 use App\Models\CourseLanguage;
+use App\Models\CourseLesson;
 use App\Models\CourseLevel;
 use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class CourseController extends Controller
@@ -126,5 +128,45 @@ class CourseController extends Controller
             default:
                 abort(404);
         }
+    }
+    public function createLesson(Request $request)
+    {
+        $options = [
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'demo_video_storage' => 'required|string',
+            'duration' => 'nullable|string',
+            'course_id' => 'required|numeric',
+            'chapter_id' => 'required|numeric',
+            'file_type' => 'required|in:video,audio,pdf,docx,file',
+        ];
+        if ($request['demo_video_storage'] === 'upload') {
+            $options['video_file'] = 'required|file|mimes:mp4|max:102400';
+        } else {
+            $options['video_input'] = 'required|string';
+        }
+
+        $validator = Validator::make($request->all(), $options);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+        $validated = $validator->validated();
+
+        $lesson = new CourseLesson();
+        $lesson->fill($validated);
+        $lesson->slug = Str::slug($validated['title']);
+        $lesson->file_path = $request['demo_video_storage'] === 'upload' ? $this->uploadFile($request->file('video_file')) : $request['video_input'];
+        $lesson->instructor_id = Auth::id();
+        $lesson->save();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lesson created successfully',
+            'lesson' => $lesson
+        ]);
     }
 }
