@@ -59,7 +59,7 @@ class CourseController extends Controller
                 return view('instructor.courses.edit_step_2', compact('course', 'categories', 'levels', 'languages'));
                 break;
             case 3:
-                $chapters = CourseChapter::where('course_id', $course->id)->orderBy('order', 'asc')->get();
+                $chapters = CourseChapter::where(['course_id' =>  $course->id, 'instructor_id' => Auth::user()->id])->orderBy('order', 'asc')->get();
                 $course_id = $course->id;
                 return view('instructor.courses.edit_step_3', compact('course', 'chapters'));
                 break;
