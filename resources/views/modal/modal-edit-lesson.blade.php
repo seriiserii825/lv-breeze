@@ -3,9 +3,11 @@
         <h5 class="modal-title">Edit lesson</h5>
     </div>
     <div class="modal-body">
-        <form method="POST" id="js-course-lesson-form" action="{{ route('instructor.courses.store-lesson') }}">
+        <form method="POST" id="js-course-update-lesson-form" action="{{ route('instructor.courses.store-lesson') }}">
             @csrf
             <input type="hidden" value="{{ $course->id }}" name="course_id" id="course_id" />
+            <input type="hidden" value="{{ $chapter->id }}" name="chapter_id" id="chapter_id" />
+            <input type="hidden" value="{{ $lesson->id }}" name="lesson_id" id="lesson_id" />
             <div class="row">
                 <div class="col-md-6">
                     <x-form.input label="Title" :value="$lesson->title" placeholder="Enter Course Name" name="title" />
@@ -41,7 +43,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="js-dynamic-modal-close"
                     data-bs-dismiss="modal">Close</button>
-                <button type="button" id="js-store-lesson" class="btn btn-primary">Apply</button>
+                <button type="button" id="js-update-lesson" class="btn btn-primary">Apply</button>
             </div>
         </form>
     </div>

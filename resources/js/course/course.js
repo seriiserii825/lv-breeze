@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
         editLesson();
     }
 
-    const select = document.querySelector('select[name="demo_video_storage"]');
-    if(select) {
+    const create_course = document.querySelector('.create-course');
+    if(create_course) {
         toggleFileInput();
     }
 });

@@ -198,7 +198,51 @@ class CourseController extends Controller
 
     public function updateLesson(Request $request)
     {
-        dd($request->all());
+        $options = [
+            'title' => 'required|string|max:255|unqiue:course_lessons,title,' . $request->lesson_id,
+            'description' => 'nullable|string',
+            'demo_video_storage' => 'required|string',
+            'duration' => 'nullable|string',
+            'course_id' => 'required|numeric|exists:courses,id',
+            'chapter_id' => 'required|numeric|exists:course_chapters,id',
+            'lesson_id' => 'required|numeric|exists:course_lessons,id',
+            'file_type' => 'required|in:video,audio,pdf,docx,file',
+        ];
+        if ($request['demo_video_storage'] === 'upload') {
+            $options['video_file'] = 'required|file|mimes:mp4|max:102400';
+        } else {
+            $options['video_input'] = 'required|string';
+        }
+
+        $validator = Validator::make($request->all(), $options);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+        $validated = $validator->validated();
+
+        $lesson = CourseLesson::find($request->lesson_id);
+        if (!$lesson) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Lesson not found.',
+            ], 404);
+        }
+        $lesson->fill($validated);
+        $lesson->slug = Str::slug($validated['title']);
+        $lesson->file_path = $request['demo_video_storage'] === 'upload' ? $this->uploadFile($request->file('video_file')) : $request['video_input'];
+        $lesson->storage = $request['demo_video_storage'];
+        $lesson->instructor_id = Auth::id();
+        $lesson->save();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lesson created successfully',
+            'lesson' => $lesson
+        ]);
     }
 
     public function modalCreateChapter(Request $request)

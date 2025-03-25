@@ -1,6 +1,6 @@
 import toggleFileInput from "../../form/toggleFileInput";
 import closeModal from "../../helpers/closeModal";
-import storeLesson from "./storeLesson";
+import updateLesson from "./updateLesson";
 
 export default function editLesson() {
     const btn_new_lesson_all = document.querySelectorAll(
@@ -23,7 +23,7 @@ export default function editLesson() {
                         const modal_dialog =
                             modal.querySelector(".modal-dialog");
                         modal_dialog.innerHTML = data;
-                        // storeLesson();
+                        updateLesson();
                         toggleFileInput();
                         closeModal(modal_dialog, modal)
                     })
