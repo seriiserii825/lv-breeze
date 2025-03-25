@@ -32,14 +32,7 @@ export default function delItem() {
                         })
                         .then((data) => {
                             if (data.status === "success") {
-                                Swal.fire({
-                                    title: "Success",
-                                    text: data.message,
-                                    icon: "success",
-                                    confirmButtonText: "OK",
-                                }).then(() => {
-                                    window.location.reload();
-                                });
+                                window.location.reload();
                             } else {
                                 console.error(data.message);
                             }
