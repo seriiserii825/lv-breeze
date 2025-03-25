@@ -3,7 +3,7 @@
         <h5 class="modal-title">Edit lesson</h5>
     </div>
     <div class="modal-body">
-        <form method="POST" id="js-course-update-lesson-form" action="{{ route('instructor.courses.store-lesson') }}">
+        <form method="POST" id="js-course-update-lesson-form" action="{{ route('instructor.courses.update-lesson') }}">
             @csrf
             <input type="hidden" value="{{ $course->id }}" name="course_id" id="course_id" />
             <input type="hidden" value="{{ $chapter->id }}" name="chapter_id" id="chapter_id" />

@@ -199,7 +199,7 @@ class CourseController extends Controller
     public function updateLesson(Request $request)
     {
         $options = [
-            'title' => 'required|string|max:255|unqiue:course_lessons,title,' . $request->lesson_id,
+            'title' => 'required|string|max:255|unique:course_lessons,title,' . $request->lesson_id,
             'description' => 'nullable|string',
             'demo_video_storage' => 'required|string',
             'duration' => 'nullable|string',
