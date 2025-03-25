@@ -31,7 +31,7 @@
                     <x-form.textarea label="Description" placeholder="Enter Description" :value="$lesson->description" name="description" />
                 </div>
                 <div class="col-md-3">
-                    <x-form.switcher label="Is preview" :value="$lesson->preview" name="preview" />
+                    <x-form.switcher label="Is preview" :value="$lesson->is_preview" name="preview" />
                 </div>
                 <div class="col-md-3">
                     <x-form.switcher label="Downloadable"  :value="$lesson->downloadable" name="downloadable" />

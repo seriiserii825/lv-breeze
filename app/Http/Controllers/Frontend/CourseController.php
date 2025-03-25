@@ -139,6 +139,8 @@ class CourseController extends Controller
             'duration' => 'nullable|string',
             'course_id' => 'required|numeric',
             'chapter_id' => 'required|numeric',
+            'preview' => 'nullable|boolean',
+            'downloadable' => 'nullable|boolean',
             'file_type' => 'required|in:video,audio,pdf,docx,file',
         ];
         if ($request['demo_video_storage'] === 'upload') {
@@ -164,6 +166,8 @@ class CourseController extends Controller
         $lesson->file_path = $request['demo_video_storage'] === 'upload' ? $this->uploadFile($request->file('video_file')) : $request['video_input'];
         $lesson->storage = $request['demo_video_storage'];
         $lesson->instructor_id = Auth::id();
+        $lesson->is_preview = $request->boolean('preview');
+        $lesson->downloadable = $request->boolean('downloadable');
         $lesson->save();
         return response()->json([
             'status' => 'success',
@@ -207,6 +211,8 @@ class CourseController extends Controller
             'chapter_id' => 'required|numeric|exists:course_chapters,id',
             'lesson_id' => 'required|numeric|exists:course_lessons,id',
             'file_type' => 'required|in:video,audio,pdf,docx,file',
+            'preview' => 'nullable|boolean',
+            'downloadable' => 'nullable|boolean',
         ];
         if ($request['demo_video_storage'] === 'upload') {
             $options['video_file'] = 'required|file|mimes:mp4|max:102400';
@@ -237,6 +243,8 @@ class CourseController extends Controller
         $lesson->file_path = $request['demo_video_storage'] === 'upload' ? $this->uploadFile($request->file('video_file')) : $request['video_input'];
         $lesson->storage = $request['demo_video_storage'];
         $lesson->instructor_id = Auth::id();
+        $lesson->is_preview = $request->boolean('preview');
+        $lesson->downloadable = $request->boolean('downloadable');
         $lesson->save();
         return response()->json([
             'status' => 'success',
