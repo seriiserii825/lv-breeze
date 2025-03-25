@@ -69,6 +69,11 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="js-dynamic-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+        </div>
+    </div>
     <!--================================
         SCROLL BUTTON START
     =================================-->

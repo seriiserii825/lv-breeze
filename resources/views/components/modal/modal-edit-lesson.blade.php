@@ -1,6 +1,6 @@
 @props(['course'])
-<x-modal.front-modal title="Create new lesson" modal_id="js-new-lesson-form" apply_btn="js-new-lesson-btn">
-    <form method="POST" id="js-course-edit-lesson-form" action="{{ route('instructor.courses.create-lesson') }}">
+<x-modal.front-modal title="Create new lesson" modal_id="js-edit-lesson-form" apply_btn="js-new-lesson-btn">
+    <form method="POST" id="js-course-edit-lesson-form" action="{{ route('instructor.courses.update-lesson') }}">
         @csrf
         <input type="hidden" value="{{ $course->id }}" name="course_id" id="course_id" />
         <div class="row">
@@ -53,49 +53,52 @@
             btn.addEventListener("click", (e) => {
                 e.preventDefault();
                 const form = document.querySelector("#js-course-edit-lesson-form");
-                console.log("form", form);
-                // const url = form.getAttribute("action");
-                // const course_chapter_id = localStorage.getItem("course_chapter_id");
-                // const formData = new FormData(form);
-                // formData.append("chapter_id", course_chapter_id);
-                // fetch(url, {
-                //         method: "POST",
-                //         body: formData,
-                //         headers: {
-                //             "X-CSRF-TOKEN": document.querySelector(
-                //                     'meta[name="csrf-token"]')
-                //                 .getAttribute(
-                //                     "content"),
-                //         },
-                //     })
-                //     .then((response) => response.json())
-                //     .then((data) => {
-                //         console.log(data)
-                //         if (data.status === "error") {
-                //             Object.values(data.errors).forEach((errors) => {
-                //                 errors.forEach((err) => {
-                //                     notyf_create_lesson.error(err);
-                //                 });
-                //             });
-                //         } else {
-                //             notyf_create_lesson.success(data.message);
-                //             setTimeout(() => {
-                //                 window.location.reload();
-                //             }, 1000);
-                //         }
-                //         console.log(data);
-                //     })
-                //     .catch((error) => {
-                //         if (error.errors) {
-                //             Object.values(error.errors).forEach((errors) => {
-                //                 errors.forEach((err) => {
-                //                     notyf_create_lesson.error(err);
-                //                 });
-                //             });
-                //         } else {
-                //             notyf_create_lesson.error(error.message);
-                //         }
-                //     });
+                const url = form.getAttribute("action");
+                const course_id = btn.getAttribute("data-course-id");
+                const lesson_id = btn.getAttribute("data-lesson-id");
+                const chapter_id = btn.getAttribute("data-chapter-id");
+                const formData = new FormData(form);
+                formData.append("course_id", course_id);
+                formData.append("lesson_id", lesson_id);
+                formData.append("chapter_id", course_chapter_id);
+                fetch(url, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector(
+                                    'meta[name="csrf-token"]')
+                                .getAttribute(
+                                    "content"),
+                        },
+                    })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data)
+                        if (data.status === "error") {
+                            Object.values(data.errors).forEach((errors) => {
+                                errors.forEach((err) => {
+                                    notyf_create_lesson.error(err);
+                                });
+                            });
+                        } else {
+                            notyf_create_lesson.success(data.message);
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        }
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        if (error.errors) {
+                            Object.values(error.errors).forEach((errors) => {
+                                errors.forEach((err) => {
+                                    notyf_create_lesson.error(err);
+                                });
+                            });
+                        } else {
+                            notyf_create_lesson.error(error.message);
+                        }
+                    });
             });
         });
     });

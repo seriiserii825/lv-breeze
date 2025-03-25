@@ -194,5 +194,14 @@ class CourseController extends Controller
         ]);
     }
 
+    public function updateLesson(Request $request)
+    {
+        dd($request->all());
+    }
 
+    public function modalCreateChapter(Request $request)
+    {
+        $course = Course::find($request->query('course_id'));
+        return view('modal.modal-create-chapter', compact('course'))->render();
+    }
 }
