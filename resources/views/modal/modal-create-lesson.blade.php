@@ -14,14 +14,14 @@
                     <x-form.select label="File type" name="file_type" :options="config('course.file_type')" :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
-                    <x-form.select label="Demo Video Storage" name="demo_video_storage" :options="config('course.file_upload')"
+                    <x-form.select label="Demo Video Storage" data_file="js-file-create-lesson" data_input="js-input-create-lesson" name="demo_video_storage" :options="config('course.file_upload')"
                         :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
-                    <div id="js-video-file">
+                    <div id="js-file-create-lesson">
                         <x-form.input-video label="Upload video file" name="video_file" />
                     </div>
-                    <div id="js-video-input" class="d-none">
+                    <div id="js-input-create-lesson" class="d-none">
                         <x-form.input label="Input video source path" name="video_input" />
                     </div>
                 </div>

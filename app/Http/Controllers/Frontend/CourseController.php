@@ -162,6 +162,7 @@ class CourseController extends Controller
         $lesson->fill($validated);
         $lesson->slug = Str::slug($validated['title']);
         $lesson->file_path = $request['demo_video_storage'] === 'upload' ? $this->uploadFile($request->file('video_file')) : $request['video_input'];
+        $lesson->storage = $request['demo_video_storage'];
         $lesson->instructor_id = Auth::id();
         $lesson->save();
         return response()->json([

@@ -24,7 +24,7 @@ export default function editLesson() {
                             modal.querySelector(".modal-dialog");
                         modal_dialog.innerHTML = data;
                         // storeLesson();
-                        // toggleFileInput();
+                        toggleFileInput();
                         closeModal(modal_dialog, modal)
                     })
                     .catch((error) => {
