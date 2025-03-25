@@ -14,7 +14,7 @@
                     <x-form.select label="File type"  :value="$lesson->file_type" name="file_type" :options="config('course.file_type')" :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
-                    <x-form.select label="Demo Video Storage"  data_file="js-file-edit-lesson" data_input="js-input-edit-lesson" :value="$lesson->storage" name="demo_video_storage" :options="config('course.file_upload')"
+                    <x-form.select label="Demo Video Storage" data_file="js-file-edit-lesson" data_input="js-input-edit-lesson" :value="$lesson->storage" name="demo_video_storage" :options="config('course.file_upload')"
                         :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">

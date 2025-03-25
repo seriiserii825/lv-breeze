@@ -15,14 +15,14 @@
                         <x-form.input-file label="Thumbnail" name="thumbnail" />
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
-                        <x-form.select label="Demo Video Storage" name="demo_video_storage" :options="$enum_values"
+                        <x-form.select label="Demo Video Storage"  data_file="js-file-create-course" data_input="js-input-create-course" name="demo_video_storage" :options="$enum_values"
                             :old="false" />
                     </div>
                     <div class="col-xl-6 add_course_basic_info_imput">
-                        <div id="js-video-file">
+                        <div id="js-file-create-course">
                             <x-form.input-video label="Upload video file" name="video_file" />
                         </div>
-                        <div id="js-video-input" class="d-none">
+                        <div id="js-input-create-course" class="d-none">
                             <x-form.input label="Input video source path" name="video_input" />
                         </div>
                     </div>
