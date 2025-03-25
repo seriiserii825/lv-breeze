@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     Route::post('/courses/store-lesson', [CourseController::class, 'storeLesson'])->name('courses.store-lesson');
     Route::get('/courses/edit-lesson', [CourseController::class, 'editLesson'])->name("courses.edit-lesson");
     Route::post('/courses/update-lesson', [CourseController::class, 'updateLesson'])->name('courses.update-lesson');
+    Route::delete('/courses/delete-lesson/{lesson_id}', [CourseController::class, 'deleteLesson'])->name('courses.delete-lesson');
 
     // Modals
     Route::get('/modal/modal-create-chapter', [CourseController::class, "modalCreateChapter"])->name('courses.modal-create-chapter');

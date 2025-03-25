@@ -8,6 +8,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/js/app.js",
                 "resources/js/course/course.js",
+                "resources/js/frontend/frontend.js",
                 "resources/js/admin/password.js"
             ],
             refresh: [

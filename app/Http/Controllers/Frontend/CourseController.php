@@ -279,4 +279,20 @@ class CourseController extends Controller
         $chapter = CourseChapter::find($request->query('chapter_id'));
         return view('modal.modal-edit-lesson', compact('course', 'chapter', 'lesson'))->render();
     }
+
+    public function deleteLesson($lesson_id)
+    {
+        $lesson = CourseLesson::find($lesson_id);
+        if (!$lesson) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Lesson not found.',
+            ], 404);
+        }
+        $lesson->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lesson deleted successfully',
+        ]);
+    }
 }

@@ -43,7 +43,7 @@
                                 'lesson_id' => $lesson->id,
                                 'chapter_id' => $chapter->id
                             ]) }}"><i class="far fa-edit"></i></a>
-                            <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
+                            <a class="del js-delete-item" href="{{ route('instructor.courses.delete-lesson', $lesson->id) }}"><i class="fas fa-trash-alt"></i></a>
                             <a class="arrow" href="#"><i class="fas fa-arrows-alt"></i></a>
                         </div>
                     </li>

@@ -26,7 +26,7 @@
     <link rel=" stylesheet" href="{{ asset('frontend/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js])
 </head>
 <body class="home_3">
     @include('includes.front-header')
