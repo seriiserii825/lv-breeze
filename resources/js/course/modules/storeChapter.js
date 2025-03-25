@@ -1,15 +1,16 @@
-import { Notyf } from 'notyf';
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css"; // Ensure styles are included
+const notyf = new Notyf({
+    duration: 4000,
+    position: {
+        x: "right",
+        y: "top",
+    },
+});
 
 export default function storeChapter() {
-    const notyf = new Notyf({
-        duration: 4000,
-        position: {
-            x: "right",
-            y: "top",
-        },
-    });
-
-    const apply_modal_btn = document.querySelector("#js-create-chapter");
+    const apply_modal_btn = document.querySelector("#js-store-chapter");
+    console.log("apply_modal_btn", apply_modal_btn);
     apply_modal_btn.addEventListener("click", (e) => {
         e.preventDefault();
         const form = document.querySelector("#js-course-chapter-form");

@@ -1,3 +1,5 @@
+import storeChapter from "./storeChapter";
+
 export default function createChapter() {
     const btn_new_chapter = document.querySelector("#js-add-new-chapter");
     const create_chapter_route = btn_new_chapter.getAttribute("href");
@@ -18,6 +20,7 @@ export default function createChapter() {
                 const modal_close = modal_dialog.querySelector(
                     "#js-dynamic-modal-close"
                 );
+                storeChapter();
                 modal_close.addEventListener("click", (e) => {
                     e.preventDefault();
                     modal.classList.remove("show");
