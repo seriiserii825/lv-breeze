@@ -38,9 +38,11 @@
                     <li>
                         <span>{{ $lesson->title }}</span>
                         <div class="add_course_content_action_btn">
-                            <a class="edit js-show-frontend-modal js-edit-lesson-btn" data-modal="js-edit-lesson-form"
-                                data-course-id="{{ $course->id }}" data-chapter-id="{{ $chapter->id }}"
-                                data-lesson-id="{{ $lesson->id }}" href="#"><i class="far fa-edit"></i></a>
+                            <a class="edit js-show-frontend-modal js-edit-lesson-btn" href="{{ route('instructor.courses.modal-edit-lesson', [
+                                'course_id' => $course->id,
+                                'lesson_id' => $lesson->id,
+                                'chapter_id' => $chapter->id
+                            ]) }}"><i class="far fa-edit"></i></a>
                             <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
                             <a class="arrow" href="#"><i class="fas fa-arrows-alt"></i></a>
                         </div>

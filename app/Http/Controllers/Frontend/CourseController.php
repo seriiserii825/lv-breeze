@@ -130,14 +130,7 @@ class CourseController extends Controller
         }
     }
 
-    public function modalCreateLesson(Request $request)
-    {
-        $course = Course::find($request->query('course_id'));
-        $chapter = CourseChapter::find($request->query('chapter_id'));
-        return view('modal.modal-create-lesson', compact('course', 'chapter'))->render();
-    }
-
-    public function createLesson(Request $request)
+    public function storeLesson(Request $request)
     {
         $options = [
             'title' => 'required|string|max:255',
@@ -211,5 +204,20 @@ class CourseController extends Controller
     {
         $course = Course::find($request->query('course_id'));
         return view('modal.modal-create-chapter', compact('course'))->render();
+    }
+
+    public function modalCreateLesson(Request $request)
+    {
+        $course = Course::find($request->query('course_id'));
+        $chapter = CourseChapter::find($request->query('chapter_id'));
+        return view('modal.modal-create-lesson', compact('course', 'chapter'))->render();
+    }
+
+    public function modalEditLesson(Request $request)
+    {
+        $lesson = CourseLesson::find($request->query('lesson_id'));
+        $course = Course::find($request->query('course_id'));
+        $chapter = CourseChapter::find($request->query('chapter_id'));
+        return view('modal.modal-edit-lesson', compact('course', 'chapter', 'lesson'))->render();
     }
 }

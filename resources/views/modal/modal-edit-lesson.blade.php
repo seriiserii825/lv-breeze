@@ -1,41 +1,41 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title">Create lesson</h5>
+        <h5 class="modal-title">Edit lesson</h5>
     </div>
     <div class="modal-body">
-        <form method="POST" id="js-course-lesson-form" action="{{ route('instructor.courses.store-lesson') }}">
+        <form method="POST" id="js-course-lesson-form" action="{{ route('instructor.courses.create-lesson') }}">
             @csrf
             <input type="hidden" value="{{ $course->id }}" name="course_id" id="course_id" />
             <div class="row">
                 <div class="col-md-6">
-                    <x-form.input label="Title" placeholder="Enter Course Name" name="title" />
+                    <x-form.input label="Title" :value="$course->title" placeholder="Enter Course Name" name="title" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
-                    <x-form.select label="File type" name="file_type" :options="config('course.file_type')" :old="false" />
+                    <x-form.select label="File type"  :value="$course->file_type" name="file_type" :options="config('course.file_type')" :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
-                    <x-form.select label="Demo Video Storage" name="demo_video_storage" :options="config('course.file_upload')"
+                    <x-form.select label="Demo Video Storage"  :value="$course->storage" name="demo_video_storage" :options="config('course.file_upload')"
                         :old="false" />
                 </div>
                 <div class="col-md-6 add_course_basic_info_imput">
                     <div id="js-video-file">
-                        <x-form.input-video label="Upload video file" name="video_file" />
+                        <x-form.input-video label="Upload video file"  :value="$course->file_path" name="video_file" />
                     </div>
                     <div id="js-video-input" class="d-none">
-                        <x-form.input label="Input video source path" name="video_input" />
+                        <x-form.input label="Input video source path" :value="$course->file_path" name="video_input" />
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <x-form.textarea label="Description" placeholder="Enter Description" name="description" />
+                    <x-form.textarea label="Description" placeholder="Enter Description" :value="$course->description" name="description" />
                 </div>
                 <div class="col-md-3">
-                    <x-form.switcher label="Is preview" name="preview" />
+                    <x-form.switcher label="Is preview" :value="$course->preview" name="preview" />
                 </div>
                 <div class="col-md-3">
-                    <x-form.switcher label="Downloadable" name="downloadable" />
+                    <x-form.switcher label="Downloadable"  :value="$course->downloadable" name="downloadable" />
                 </div>
                 <div class="col-md-6">
-                    <x-form.input label="Duration" placeholder="Enter Duration" name="duration" />
+                    <x-form.input label="Duration" placeholder="Enter Duration" :value="$course->duration" name="duration" />
                 </div>
             </div>
             <div class="modal-footer">
