@@ -15771,3 +15771,6 @@ footer {
     align-items: center;
     gap: 10px;
 }
+.modal.fade.show {
+    background: rgba(0, 0, 0, 0.8);
+}

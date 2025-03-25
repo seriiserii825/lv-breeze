@@ -1,3 +1,4 @@
+import closeModal from "../../helpers/closeModal";
 import storeChapter from "./storeChapter";
 
 export default function createChapter() {
@@ -17,17 +18,8 @@ export default function createChapter() {
             .then((data) => {
                 const modal_dialog = modal.querySelector(".modal-dialog");
                 modal_dialog.innerHTML = data;
-                const modal_close = modal_dialog.querySelector(
-                    "#js-dynamic-modal-close"
-                );
                 storeChapter();
-                modal_close.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    modal.classList.remove("show");
-                    setTimeout(() => {
-                        modal.style.display = "none";
-                    }, 300);
-                });
+                closeModal(modal_dialog, modal)
             })
             .catch((error) => {
                 console.error("Error:", error);

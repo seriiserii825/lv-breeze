@@ -1,3 +1,6 @@
+import closeModal from "../../helpers/closeModal";
+import storeLesson from "./storeLesson";
+
 export default function createLesson() {
     const btn_new_lesson_all = document.querySelectorAll(
         ".js-create-lesson-btn"
@@ -20,17 +23,8 @@ export default function createLesson() {
                         const modal_dialog =
                             modal.querySelector(".modal-dialog");
                         modal_dialog.innerHTML = data;
-                        const modal_close = modal_dialog.querySelector(
-                            "#js-dynamic-modal-close"
-                        );
-                        // storeChapter();
-                        modal_close.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            modal.classList.remove("show");
-                            setTimeout(() => {
-                                modal.style.display = "none";
-                            }, 300);
-                        });
+                        storeLesson();
+                        closeModal(modal_dialog, modal)
                     })
                     .catch((error) => {
                         console.error("Error:", error);

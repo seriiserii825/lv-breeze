@@ -41,7 +41,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="js-dynamic-modal-close"
                     data-bs-dismiss="modal">Close</button>
-                <button type="button" id="js-store-chapter" class="btn btn-primary">Apply</button>
+                <button type="button" id="js-store-lesson" class="btn btn-primary">Apply</button>
             </div>
         </form>
     </div>
