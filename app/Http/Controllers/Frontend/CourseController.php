@@ -168,6 +168,7 @@ class CourseController extends Controller
         $lesson->instructor_id = Auth::id();
         $lesson->is_preview = $request->boolean('preview');
         $lesson->downloadable = $request->boolean('downloadable');
+        $lesson->order = CourseLesson::where('chapter_id', $request->chapter_id)->count() + 1;
         $lesson->save();
         return response()->json([
             'status' => 'success',
@@ -191,7 +192,12 @@ class CourseController extends Controller
             ], 422);
         }
 
-        $lesson = CourseLesson::find($request->lesson_id);
+        $lesson = CourseLesson::where([
+            'id' => $request->lesson_id,
+            'course_id' => $request->course_id,
+            'chapter_id' => $request->chapter_id,
+            'instructor_id' => Auth::id(),
+        ])->first();
         return response()->json([
             'status' => 'success',
             'lesson' => $lesson,
