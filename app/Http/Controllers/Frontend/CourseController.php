@@ -169,4 +169,30 @@ class CourseController extends Controller
             'lesson' => $lesson
         ]);
     }
+    public function editLesson(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'lesson_id' => 'required|numeric|exists:course_lessons,id',
+            'course_id' => 'required|numeric|exists:courses,id',
+            'chapter_id' => 'required|numeric|exists:course_chapters,id'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $lesson = CourseLesson::find($request->lesson_id);
+        return response()->json([
+            'status' => 'success',
+            'lesson' => $lesson,
+            'course_id' => $lesson->course_id,
+            'chapter_id' => $lesson->chapter_id,
+        ]);
+    }
+
+
 }

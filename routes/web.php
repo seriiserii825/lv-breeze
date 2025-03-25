@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
     Route::get('/courses/{course}/edit/{step}', [CourseController::class, 'edit'])->name('courses.edit');
     Route::post('/courses/{course}/update/{step}', [CourseController::class, 'update'])->name('courses.update');
     Route::post('/courses/create-lesson', [CourseController::class, 'createLesson'])->name('courses.create-lesson');
+    Route::get('/courses/edit-lesson', [CourseController::class, 'editLesson'])->name('courses.edit-lesson');
 
     // Course Chapters
     Route::resource('course-chapters', CourseChapterController::class);

@@ -14,4 +14,5 @@
     </div>
     <x-modal.modal-create-chapter :course="$course" />
     <x-modal.modal-create-lesson :course="$course" />
+    <x-modal.modal-edit-lesson :course="$course" />
 </x-layouts.course-create-layout>
