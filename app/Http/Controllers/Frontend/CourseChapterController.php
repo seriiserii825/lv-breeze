@@ -32,7 +32,7 @@ class CourseChapterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string',
+            'title' => 'required|string|unique:course_chapters,title',
             'course_id' => 'required|exists:courses,id',
         ]);
 

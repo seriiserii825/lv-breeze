@@ -1,3 +1,4 @@
+import toggleFileInput from "../form/toggleFileInput";
 import createChapter from "./modules/createChapter";
 import createLesson from "./modules/createLesson";
 document.addEventListener("DOMContentLoaded", function () {
@@ -5,5 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (btn_new_chapter) {
         createChapter();
         createLesson();
+    }
+
+    const select = document.querySelector('select[name="demo_video_storage"]');
+    if(select) {
+        toggleFileInput();
     }
 });
