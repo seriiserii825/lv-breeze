@@ -13,8 +13,9 @@
                     <i class="far fa-plus"></i>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item js-show-frontend-modal" data-modal="js-new-lesson-form"
-                            data-chapter-id="{{ $chapter->id }}" href="#">Add Lesson</a></li>
+                    <li><a class="dropdown-item js-create-lesson-btn"
+                            href="{{ route('instructor.courses.modal-create-lesson', ['course_id' => $course->id, 'chapter_id' => $chapter->id]) }}">Add
+                            Lesson</a></li>
                     <li><a class="dropdown-item" href="#">Add Document</a>
                     </li>
                     <li><a class="dropdown-item" href="#">Add Quiz</a></li>

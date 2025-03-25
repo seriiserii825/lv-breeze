@@ -129,6 +129,14 @@ class CourseController extends Controller
                 abort(404);
         }
     }
+
+    public function modalCreateLesson(Request $request)
+    {
+        $course = Course::find($request->query('course_id'));
+        $chapter = CourseChapter::find($request->query('chapter_id'));
+        return view('modal.modal-create-lesson', compact('course', 'chapter'))->render();
+    }
+
     public function createLesson(Request $request)
     {
         $options = [
