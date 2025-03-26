@@ -115,24 +115,21 @@ class CourseCategoryController extends Controller
         $category = CourseCategory::find($id);
         $has_subcategories = $category->where('parent_id', $id)->exists();
         if ($has_subcategories) {
-            notify()->error('Category has subcategories, remove them and try again', 'Delete Level');
             return response()->json([
                 'status' => 'error',
                 'message' => 'Course category has subcategories'
-            ], 422);
+            ], 200);
         }
         try {
             // throw ValidationException::withMessages(['id' => 'Course category not found']);
             $category->delete();
             $this->deleteFile($category->image);
-            notify()->success('Level was deleted successfully', 'Delete Level');
             return response()->json([
                 'status' => 'success',
                 'message' => 'Course category delete successfully'
             ], 200);
         } catch (\Exception $e) {
             // logger('Course category destroy: >> '.$e);
-            notify()->error('Error on delete category', 'Delete Level');
             throw ValidationException::withMessages(['error' => $e->getMessage()]);
             return response()->json([
                 'status' => 'error',

@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { notyf } from "../../modules/notifyPlugin";
 
 export default function delItem() {
     const del_items = document.querySelectorAll(".js-delete-item");
@@ -34,13 +35,18 @@ export default function delItem() {
                         })
                         .then((data) => {
                             if (data.status === "success") {
-                                window.location.href = current_url;
+                                notyf.success(data.message);
+                                setTimeout(() => {
+                                    window.location.href = current_url;
+                                }, 1000);
                             } else {
                                 console.error(data.message);
+                                notyf.error(data.message);
                             }
                         })
                         .catch((error) => {
-                            console.error(error);
+                            notyf.error(error.message);
+                            console.error(error, "error");
                         });
                 }
             });
