@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\CourseChapter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -79,17 +80,53 @@ class CourseChapterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, CourseChapter $course_chapter)
     {
-        //
+        $course_id = $request->get('course_id');
+        $course = Course::find($course_id);
+        $chapter_id = $course_chapter->id;
+        return view('modal.modal-edit-chapter', compact('course', 'course_chapter'))->render();
     }
+
+    public function update() {}
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateChapter(Request $request, CourseChapter $course_chapter)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|unique:course_chapters,title,' . $course_chapter->id,
+            'course_id' => 'required|exists:courses,id',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $validated = $validator->validated();
+
+        $chapter = $course_chapter;
+        $chapter->fill($validated);
+        $chapter->course_id = $validated['course_id'];
+        if (!$chapter->save()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Chapter edit failed',
+                'errors' => $chapter->errors(),
+            ], 422);
+        }
+
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Chapter updated successfully',
+            'data' => $chapter,
+        ]);
     }
 
     /**

@@ -56,6 +56,7 @@ Route::group(['middleware' => ['auth', 'verified', 'check_role:instructor'], 'pr
 
     // Course Chapters
     Route::resource('course-chapters', CourseChapterController::class);
+    Route::post('/course-chapters/{course_chapter}/update-chapter', [CourseChapterController::class, 'updateChapter'])->name('course-chapters.update-chapter');
 
     // // course edit first
     // Route::get('/courses/{course}/edit_first', [CourseController::class, 'editFirst'])->name('courses.edit.1');

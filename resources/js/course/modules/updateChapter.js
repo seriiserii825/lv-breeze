@@ -1,13 +1,13 @@
 import { notyf } from "../../modules/notifyPlugin";
 
-export default function updateLesson() {
-    const update_lesson_btn = document.querySelector("#js-update-lesson");
-    update_lesson_btn.addEventListener("click", (e) => {
+export default function updateChapter() {
+    const apply_modal_btn = document.querySelector("#js-store-chapter");
+    apply_modal_btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const form = document.querySelector("#js-course-update-lesson-form");
-        const url = form.getAttribute("action");
+        const form = document.querySelector("#js-course-chapter-form");
+        console.log(form, "form");
         const formData = new FormData(form);
-        formData.append("_method", "PUT");
+        const url = form.getAttribute("action");
         fetch(url, {
             method: "POST",
             body: formData,
@@ -15,12 +15,10 @@ export default function updateLesson() {
                 "X-CSRF-TOKEN": document
                     .querySelector('meta[name="csrf-token"]')
                     .getAttribute("content"),
-                "X-HTTP-Method-Override": "PUT", // Simulate PUT request
             },
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 if (data.status === "error") {
                     Object.values(data.errors).forEach((errors) => {
                         errors.forEach((err) => {
