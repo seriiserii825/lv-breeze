@@ -99,6 +99,6 @@ class CourseChapterController extends Controller
     {
         $course_chapter->delete();
 
-        return back()->with('success', 'Chapter deleted successfully');
+        return response()->json(['status' => 'success', 'message' => 'Chapter deleted successfully']);
     }
 }
