@@ -59,7 +59,7 @@
                                         <a href="{{ route('admin.course-categories.edit', $category) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
-                                            class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                            class=" js-show-modal text-danger js-delete-item"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>

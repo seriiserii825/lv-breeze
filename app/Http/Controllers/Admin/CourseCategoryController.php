@@ -134,10 +134,10 @@ class CourseCategoryController extends Controller
             // logger('Course category destroy: >> '.$e);
             notify()->error('Error on delete category', 'Delete Level');
             throw ValidationException::withMessages(['error' => $e->getMessage()]);
-            // return response()->json([
-            //     'status' => 'error',
-            //     'message' => 'Course category delete failed'
-            // ], 500);
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
         }
     }
 }

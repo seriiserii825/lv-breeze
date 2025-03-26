@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+
 export default function delItem() {
     const del_items = document.querySelectorAll(".js-delete-item");
     del_items.forEach((del_item) => {

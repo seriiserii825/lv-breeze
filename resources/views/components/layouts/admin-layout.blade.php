@@ -10,6 +10,7 @@
 
     <!-- CSS files -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <link href="{{ asset('admin/assets/dist/css/tabler.min.css?1692870487') }}" rel="stylesheet" />
     <link href="{{ asset('admin/assets/dist/css/demo.min.css?1692870487') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -33,6 +34,14 @@
 
         .form-check {
             cursor: pointer;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+            background-color: #dc3545 !important;
+            border-color: #dc3545 !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+            background-color: #0d6efd !important;
+            border-color: #0d6efd !important;
         }
     </style>
     @vite(['resources/js/app.js'])
@@ -58,7 +67,7 @@
             @include('admin.includes.footer')
         </div>
     </div>
-    <x-modal.modal />
+    <!-- <x-modal.modal /> -->
     <x-notify::notify />
     @notifyJs
     <!-- Tabler Core -->
