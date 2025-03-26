@@ -37,7 +37,7 @@
                     <x-form.switcher label="Downloadable"  :value="$lesson->downloadable" name="downloadable" />
                 </div>
                 <div class="col-md-6">
-                    <x-form.input label="Duration" placeholder="Enter Duration" :value="$lesson->duration" name="duration" />
+                    <x-form.input label="Duration" placeholder="Enter Duration" :value="$lesson->duration" type="number" name="duration" />
                 </div>
             </div>
             <div class="modal-footer">

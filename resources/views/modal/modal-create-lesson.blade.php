@@ -35,7 +35,7 @@
                     <x-form.switcher label="Downloadable" name="downloadable" />
                 </div>
                 <div class="col-md-6">
-                    <x-form.input label="Duration" placeholder="Enter Duration" name="duration" />
+                    <x-form.input label="Duration" placeholder="Enter Duration" type="number" name="duration" />
                 </div>
             </div>
             <div class="modal-footer">

@@ -4,7 +4,9 @@ export default function delItem() {
     del_items.forEach((del_item) => {
         del_item.addEventListener("click", (e) => {
             e.preventDefault();
+            const current_url = window.location.href;
             const url = del_item.getAttribute("href");
+            console.log("url", url);
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -14,7 +16,6 @@ export default function delItem() {
                 cancelButtonText: "No, cancel!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    console.log(result.isConfirmed, "result.isConfirmed");
                     fetch(url, {
                         method: "DELETE",
                         headers: {
@@ -32,7 +33,7 @@ export default function delItem() {
                         })
                         .then((data) => {
                             if (data.status === "success") {
-                                window.location.reload();
+                                window.location.href = current_url;
                             } else {
                                 console.error(data.message);
                             }

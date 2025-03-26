@@ -21,14 +21,8 @@
                     <li><a class="dropdown-item" href="#">Add Quiz</a></li>
                 </ul>
             </div>
-            <a class="edit" href="#"><i class="far fa-edit"></i></a>
-            <form class="d-inline-flex align-items-center"
-                action="{{ route('instructor.course-chapters.destroy', ['course_id' => $course->id, 'course_chapter' => $chapter]) }}"
-                method="post" accept-charset="utf-8">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="del" href="#"><i class="fas fa-trash-alt"></i></button>
-            </form>
+            <a title="Edit" class="edit" href="#"><i class="far fa-edit"></i></a>
+            <a title="Delete" class="del js-delete-item" href="{{ route('instructor.course-chapters.destroy', ['course_chapter' => $chapter]) }}"><i class="fas fa-trash-alt"></i></a>
         </div>
     </h2>
     <div id="js-chapter-{{ $k }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -38,12 +32,12 @@
                     <li>
                         <span>{{ $lesson->title }}</span>
                         <div class="add_course_content_action_btn">
-                            <a class="edit js-show-frontend-modal js-edit-lesson-btn" href="{{ route('instructor.courses.modal-edit-lesson', [
+                            <a title="Edit" class="edit js-show-frontend-modal js-edit-lesson-btn" href="{{ route('instructor.courses.modal-edit-lesson', [
                                 'course_id' => $course->id,
                                 'lesson_id' => $lesson->id,
                                 'chapter_id' => $chapter->id
                             ]) }}"><i class="far fa-edit"></i></a>
-                            <a class="del js-delete-item" href="{{ route('instructor.courses.delete-lesson', $lesson->id) }}"><i class="fas fa-trash-alt"></i></a>
+                            <a class="del js-delete-item" title="Delete" href="{{ route('instructor.courses.delete-lesson', $lesson->id) }}"><i class="fas fa-trash-alt"></i></a>
                             <a class="arrow" href="#"><i class="fas fa-arrows-alt"></i></a>
                         </div>
                     </li>
