@@ -254,7 +254,7 @@ class CourseController extends Controller
         $lesson->save();
         return response()->json([
             'status' => 'success',
-            'message' => 'Lesson created successfully',
+            'message' => 'Lesson updated successfully',
             'lesson' => $lesson
         ]);
     }

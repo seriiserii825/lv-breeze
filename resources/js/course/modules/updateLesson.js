@@ -7,7 +7,6 @@ export default function updateLesson() {
         const form = document.querySelector("#js-course-update-lesson-form");
         const url = form.getAttribute("action");
         const formData = new FormData(form);
-        formData.append("_method", "PUT");
         fetch(url, {
             method: "POST",
             body: formData,
@@ -15,7 +14,6 @@ export default function updateLesson() {
                 "X-CSRF-TOKEN": document
                     .querySelector('meta[name="csrf-token"]')
                     .getAttribute("content"),
-                "X-HTTP-Method-Override": "PUT", // Simulate PUT request
             },
         })
             .then((response) => response.json())
