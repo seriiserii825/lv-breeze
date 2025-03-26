@@ -27,6 +27,7 @@ export default function delItem() {
                         },
                     })
                         .then((response) => {
+                                console.log(response, "response");
                             if (response.ok) {
                                 return response.json();
                             } else {

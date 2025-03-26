@@ -134,6 +134,10 @@ class CourseChapterController extends Controller
      */
     public function destroy(CourseChapter $course_chapter)
     {
+        if ($course_chapter->lessons()->count() > 0) {
+            return response()->json(['status' => 'error', 'message' => 'Chapter has lessons. Delete lessons first'], 200);
+        }
+
         $course_chapter->delete();
 
         return response()->json(['status' => 'success', 'message' => 'Chapter deleted successfully']);
