@@ -7,6 +7,7 @@ export default function updateChapter() {
         const form = document.querySelector("#js-course-chapter-form");
         console.log(form, "form");
         const formData = new FormData(form);
+        formData.append("_method", "PUT");
         const url = form.getAttribute("action");
         fetch(url, {
             method: "POST",

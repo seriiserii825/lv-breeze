@@ -88,12 +88,10 @@ class CourseChapterController extends Controller
         return view('modal.modal-edit-chapter', compact('course', 'course_chapter'))->render();
     }
 
-    public function update() {}
-
     /**
      * Update the specified resource in storage.
      */
-    public function updateChapter(Request $request, CourseChapter $course_chapter)
+    public function update(Request $request, CourseChapter $course_chapter)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|unique:course_chapters,title,' . $course_chapter->id,
