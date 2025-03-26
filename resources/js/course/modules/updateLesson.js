@@ -1,12 +1,4 @@
-import { Notyf } from "notyf";
-import "notyf/notyf.min.css"; // Ensure styles are included
-const notyf = new Notyf({
-    duration: 4000,
-    position: {
-        x: "right",
-        y: "top",
-    },
-});
+import {notyf} from "../../modules/notifyPlugin";
 
 export default function updateLesson() {
     const update_lesson_btn = document.querySelector("#js-update-lesson");
