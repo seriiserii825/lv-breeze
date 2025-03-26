@@ -9,7 +9,7 @@
             @forelse($chapters as $k=>$chapter)
                 <x-ui.accordion-item :k="$k" :chapter="$chapter" :course="$course" />
             @empty
-                <div class="alert alert-info">No Chapters Found</div>
+                <div class="mt-4 alert alert-danger">No Chapters Found</div>
             @endforelse
         </div>
     </div>
