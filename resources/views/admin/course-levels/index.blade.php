@@ -23,7 +23,7 @@
                                     <div class="d-flex gap-4 align-items-center">
                                         <a href="{{ route('admin.course-levels.edit', $level) }}"
                                             class="text-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="{{ route('admin.course-levels.destroy', $level->id) }}" class=" js-show-modal text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{ route('admin.course-levels.destroy', $level->id) }}" class="js-delete-item text-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>

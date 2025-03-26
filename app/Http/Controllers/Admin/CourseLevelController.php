@@ -82,14 +82,11 @@ class CourseLevelController extends Controller
         try {
             // throw ValidationException::withMessages(['id' => 'Course level not found']);
             $level->delete();
-            notify()->success('Level was deleted successfully', 'Delete Level');
             return response()->json([
                 'status' => 'success',
                 'message' => 'Course level delete successfully'
             ], 200);
         } catch (\Exception $e) {
-            // logger('Course level destroy: >> '.$e);
-            notify()->error('Error on delete level', 'Delete Level');
             return response()->json([
                 'status' => 'error',
                 'message' => 'Course level delete failed'
